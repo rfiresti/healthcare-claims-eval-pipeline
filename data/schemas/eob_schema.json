@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EOBDocument",
+  "type": "object",
+  "properties": {
+    "eob_id": { "type": "string", "pattern": "^EOB-[0-9]{6}$" },
+    "claim_id": { "type": "string", "pattern": "^CLM-[0-9]{6}$" },
+    "patient_id": { "type": "string" },
+    "service_date": { "type": "string", "format": "date" },
+    "billed_amount": { "type": "number" },
+    "allowed_amount": { "type": "number" },
+    "paid_amount": { "type": "number" },
+    "adjudication_notes": { "type": "string" }
+  },
+  "required": ["eob_id", "claim_id", "patient_id", "billed_amount", "allowed_amount", "paid_amount"]
+}

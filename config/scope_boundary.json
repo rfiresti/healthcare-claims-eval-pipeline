@@ -1,0 +1,10 @@
+{
+  "scope_version": "1.0.0",
+  "effective_date": "2026-10-26",
+  "boundaries": {
+    "langgraph": { "status": "black_box", "allow_local_modifications": false },
+    "sglang": { "status": "black_box", "allow_local_modifications": false },
+    "redis_celery": { "status": "black_box", "allow_local_modifications": false },
+    "model_finetuning": { "status": "off_scope", "frozen": true }
+  }
+}

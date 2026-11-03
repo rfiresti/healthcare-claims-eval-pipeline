@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DenialLetter",
+  "type": "object",
+  "properties": {
+    "denial_id": { "type": "string", "pattern": "^DEN-[0-9]{6}$" },
+    "claim_id": { "type": "string", "pattern": "^CLM-[0-9]{6}$" },
+    "denial_reason_code": { "type": "string" },
+    "denial_summary": { "type": "string" },
+    "cited_clause_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^CLS-[0-9]{4}$" }
+    }
+  },
+  "required": ["denial_id", "claim_id", "denial_reason_code", "denial_summary", "cited_clause_ids"]
+}
