@@ -3,3 +3,7 @@
 
 #ignore .venv virtual environment
 .venv/
+
+#ignore python cache files
+__pycache__/
+*.pyc
