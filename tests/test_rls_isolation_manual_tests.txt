@@ -1,0 +1,127 @@
+-- this is a mirror of test_rls_isolation.sql automated test, allowing tester better visibility into the results returned
+-- run from infra/postgres/ 
+-- make sure to run as app_user when running these tests. Start session using: 
+--   docker compose exec postgres psql -U app_user -d claims_db
+-- make sure to execute the delete commands at the end to clear out test data from the database
+
+
+-- confirm current user. Make sure you are using app_user, not the admin role
+SELECT current_user, rolsuper, rolbypassrls FROM pg_roles WHERE rolname = current_user;
+
+
+-- TEST 1
+-- confirm RLS is on, forced, and has a policy. Already done during initial setup but good to confirm in test session. 
+SELECT c.relname, c.relrowsecurity AS rls_on, c.relforcerowsecurity AS forced,
+       (SELECT count(*) FROM pg_policies p WHERE p.tablename = c.relname) AS policies
+FROM pg_class c
+WHERE c.relkind = 'r' AND c.relnamespace = 'public'::regnamespace
+ORDER BY c.relname;
+
+-- create test data and insert into tables for testing
+-- Tenant A
+SET app.current_tenant_id = 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa';
+INSERT INTO conversations (id, tenant_id) VALUES ('rls-manual-A', 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa');
+INSERT INTO documents (id, tenant_id, doc_type, source_name, content)
+  VALUES ('11111111-1111-1111-1111-111111111111', 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'policy', 'manual-A', 'tenant A text');
+INSERT INTO vector_embeddings (tenant_id, document_id, clause_id, content, embedding, model_name)
+  VALUES ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', '11111111-1111-1111-1111-111111111111', 'C-1', 'clause A',
+          array_fill(0.1::real, ARRAY[384])::vector(384), 'manual-test');
+
+-- Tenant B
+SET app.current_tenant_id = 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb';
+INSERT INTO conversations (id, tenant_id) VALUES ('rls-manual-B', 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb');
+INSERT INTO documents (id, tenant_id, doc_type, source_name, content)
+  VALUES ('22222222-2222-2222-2222-222222222222', 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'policy', 'manual-B', 'tenant B text');
+INSERT INTO vector_embeddings (tenant_id, document_id, clause_id, content, embedding, model_name)
+  VALUES ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', '22222222-2222-2222-2222-222222222222', 'C-1', 'clause B',
+          array_fill(0.2::real, ARRAY[384])::vector(384), 'manual-test');
+
+
+-- TEST 2
+-- confirming that tenant A can only see tenant A data
+SET app.current_tenant_id = 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa';
+SELECT source_name, tenant_id FROM documents;
+SELECT clause_id, content FROM vector_embeddings;
+SELECT id FROM conversations;
+
+-- TEST 3
+-- confirming that tenant B can only see tenant B data
+SET app.current_tenant_id = 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb';
+SELECT source_name, tenant_id FROM documents;
+SELECT clause_id, content FROM vector_embeddings;
+SELECT id FROM conversations;
+
+-- TEST 4
+-- confirming that if there's no tenant set, then no results should return 
+RESET app.current_tenant_id;
+SELECT count(*) FROM documents;
+SELECT count(*) FROM vector_embeddings;
+SELECT count(*) FROM conversations;
+
+-- TEST 5
+-- confirm that tenant A cannot insert a row for tenant B
+SET app.current_tenant_id = 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa';
+INSERT INTO documents (tenant_id, doc_type, source_name, content)
+  VALUES ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'policy', 'sneaky', 'x');
+INSERT INTO conversations (id, tenant_id)
+  VALUES ('sneaky-conv', 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb');
+
+-- TEST 6
+-- confirm tenant A cannot insert an embedding for B's document
+SET app.current_tenant_id = 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa';
+INSERT INTO vector_embeddings (tenant_id, document_id, clause_id, content, embedding, model_name)
+  VALUES ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', '22222222-2222-2222-2222-222222222222', 'C-9', 'sneaky',
+          array_fill(0.3::real, ARRAY[384])::vector(384), 'manual-test');
+
+
+-- TEST 7
+-- confirm that tenant A cannot move its row into B’s tenant
+SET app.current_tenant_id = 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa';
+UPDATE documents SET tenant_id = 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb'
+WHERE id = '11111111-1111-1111-1111-111111111111';
+
+-- TEST 8 
+-- confirm that tenant A cannot delete / update / touch tenant B's rows
+SET app.current_tenant_id = 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa';
+UPDATE documents SET content = 'hacked' WHERE id = '22222222-2222-2222-2222-222222222222';
+DELETE FROM conversations WHERE id = 'rls-manual-B';
+
+
+------------- Test checkpoint configuration 
+
+-- A creates a checkpoint for its own conversation
+SET app.current_tenant_id = 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa';
+INSERT INTO checkpoints (thread_id, checkpoint_ns, checkpoint_id, checkpoint)
+  VALUES ('rls-manual-A', '', 'manual-1', '{}');
+
+-- make sure A can read it
+SELECT thread_id, checkpoint_id FROM checkpoints;
+
+-- make sure B cannot see it
+SET app.current_tenant_id = 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb';
+SELECT thread_id, checkpoint_id FROM checkpoints;
+
+-- confirm that B cannot write into A's thread
+INSERT INTO checkpoints (thread_id, checkpoint_ns, checkpoint_id, checkpoint)
+  VALUES ('rls-manual-A', '', 'sneaky', '{}');
+
+-- attempt A writing to a thread with no conversation yet. This should be blocked as per the RLS configured. 
+SET app.current_tenant_id = 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa';
+INSERT INTO checkpoints (thread_id, checkpoint_ns, checkpoint_id, checkpoint)
+  VALUES ('no-such-conversation', '', 'x', '{}');
+
+
+-- clear out the tenant, and see what values return. If we have no tenant, no data ever should appear. 
+RESET app.current_tenant_id;
+SELECT count(*) FROM checkpoints;
+SELECT count(*) FROM checkpoint_blobs;
+SELECT count(*) FROM checkpoint_writes;
+
+
+
+-- clear out the test data we loaded above. Start a new session as admin role and run the delete statements below. 
+docker compose exec postgres psql -U admin_owner -d claims_db -c "
+DELETE FROM checkpoints       WHERE thread_id LIKE 'rls-manual-%';
+DELETE FROM vector_embeddings WHERE model_name = 'manual-test';
+DELETE FROM documents         WHERE source_name LIKE 'manual-%';
+DELETE FROM conversations     WHERE id LIKE 'rls-manual-%';"

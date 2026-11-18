@@ -1,0 +1,11 @@
+{
+  "policy_id": "POL-00001",
+  "payer_name": "Sample Health Plan",
+  "effective_date": "2026-01-01",
+  "clauses": [
+    {"clause_id": "CLS-0001", "category": "Exclusion", "clause_text": "Cosmetic procedures are excluded from coverage unless required to correct damage from an accident or a congenital condition."},
+    {"clause_id": "CLS-0002", "category": "PreAuth", "clause_text": "Advanced imaging such as MRI and CT scans requires prior authorization from the plan before the service is performed."},
+    {"clause_id": "CLS-0003", "category": "Limitation", "clause_text": "Physical therapy is limited to 20 visits per calendar year."},
+    {"clause_id": "CLS-0004", "category": "MedicalNecessity", "clause_text": "Services are covered only when medically necessary, meaning they are appropriate for diagnosis or treatment and consistent with accepted standards of care."}
+  ]
+}
