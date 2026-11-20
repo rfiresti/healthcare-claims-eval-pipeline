@@ -1,6 +1,6 @@
 # Week 4, Task 1: Inference latency on the CPU endpoint
 
-Status: Steps 1 to 3 done (Nov 16 to 17, 2026). Step 4 (concurrency) and the model decision (Step 6) are not done yet and are marked TBD below.
+Status: Steps 1 to 4 done (Nov 16 to 19, 2026), at `-c 4096` and again at `-c 16384`. The model decision (Step 6) is not made yet; criteria and freeze date are still to be agreed with the team.
 
 ## Setup
 
@@ -18,7 +18,7 @@ Launch command (container arguments):
 /app/llama-server -hf bartowski/Meta-Llama-3-8B-Instruct-GGUF:Q4_K_M --host 0.0.0.0 --port 30000 -c 4096
 ```
 
-Everything else is server default, as resolved at startup: 32 threads, 4 slots, `n_ctx` 4096 with a unified KV cache (`kv_unified = true`), no batch flags. The container also sets `LLAMA_ARG_PORT=8080`, but the `--port 30000` argument overrides it. Model file: `Meta-Llama-3-8B-Instruct-Q4_K_M.gguf`, snapshot `4ebc4aa83d60a5d6f9e1e1e9272a4d6306d770c1`. The model's trained context is 8192 tokens.
+**Relaunched Nov 19 with `-c 16384` and `--restart unless-stopped`** (same image, model cache bind mount and host networking; only those two things changed). Startup log: `n_slots = 4`, `kv_unified = true`, slot context capped at 8192 (the model's trained limit), shared pool 16384. `/props` therefore reports `n_ctx` 8192. Everything else is server default, as resolved at startup: 32 threads, 4 slots, `n_ctx` 4096 with a unified KV cache (`kv_unified = true`), no batch flags. The container also sets `LLAMA_ARG_PORT=8080`, but the `--port 30000` argument overrides it. Model file: `Meta-Llama-3-8B-Instruct-Q4_K_M.gguf`, snapshot `4ebc4aa83d60a5d6f9e1e1e9272a4d6306d770c1`. The model's trained context is 8192 tokens.
 
 ## Method
 
@@ -44,33 +44,53 @@ One Path A pass (extraction, draft, critique in sequence, no revision loop) take
 
 Structured output: 20 of 20 extraction replies parsed as JSON with all required keys. Field correctness (are the values right?) and the cost of the schema constraint (a run without it) were not measured.
 
+## Results: single request at `-c 16384` (Nov 19)
+
+Same prompts, same script, new container. 65 recorded calls, 0 failures, 0 cache hits, 20 of 20 extraction replies valid JSON.
+
+| Profile | Input tokens (median) | Output tokens (median) | Prefill (ms) | Decode (tokens/s) | p50 wall (s) | p95 wall (s) | Hit output cap |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Extraction | 834 | 73 | 5,155 | 18.4 | 9.2 | 9.8 | 0 of 20 |
+| Draft | 1,769 | 350 | 10,979 | 17.3 | 31.2 | 31.8 | 12 of 20 |
+| Critique | 2,138 | 100 | 13,596 | 16.3 | 20.0 | 20.3 | 20 of 20 |
+
+One Path A pass (no revision loop) is about 60 s at p50 (9.2 + 31.2 + 20.0), versus about 83 s in the `-c 4096` run.
+
+Prefill is unchanged (about 155 tokens/s). Decode is about 75% faster than in the first run. The cause is not confirmed: a larger context should not speed up decoding, so likely explanations are other load on the shared host during the first run, or a quieter host after the restart. The 1-user baseline in the concurrency run below (31.4 s) matches this run, so the faster speed held for at least the later part of the evening. Treat the two runs as a range until it is seen again.
+
 ## Caveats
 
 - **Output length drives latency.** Most draft and critique calls stopped at their caps, so these times are near the upper bound for the capped length. Each extra 100 output tokens adds about 10 s. Real output lengths are not known until the real prompts run.
 - **The reference run does not reproduce the Week 2 figure.** The deck reports a 78-token answer in 9.2 s warm (about 8.5 tokens/s). Here the same output length took 5.9 s. The deck's rate equals 78 ÷ 9.2, so it looks like an end-to-end figure, and the Week 2 prompt may have been a few hundred tokens. The Week 2 method has not been confirmed.
 - **Prompts are synthetic**, with filler text and placeholder clauses.
 
-## Concurrency (Step 4): TBD
+## Concurrency (Step 4)
 
-Planned: the draft profile with 1, 2 and 4 simultaneous requests, 3 rounds each.
+Method: the draft profile with 1, 2 and 4 simultaneous requests, 3 rounds each (3, 6 and 12 calls), 10 s idle between bursts, `run_concurrency.py`.
 
-Known risk: with `kv_unified = true`, the 4096-token context is likely one pool shared by all 4 slots, not 4096 per slot. Two simultaneous drafts need about 4,300 tokens, and four need about 8,600. Requests may queue, be truncated or fail, in which case the result reflects the context limit and not CPU contention. If that happens, relaunch with a larger `-c` (for example 16384) after the team agrees, and rerun Steps 3 and 4.
+**At `-c 4096` the 4 slots shared one 4096-token pool** (`kv_unified = true`), and concurrent drafts failed with HTTP 500 `Context size has been exceeded`. That was a context limit, not CPU capacity, so those numbers are not reported. Relaunching with `-c 16384` fixed it.
 
-| Users | p50 (s) | p95 (s) | Draft calls/min | Errors |
-| --- | --- | --- | --- | --- |
-| 1 | TBD | TBD | TBD | TBD |
-| 2 | TBD | TBD | TBD | TBD |
-| 4 | TBD | TBD | TBD | TBD |
+At `-c 16384` (Nov 19), 0 errors, 0 short prompts, 0 early stops:
 
-## Decision: TBD
+| Users | Calls | Errors | p50 (s) | p95 (s) | Max (s) | Draft calls/min | p50 vs 1 user |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 3 | 0 | 31.4 | 31.8 | 31.8 | 1.91 | 1.0x |
+| 2 | 6 | 0 | 50.3 | 51.5 | 51.5 | 2.38 | 1.6x |
+| 4 | 12 | 0 | 88.2 | 88.8 | 88.8 | 2.73 | 2.8x |
+
+Reading it: all requests in a burst slow down about equally, so the slots do run in parallel and share the 32 CPUs. Adding users raises total throughput only a little (1.25x at 2 users, 1.43x at 4) because generation is limited by the CPU, not by free slots. The endpoint's capacity is roughly 2.7 drafts per minute. Three rounds per level is a small sample, though the rounds agree closely (4 users: 80 to 89 s).
+
+Estimate, not measured: scaling the 60 s Path A pass by the draft slowdown gives about 97 s with 2 users and about 170 s with 4 users at once. Extraction and critique were not run under load.
+
+## Decision: TBD (measurements in, criteria not yet agreed)
 
 Criteria still to be agreed with the team. The proposed starting point from the Week 4 runbook:
 
 | Criterion | Proposed threshold | Measured so far |
 | --- | --- | --- |
-| Estimated time for one Path A pass | 3 minutes or less | about 83 s at p50 (single user, caps as above) |
-| Crashes, out-of-memory errors or timeouts | 0 | 0 in 65 recorded calls (concurrency not yet tested) |
-| Extraction replies that validate against the schema | 10 of 10 | 20 of 20 |
+| Estimated time for one Path A pass | 3 minutes or less | about 60 s single user at `-c 16384` (83 s in the first run); about 170 s estimated with 4 at once |
+| Crashes, out-of-memory errors or timeouts | 0 | 0 in 130 single-request calls and 21 concurrent calls at `-c 16384`; concurrent drafts failed at `-c 4096` (fixed by the relaunch) |
+| Extraction replies that validate against the schema | 10 of 10 | 20 of 20 in both runs |
 
 Model freeze date: TBD (proposed Fri Nov 20).
 
@@ -88,7 +108,16 @@ python3 run_benchmark.py --base http://10.4.36.58:30000 \
   --reference reference_prompt_short.txt --ref-max-tokens 78
 ```
 
-Files: `make_bench_prompts.py`, `run_benchmark.py`, `bench_prompts.json`, `bench_results.json`, `reference_prompt_short.txt`. The `reference_78_out` key in `bench_results.json` holds the reference runs (added after the main run by a separate snippet).
+Concurrency, same folder:
+
+```bash
+python3 run_concurrency.py --base http://10.4.36.58:30000 \
+  --model "bartowski/Meta-Llama-3-8B-Instruct-GGUF:Q4_K_M" \
+  --out bench_concurrency_c16384.json --yes
+```
+
+`--yes` skips the script's context prompt. Its check reads `n_ctx` 8192 from `/props` and wrongly flags the 4-user row, because the real shared pool is 16384.
+
+Files: `make_bench_prompts.py`, `run_benchmark.py`, `bench_prompts.json`, `bench_results.json` (`-c 4096` run), `bench_results_c16384.json`, `bench_concurrency_c16384.json`, `reference_prompt_short.txt`. The `reference_78_out` key in `bench_results.json` holds the reference runs (added after the main run by a separate snippet).
 
 The VM costs 32 service units per hour, so run the whole benchmark in one sitting and tell the team before the VM is shelved.
-

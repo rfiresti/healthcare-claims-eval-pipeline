@@ -1,0 +1,429 @@
+{
+ "context": {
+  "n_ctx": 8192,
+  "total_slots": 4,
+  "per_slot_n_ctx": [
+   8192,
+   8192,
+   8192,
+   8192
+  ],
+  "longest_draft_prompt_tokens": 1784,
+  "per_request_tokens": 2154
+ },
+ "draft_cap": 350,
+ "rounds": 3,
+ "bursts": [
+  {
+   "users": 1,
+   "calls": 3,
+   "ok": 3,
+   "errors": 0,
+   "elapsed_s": 94.3,
+   "draft_calls_per_min": 1.91,
+   "p50": 31.4,
+   "p95": 31.8,
+   "max": 31.8,
+   "slow": 0,
+   "short_prompt": 0,
+   "early_stop_at_length": 0,
+   "walls_by_round": [
+    [
+     31.4
+    ],
+    [
+     31.8
+    ],
+    [
+     31.2
+    ]
+   ],
+   "first_error": null,
+   "requests": [
+    {
+     "ok": true,
+     "wall": 31.388389573000495,
+     "in_tokens": 1769,
+     "out_tokens": 350,
+     "finish_reason": "length",
+     "cache_n": 0,
+     "prefill_ms": 11090.104,
+     "prefill_tps": 159.511578971667,
+     "decode_ms": 20291.414,
+     "decode_tps": 17.199392807223784,
+     "text": "[Date]\n\nLakeshore Benefits Group\nClaims Determination Notice\nMember ID: PAT-68600\nClaim number: CLM-000413\n\nRe: Appeal of Claim Denial for Services Provided by Westfield Family Practice\n\nDear Claims Determination Team,\n\nI am writing to appeal the denial of my claim for services provided by Westfield Family Practice on January 19-20, 2026. The claim was denied in its entirety, with an amount of $3127.24 denied, citing non-compliance with policy clause CLS-1004.\n\nI respectfully disagree with the denial and believe that the services provided were medically necessary and in line with the policy. According to [CLS-1004], inpatient admission requires proof of clinical deterioration. I would like to request a review of the claim, as I believe that the clinical notes and medical records provided by the provider demonstrate a clear clinical deterioration that justified the inpatient admission.\n\nI would like to request that the plan reviews the claim again, taking into account the clinical notes and medical records provided by the provider. I believe that a re-evaluation of the claim, using staff who were not involved in the original decision, would be beneficial in determining whether the services provided were medically necessary and in line with the policy.\n\nI have attached the supporting documents, including medical records and provider letters, to this appeal. I would appreciate it if the plan could review these documents and consider them in their decision.\n\nI would like to request an expedited review of this appeal, as I need a timely decision to ensure that my medical needs are met. I would appreciate it if the plan could expedite the review process and provide a written decision within 30 days of receiving this appeal.\n\n",
+     "round": 0,
+     "idx": 0
+    },
+    {
+     "ok": true,
+     "wall": 31.772132395999506,
+     "in_tokens": 1763,
+     "out_tokens": 350,
+     "finish_reason": "length",
+     "cache_n": 0,
+     "prefill_ms": 11015.803,
+     "prefill_tps": 160.04280396081884,
+     "decode_ms": 20492.709,
+     "decode_tps": 17.03044726785512,
+     "text": "[Date]\n\nMeridian Mutual Insurance\nClaims Department\n[Address]\n\nRe: Appeal of Claim Number CLM-000418\n\nDear Claims Department,\n\nI am writing to appeal the denial of my claim, CLM-000418, which was denied on November 16, 2026. The claim was denied due to non-compliance with policy clause CLS-1004, which requires proof of clinical deterioration for inpatient admission. I am appealing this decision and providing supporting documentation to demonstrate that the admission was medically necessary.\n\nAs stated in policy clause CLS-2003, a member may ask for a copy of every document, record, and guideline that was relied on in making this decision, free of charge. I am requesting a copy of the clinical notes and medical records that were used to make this decision, as well as any other relevant documentation.\n\nI would like to point out that policy clause CLS-2023 states that services that exceed a stated visit or dollar limit are denied even when they are medically appropriate. However, in this case, the admission was medically necessary and was not excessive. I believe that the denial of this claim is not in line with the policy and that the admission was necessary to treat my condition.\n\nI am attaching the supporting documentation, including medical records and provider letters, to this appeal. I would appreciate it if you could review this documentation and reconsider the denial of my claim.\n\nI would like to request an expedited review of this appeal, as I need the decision sooner for medical reasons. Please let me know if this is possible and if so, what the next steps would be.\n\nThank you for your time and consideration. I look forward to hearing from you soon.\n\nSincerely,\n\n[Your Name",
+     "round": 1,
+     "idx": 0
+    },
+    {
+     "ok": true,
+     "wall": 31.174871557000188,
+     "in_tokens": 1766,
+     "out_tokens": 350,
+     "finish_reason": "length",
+     "cache_n": 0,
+     "prefill_ms": 11006.492,
+     "prefill_tps": 160.4507594245287,
+     "decode_ms": 19912.968,
+     "decode_tps": 17.526267304803582,
+     "text": "[Date]\n\nMeridian Mutual Insurance\nClaims Department\n[Address]\n\nRe: Appeal of Claim Number CLM-000420\n\nDear Claims Department,\n\nI am writing to appeal the denial of my claim, CLM-000420, which was denied on October 23, 2026. The claim was denied due to non-compliance with policy clause CLS-1003, which states that physical therapy is capped at 20 visits per calendar year.\n\nI understand that the policy limits are in place to ensure responsible use of benefits. However, I believe that my case warrants an exception to this limit. I had a severe injury that required extensive physical therapy to recover. The therapy sessions were spaced out over several weeks, and I was making significant progress towards recovery. Unfortunately, I exceeded the 20-visit limit before I was able to fully recover.\n\nI would like to request that the plan review my case and consider an exception to the 20-visit limit. I believe that my medical records and provider letters will support my claim and demonstrate that the therapy was medically necessary and not excessive.\n\nI would like to request an expedited review of my appeal, as I am experiencing ongoing medical issues related to my injury and require a timely resolution.\n\nI have attached the following supporting documents to this appeal:\n\n* Medical records from Westfield Family Practice\n* Provider letters from my physical therapist\n* Receipts for the physical therapy sessions\n\nI would appreciate it if you could review my appeal and provide a written decision within the next 30 days. If the denial is upheld, I would like to request an independent external review at no cost.\n\nThank you for your time and consideration. Please do not hesitate to contact me if you require any additional information.\n\n",
+     "round": 2,
+     "idx": 0
+    }
+   ]
+  },
+  {
+   "users": 2,
+   "calls": 6,
+   "ok": 6,
+   "errors": 0,
+   "elapsed_s": 151.4,
+   "draft_calls_per_min": 2.38,
+   "p50": 50.3,
+   "p95": 51.5,
+   "max": 51.5,
+   "slow": 0,
+   "short_prompt": 0,
+   "early_stop_at_length": 0,
+   "walls_by_round": [
+    [
+     50.3,
+     48.6
+    ],
+    [
+     49.4,
+     49.6
+    ],
+    [
+     51.5,
+     51.5
+    ]
+   ],
+   "first_error": null,
+   "requests": [
+    {
+     "ok": true,
+     "wall": 50.27039632100059,
+     "in_tokens": 1753,
+     "out_tokens": 350,
+     "finish_reason": "length",
+     "cache_n": 0,
+     "prefill_ms": 22235.82,
+     "prefill_tps": 78.83675978668653,
+     "decode_ms": 27715.709,
+     "decode_tps": 12.592136827529833,
+     "text": "[Date]\n\nLakeshore Benefits Group\nClaims Determination Notice\nMember ID: PAT-83297\nClaim number: CLM-000414\n\nRe: Appeal of Claim Denial for Advanced Imaging Services\n\nDear Claims Review Committee,\n\nI am writing to appeal the denial of my claim for advanced imaging services provided by Eastgate Orthopedic Clinic on June 8-12, 2026. The claim was denied due to non-compliance with policy clause CLS-1002, which requires prior authorization within 48 hours for advanced imaging services.\n\nI understand that the plan requires prior authorization for advanced imaging services, and I acknowledge that the services were not authorized prior to the 48-hour window. However, I would like to request reconsideration of the denial based on the following:\n\n* The services were medically necessary and provided to treat my condition.\n* The provider submitted the claim in a timely manner, and the delay in authorization was not due to any fault on their part.\n* I am not aware of any other policy clauses that would preclude coverage for these services.\n\nI am submitting this appeal in writing, as required by policy clause CLS-1002, and I have attached supporting documents, including medical records and provider letters, to support my appeal.\n\nI would appreciate it if the Claims Review Committee could reconsider the denial and provide a written decision within the required 30-day timeframe. If the denial is upheld, I may request an expedited review by telephone or an independent external review at no cost, as per policy clause CLS-2012.\n\nThank you for your prompt attention to this matter. Please do not hesitate to contact me if you require any additional information.\n\nSincerely,\n\n[Your Name]\nMember ID:",
+     "round": 0,
+     "idx": 0
+    },
+    {
+     "ok": true,
+     "wall": 48.61380293499951,
+     "in_tokens": 1776,
+     "out_tokens": 323,
+     "finish_reason": "stop",
+     "cache_n": 0,
+     "prefill_ms": 12662.612,
+     "prefill_tps": 140.25542281481893,
+     "decode_ms": 35633.24,
+     "decode_tps": 9.036506363159791,
+     "text": "[Date]\n\nMeridian Mutual Insurance\nClaims Department\n[Address]\n\nRe: Appeal of Claim Number CLM-000128\n\nDear Claims Department,\n\nI am writing to appeal the denial of my claim, CLM-000128, which was denied on November 9, 2026. The claim was denied due to non-compliance with policy clause CLS-1001, which excludes experimental procedures from coverage.\n\nI understand that the policy clause CLS-1001 states that experimental procedures are strictly excluded from coverage. However, I would like to request that the claim be re-reviewed to determine if the services provided by Eastgate Orthopedic Clinic on January 1-7, 2026, were medically necessary and not experimental in nature. I believe that the services provided were medically necessary and should be covered under my policy.\n\nI would like to request an expedited review of this claim, as I need the decision sooner for medical reasons. I would also like to request a copy of every document, record, and guideline that was relied on in making the original decision.\n\nI have attached supporting documents, including medical records and provider letters, to this appeal. I believe that these documents will support my claim and demonstrate that the services provided were medically necessary.\n\nI would appreciate it if you could review this appeal and make a decision as soon as possible. If the denial is upheld, I would like to request an independent external review at no cost.\n\nThank you for your time and consideration. I look forward to hearing from you soon.\n\nSincerely,\n\n[Your Name]\nMember ID: PAT-33780",
+     "round": 0,
+     "idx": 1
+    },
+    {
+     "ok": true,
+     "wall": 49.4042411749997,
+     "in_tokens": 1753,
+     "out_tokens": 326,
+     "finish_reason": "stop",
+     "cache_n": 0,
+     "prefill_ms": 12651.055,
+     "prefill_tps": 138.5655188440806,
+     "decode_ms": 36202.102,
+     "decode_tps": 8.977379269303203,
+     "text": "[Date]\n\nMeridian Mutual Insurance\nClaims Department\n[Address]\n\nRe: Appeal of Claim Number CLM-000505\n\nDear Claims Department,\n\nI am writing to appeal the denial of my claim, CLM-000505, which was denied on October 16, 2026. The claim was denied due to non-compliance with policy clause CLS-1002, which requires prior authorization within 48 hours for advanced imaging services. I am appealing this decision and requesting that the claim be reconsidered.\n\nAccording to policy clause CLS-2020, the plan reviews each appeal using staff who were not involved in the original decision. I am submitting this appeal in writing, as required by policy clause CLS-2020, and providing a short explanation of why the decision should change. The claim was denied due to a technicality, as the advanced imaging services were not authorized within the required 48-hour timeframe. However, I believe that the services were medically necessary and should be covered under my policy.\n\nI am attaching supporting documents, including medical records and provider letters, to support my appeal. I believe that these documents demonstrate the medical necessity of the services and that the denial was not justified.\n\nI would like to request that the claim be reconsidered and that the denial be overturned. I believe that the services were medically necessary and that the denial was not justified.\n\nPlease let me know if you require any additional information or if there is any further information that I can provide to support my appeal.\n\nThank you for your time and consideration.\n\nSincerely,\n\n[Your Name]\nMember ID: PAT-82860",
+     "round": 1,
+     "idx": 0
+    },
+    {
+     "ok": true,
+     "wall": 49.580898099999104,
+     "in_tokens": 1768,
+     "out_tokens": 328,
+     "finish_reason": "stop",
+     "cache_n": 0,
+     "prefill_ms": 22073.793,
+     "prefill_tps": 80.09497959865801,
+     "decode_ms": 26957.728,
+     "decode_tps": 12.13010235877445,
+     "text": "[Date]\n\nLakeshore Benefits Group\nClaims Determination Notice\nMember ID: PAT-11520\nClaim number: CLM-000674\n\nRe: Appeal of Claim Denial for Services Provided by Summit Rehabilitation Center\n\nDear Claims Determination Team,\n\nI am writing to appeal the denial of my claim for services provided by Summit Rehabilitation Center from March 14, 2026, to March 20, 2026. The claim was denied due to non-compliance with policy clause CLS-1004, which requires proof of clinical deterioration for inpatient admission.\n\nI understand that the policy clause CLS-1004 states that inpatient admission requires proof of clinical deterioration. However, I believe that the services provided by Summit Rehabilitation Center were medically necessary and justified the inpatient admission. The clinical notes and medical records provided by the provider demonstrate a clear clinical deterioration, which meets the requirements of the policy clause.\n\nFurthermore, I would like to point out that the policy clause CLS-2005 states that benefit limits are counted from the first day of the calendar year and reset on January first. Since the services were provided in March 2026, they should be considered within the benefit limits for the year.\n\nI respectfully request that you reconsider the denial of my claim and provide a written decision within thirty days of receiving this appeal. I have attached the supporting documents, including medical records and provider letters, to this appeal.\n\nThank you for your time and consideration. If you require any additional information or clarification, please do not hesitate to contact me.\n\nSincerely,\n\n[Your Name]\n\nMember ID: PAT-11520",
+     "round": 1,
+     "idx": 1
+    },
+    {
+     "ok": true,
+     "wall": 51.46999905300072,
+     "in_tokens": 1747,
+     "out_tokens": 350,
+     "finish_reason": "length",
+     "cache_n": 0,
+     "prefill_ms": 12618.598,
+     "prefill_tps": 138.44644230682363,
+     "decode_ms": 38160.403,
+     "decode_tps": 9.145605721197441,
+     "text": "Here is the formal appeal letter:\n\n[Date]\n\nLakeshore Benefits Group\nClaims Determination Notice\nMember ID: PAT-89030\nClaim number: CLM-000421\n\nRe: Appeal of Claim Denial for Services Provided by Harborview Medical Associates\n\nDear Claims Review Committee,\n\nI am writing to appeal the denial of my claim for services provided by Harborview Medical Associates from March 20, 2026, to March 26, 2026. The claim was denied in its entirety, with an amount of $9947.58 denied, citing non-compliance with policy clause CLS-1001, which excludes experimental procedures from coverage.\n\nI respectfully disagree with the denial and believe that the services provided were medically necessary and should be covered under my policy. I would like to request a review of the claim, citing [CLS-2004], which states that a member may ask for a copy of every document, record, and guideline that was relied on in making the decision, free of charge.\n\nI would like to request that the claims review committee reconsider the denial and provide a written decision within thirty days of receiving this appeal. I have attached supporting documents, including medical records and provider letters, to support my appeal.\n\nI would like to request an expedited review, citing [CLS-2025], which states that members who need the decision sooner for medical reasons may request an expedited review by telephone.\n\nI would appreciate it if you could provide a written decision on this appeal as soon as possible. If the denial is upheld, I would like to request an independent external review at no cost, citing [CLS-2025].\n\nThank you for your time and consideration. I look forward to your response.\n\nS",
+     "round": 2,
+     "idx": 0
+    },
+    {
+     "ok": true,
+     "wall": 51.527717498998754,
+     "in_tokens": 1776,
+     "out_tokens": 350,
+     "finish_reason": "length",
+     "cache_n": 0,
+     "prefill_ms": 22054.769,
+     "prefill_tps": 80.52680125554704,
+     "decode_ms": 28784.576,
+     "decode_tps": 12.124548925090993,
+     "text": "[Date]\n\nNorthline Health Plan\nClaims Appeals Department\n[Address]\n\nDear Claims Appeals Department,\n\nI am writing to appeal the denial of my claim, CLM-000080, which was denied on November 17, 2026. The claim was submitted by Eastgate Orthopedic Clinic for services provided to me from April 1, 2026, to April 3, 2026, with a billed amount of $7701.56. The claim was denied in its entirety due to non-compliance with policy clause CLS-1003, which states that physical therapy is capped at 20 visits per calendar year.\n\nI understand that the policy clause CLS-1003 is intended to limit the number of physical therapy visits to 20 per calendar year. However, I believe that my case is an exception to this rule. I have been experiencing chronic pain and discomfort in my [body part] for several years, and the physical therapy sessions provided by Eastgate Orthopedic Clinic were necessary to alleviate this pain and improve my quality of life.\n\nI would like to request that the plan reconsider my claim and provide coverage for the physical therapy services provided by Eastgate Orthopedic Clinic. I believe that my case meets the medical necessity criteria outlined in the policy, and I would like to request an expedited review of my claim.\n\nI have attached a copy of my medical records and a letter from my provider, Eastgate Orthopedic Clinic, which supports my claim. I would appreciate it if the plan could review these documents and reconsider my claim.\n\nPlease note that I am submitting this appeal within the 180-day time frame specified in the policy. I would appreciate it if the plan could provide a written decision within",
+     "round": 2,
+     "idx": 1
+    }
+   ]
+  },
+  {
+   "users": 4,
+   "calls": 12,
+   "ok": 12,
+   "errors": 0,
+   "elapsed_s": 263.7,
+   "draft_calls_per_min": 2.73,
+   "p50": 88.2,
+   "p95": 88.8,
+   "max": 88.8,
+   "slow": 12,
+   "short_prompt": 0,
+   "early_stop_at_length": 0,
+   "walls_by_round": [
+    [
+     86.5,
+     88.2,
+     88.1,
+     88.2
+    ],
+    [
+     86.6,
+     85.6,
+     85.5,
+     80.2
+    ],
+    [
+     88.6,
+     88.8,
+     88.7,
+     88.5
+    ]
+   ],
+   "first_error": null,
+   "requests": [
+    {
+     "ok": true,
+     "wall": 86.5301482520008,
+     "in_tokens": 1775,
+     "out_tokens": 337,
+     "finish_reason": "stop",
+     "cache_n": 0,
+     "prefill_ms": 12657.1,
+     "prefill_tps": 140.23749516081884,
+     "decode_ms": 73338.175,
+     "decode_tps": 4.581515697656779,
+     "text": "[Date]\n\nLakeshore Benefits Group\nClaims Determination Notice\nMember ID: PAT-17086\nClaim number: CLM-000217\n\nRe: Appeal of Claim Denial for Advanced Imaging Services\n\nDear Claims Review Committee,\n\nI am writing to appeal the denial of my claim for advanced imaging services provided by Westfield Family Practice on July 17-18, 2026. The claim was denied due to non-compliance with policy clause CLS-1002, which requires prior authorization within 48 hours for advanced imaging services.\n\nI understand that the policy requires prior authorization for advanced imaging services, but I believe that the denial was not justified in this case. The services were medically necessary and were provided in a timely manner. I would like to request that the claim be re-reviewed and reconsidered based on the following:\n\n* The services were provided in a timely manner, and the delay in prior authorization was not the provider's fault.\n* The services were medically necessary and were not elective or cosmetic in nature.\n* The denial of the claim will cause significant financial hardship for me, and I am unable to pay for the services out of pocket.\n\nI have attached supporting documents, including medical records and provider letters, to support my appeal. I would appreciate it if the claims review committee could review these documents and reconsider the denial of my claim.\n\nI would like to request an expedited review of my appeal, as I need the decision sooner for medical reasons. Please let me know if this is possible.\n\nThank you for your time and consideration. I look forward to hearing from you soon.\n\nSincerely,\n\n[Your Name]\n\nMember ID: PAT-17086",
+     "round": 0,
+     "idx": 0
+    },
+    {
+     "ok": true,
+     "wall": 88.17712859399944,
+     "in_tokens": 1779,
+     "out_tokens": 350,
+     "finish_reason": "length",
+     "cache_n": 0,
+     "prefill_ms": 25931.094,
+     "prefill_tps": 68.60489572865689,
+     "decode_ms": 49056.552,
+     "decode_tps": 7.114238277488398,
+     "text": "[Date]\n\nMeridian Mutual Insurance\nClaims Department\n[Address]\n\nRe: Appeal of Claim Number CLM-000089\n\nDear Claims Department,\n\nI am writing to appeal the denial of my claim, CLM-000089, which was denied on December 17, 2026. The claim was denied due to non-compliance with policy clause CLS-1004, which states that inpatient admission requires proof of clinical deterioration. I am appealing this decision as I believe that the services provided by Westfield Family Practice on February 18, 2026, were medically necessary and should be covered under my policy.\n\nAccording to policy clause CLS-1004, clinical notes supporting medical necessity do not change a limit that applies by the terms of the policy. However, I would like to provide additional clinical notes and medical records that support the medical necessity of the services provided. These records demonstrate that my condition had indeed deteriorated and required inpatient admission for treatment.\n\nI would like to request that the plan reviews each appeal using staff who were not involved in the original decision, as stated in policy clause CLS-2024. I also request that the plan sends a written decision within thirty days of receiving a complete appeal, as stated in policy clause CLS-2025.\n\nI have attached the additional clinical notes and medical records to this appeal. I believe that these records provide sufficient evidence to support the medical necessity of the services provided and demonstrate that my condition had indeed deteriorated and required inpatient admission for treatment.\n\nI would appreciate it if you could reconsider the denial of my claim and provide a written decision within thirty days of receiving this appeal.\n\nThank you for your time and consideration.\n\nSincerely,\n\n[Your Name]\nMember ID",
+     "round": 0,
+     "idx": 1
+    },
+    {
+     "ok": true,
+     "wall": 88.08950365400051,
+     "in_tokens": 1751,
+     "out_tokens": 350,
+     "finish_reason": "length",
+     "cache_n": 0,
+     "prefill_ms": 25459.254,
+     "prefill_tps": 68.77656352381732,
+     "decode_ms": 62098.498,
+     "decode_tps": 5.620103726180302,
+     "text": "[Date]\n\nMeridian Mutual Insurance\nClaims Department\n[Address]\n\nRe: Appeal of Claim Number CLM-001048\n\nDear Claims Department,\n\nI am writing to appeal the denial of my claim, CLM-001048, which was denied on December 1, 2026. The claim was denied due to non-compliance with policy clause CLS-1001, which excludes experimental procedures from coverage.\n\nI understand that the policy clause CLS-1001 states that experimental procedures are strictly excluded from coverage. However, I would like to request that the plan reviews the claim again, taking into account the medical necessity of the services provided. According to the policy clause CLS-2006, benefit limits are counted from the first day of the calendar year and reset on January first. Services that exceed a stated visit or dollar limit are denied even when they are medically appropriate. Clinical notes supporting medical necessity do not change a limit that applies by the terms of the policy.\n\nI would like to request that the plan reviews the claim again, considering the medical necessity of the services provided and the policy clause CLS-2006. I believe that the services provided by Riverside Physical Therapy were medically necessary and should be covered under my policy.\n\nI have attached the following supporting documents to this appeal:\n\n* Medical records from Riverside Physical Therapy\n* Provider letter from Riverside Physical Therapy\n* Receipts for the services provided\n\nI would appreciate it if the plan could review this appeal and provide a written decision within thirty days. If the denial is upheld, I may request an expedited review by telephone or an independent external review at no cost.\n\nThank you for your time and consideration. I look forward to hearing from you soon.\n\nSincerely,\n\n[Your",
+     "round": 0,
+     "idx": 2
+    },
+    {
+     "ok": true,
+     "wall": 88.23745162500018,
+     "in_tokens": 1765,
+     "out_tokens": 350,
+     "finish_reason": "length",
+     "cache_n": 0,
+     "prefill_ms": 19630.53,
+     "prefill_tps": 89.9109703100222,
+     "decode_ms": 42616.676,
+     "decode_tps": 8.189282524052322,
+     "text": "[Date]\n\nLakeshore Benefits Group\nClaims Determination Notice\nMember ID: PAT-56356\nClaim number: CLM-000231\n\nRe: Appeal of Claim Denial for Services Provided by Eastgate Orthopedic Clinic\n\nDear Claims Review Committee,\n\nI am writing to appeal the denial of my claim for services provided by Eastgate Orthopedic Clinic from September 8, 2026, to September 13, 2026. The claim was denied in its entirety, with an amount of $11,991.10 denied, citing non-compliance with policy clause CLS-1001, which excludes experimental procedures from coverage.\n\nI respectfully disagree with the denial and believe that the services provided by Eastgate Orthopedic Clinic were medically necessary and should be covered under my policy. I would like to request a review of the claim, citing policy clause CLS-2013, which states that coverage for any service depends on the plan in effect on the date the service was provided.\n\nI would like to provide additional information and supporting documents to support my appeal. Specifically, I would like to provide medical records and provider letters that demonstrate the medical necessity of the services provided. I believe that these documents will show that the services were not experimental in nature, but rather a standard treatment for my condition.\n\nI would like to request that the claims review committee reconsider the denial of my claim and provide a written decision within thirty days of receiving this appeal. If the denial is upheld, I would like to request an expedited review by telephone and, if necessary, an independent external review at no cost.\n\nThank you for your time and consideration. I look forward to your response.\n\nSincerely,\n\n[Your Name]\nMember ID:",
+     "round": 0,
+     "idx": 3
+    },
+    {
+     "ok": true,
+     "wall": 86.64055044299857,
+     "in_tokens": 1771,
+     "out_tokens": 342,
+     "finish_reason": "stop",
+     "cache_n": 0,
+     "prefill_ms": 12753.8,
+     "prefill_tps": 138.86057488748452,
+     "decode_ms": 72546.581,
+     "decode_tps": 4.700428266908953,
+     "text": "[Date]\n\nMeridian Mutual Insurance\nClaims Department\n[Address]\n\nRe: Appeal of Claim Number CLM-000464\n\nDear Claims Department,\n\nI am writing to appeal the denial of my claim, CLM-000464, which was denied on [Date] due to non-compliance with policy clause CLS-1004. The claim was submitted by Eastgate Orthopedic Clinic for services provided to me from February 7, 2026, to February 12, 2026, with a billed amount of $1854.51.\n\nAccording to the policy clause CLS-1004, inpatient admission requires proof of clinical deterioration. I believe that the services provided by Eastgate Orthopedic Clinic were medically necessary and that the clinical notes supporting medical necessity do not change the limit that applies by the terms of the policy. Therefore, I request that you reconsider the denial of my claim and provide coverage for the services provided.\n\nI have attached supporting documents, including medical records and provider letters, to this appeal. I believe that these documents demonstrate the medical necessity of the services provided and that they meet the requirements of the policy clause CLS-1004.\n\nI would like to request an expedited review of this appeal, as I need the decision sooner for medical reasons. If the denial is upheld, I would like to request an independent external review at no cost.\n\nPlease let me know if you require any additional information or documentation to complete this appeal. I can be reached at [Your Phone Number] or [Your Email Address] if you need to contact me.\n\nThank you for your time and consideration.\n\nSincerely,\n\n[Your Name]\nMember ID: PAT-55176",
+     "round": 1,
+     "idx": 0
+    },
+    {
+     "ok": true,
+     "wall": 85.61164332499902,
+     "in_tokens": 1763,
+     "out_tokens": 324,
+     "finish_reason": "stop",
+     "cache_n": 0,
+     "prefill_ms": 25528.901,
+     "prefill_tps": 69.05898534370907,
+     "decode_ms": 58742.231,
+     "decode_tps": 5.49859946585958,
+     "text": "[Date]\n\nMeridian Mutual Insurance\nClaims Department\n[Address]\n\nRe: Appeal of Claim Number CLM-000183\n\nDear Claims Department,\n\nI am writing to appeal the denial of my claim, CLM-000183, which was denied on December 13, 2026. The claim was denied due to non-compliance with policy clause CLS-1003, which states that physical therapy is capped at 20 visits per calendar year.\n\nAccording to the policy clause, benefit limits are counted from the first day of the calendar year and reset on January first (CLS-2002). Since the dates of service for this claim fall within the calendar year, I believe that the 20-visit limit should be applied to the entire calendar year, not just the portion of the year that has already passed.\n\nFurthermore, I would like to request an expedited review of this claim, as I have a medical condition that requires ongoing physical therapy treatment (CLS-2011). I believe that a prompt review of this claim is necessary to ensure that I receive the necessary treatment to manage my condition.\n\nI have attached supporting documents, including medical records and provider letters, to support my appeal. I would appreciate it if the claims department could review these documents and reconsider the denial of my claim.\n\nPlease let me know if there is any additional information that I need to provide to support my appeal. I can be reached at [phone number] or [email address] if you need to contact me.\n\nThank you for your time and consideration.\n\nSincerely,\n\n[Your Name]\nMember ID: PAT-20154",
+     "round": 1,
+     "idx": 1
+    },
+    {
+     "ok": true,
+     "wall": 85.5254681890001,
+     "in_tokens": 1785,
+     "out_tokens": 322,
+     "finish_reason": "stop",
+     "cache_n": 0,
+     "prefill_ms": 25752.59,
+     "prefill_tps": 69.31341663110389,
+     "decode_ms": 45679.116,
+     "decode_tps": 7.027281351066425,
+     "text": "[Date]\n\nMeridian Mutual Insurance\nClaims Department\n[Address]\n\nRe: Appeal of Claim Number CLM-000131\n\nDear Claims Department,\n\nI am writing to appeal the denial of my claim, CLM-000131, which was denied on December 20, 2026. The claim was denied due to non-compliance with policy clause CLS-1002, which requires prior authorization within 48 hours for advanced imaging services. I am appealing this decision and requesting that the claim be reconsidered.\n\nAs stated in policy clause CLS-1002, advanced imaging requires prior authorization within 48 hours. However, I was not aware of this requirement at the time of service and did not receive prior authorization. I understand that this is a requirement of the policy, but I believe that the denial of my claim is unfair and that the services provided were medically necessary.\n\nI am attaching supporting documents, including medical records and provider letters, to support my appeal. I believe that these documents demonstrate the medical necessity of the services provided and that the denial of my claim is not justified.\n\nI would like to request an expedited review of my appeal, as I need a decision sooner for medical reasons. I would also like to request an independent external review if the denial is upheld.\n\nI would appreciate it if you could reconsider my claim and provide a written decision within thirty days of receiving this appeal. If you have any questions or need additional information, please do not hesitate to contact me.\n\nThank you for your time and consideration.\n\nSincerely,\n\n[Your Name]\nMember ID: PAT-98482",
+     "round": 1,
+     "idx": 2
+    },
+    {
+     "ok": true,
+     "wall": 80.1817859870007,
+     "in_tokens": 1794,
+     "out_tokens": 273,
+     "finish_reason": "stop",
+     "cache_n": 0,
+     "prefill_ms": 19780.831,
+     "prefill_tps": 90.69386417587816,
+     "decode_ms": 33529.779,
+     "decode_tps": 8.112191851905735,
+     "text": "[Date]\n\nNorthline Health Plan\nClaims Appeal Department\n[Address]\n\nDear Claims Appeal Department,\n\nI am writing to appeal the denial of my claim, CLM-000353, which was denied on November 28, 2026. The claim was denied due to non-compliance with policy clause CLS-1003, which states that physical therapy is capped at 20 visits per calendar year.\n\nAccording to the policy clause, benefit limits are counted from the first day of the calendar year and reset on January first. However, I believe that my physical therapy services, which were provided from January 6 to January 8, 2026, should be considered as part of the 2026 calendar year, not the 2025 calendar year. Therefore, I do not believe that my services exceeded the 20-visit limit.\n\nI would like to request that the plan reconsider my claim and provide a written decision within thirty days of receiving this appeal. I have attached supporting documents, including medical records and provider letters, to support my appeal.\n\nI would appreciate it if you could also provide a copy of every document, record, and guideline that was relied on in making the original decision.\n\nThank you for your time and consideration. I look forward to hearing from you soon.\n\nSincerely,\n\n[Your Name]\nMember ID: PAT-73751",
+     "round": 1,
+     "idx": 3
+    },
+    {
+     "ok": true,
+     "wall": 88.64811177400043,
+     "in_tokens": 1751,
+     "out_tokens": 350,
+     "finish_reason": "length",
+     "cache_n": 0,
+     "prefill_ms": 25418.945,
+     "prefill_tps": 68.8856284161282,
+     "decode_ms": 61925.119,
+     "decode_tps": 5.635838988052652,
+     "text": "[Date]\n\nMeridian Mutual Insurance\nClaims Department\n[Address]\n\nRe: Appeal of Claim Number CLM-000635\n\nDear Claims Department,\n\nI am writing to appeal the denial of my claim, CLM-000635, which was denied on October 21, 2026. The claim was denied due to non-compliance with policy clause CLS-1001, which excludes experimental procedures from coverage.\n\nI understand that the policy clause CLS-1001 states that experimental procedures are strictly excluded from coverage. However, I would like to request that the plan reviews the claim again, taking into account the medical necessity of the services provided. According to [CLS-2027], benefit limits are counted from the first day of the calendar year and reset on January first. Services that exceed a stated visit or dollar limit are denied even when they are medically appropriate. Clinical notes supporting medical necessity do not change a limit that applies by the terms of the policy.\n\nI would like to request that the plan reviews the claim again, considering the medical necessity of the services provided and the policy clause CLS-2027. I believe that the services provided by Riverside Physical Therapy on March 14, 2026, were medically necessary and should be covered under my policy.\n\nI have attached supporting documents, including medical records and provider letters, to this appeal. I would appreciate it if the plan could review these documents and reconsider the denial of my claim.\n\nPlease let me know if you require any additional information or if there is any further documentation that I need to provide. I would appreciate it if you could expedite this appeal, as I am in need of the services to manage my condition.\n\nThank you for your time and consideration.\n\nSincerely,\n\n",
+     "round": 2,
+     "idx": 0
+    },
+    {
+     "ok": true,
+     "wall": 88.79218830399986,
+     "in_tokens": 1772,
+     "out_tokens": 350,
+     "finish_reason": "length",
+     "cache_n": 0,
+     "prefill_ms": 19775.62,
+     "prefill_tps": 89.60528165488617,
+     "decode_ms": 42294.303,
+     "decode_tps": 8.251702362845418,
+     "text": "[Date]\n\nMeridian Mutual Insurance\nClaims Department\n[Address]\n\nRe: Appeal of Claim Number CLM-000068\n\nDear Claims Department,\n\nI am writing to appeal the denial of my claim, CLM-000068, which was denied on [Date] due to non-compliance with policy clause CLS-1003. The claim was for physical therapy services provided by Riverside Physical Therapy from June 18, 2026, to June 21, 2026, with a billed amount of $5976.05.\n\nAccording to the policy clause CLS-1003, physical therapy is capped at 20 visits per calendar year. However, I believe that my case warrants an exception to this limit. Despite the denial, I would like to provide additional information and supporting documents to demonstrate the medical necessity of the services provided.\n\nAs stated in policy clause CLS-2022, the determination of the claim was made by comparing the services billed with the benefits described in my policy. I understand that some services are covered only up to a set limit, and charges above that limit are my responsibility. However, I believe that my case meets the criteria for an exception to this limit.\n\nI would like to request an expedited review of my claim, as I need the decision sooner for medical reasons. I have attached supporting documents, including medical records and provider letters, to support my appeal.\n\nI would appreciate it if you could reconsider my claim and provide a written decision within thirty days of receiving this appeal. If the denial is upheld, I would like to request an independent external review at no cost.\n\nThank you for your time and consideration. Please do not hesitate to contact me if you require any additional information.\n\nSincerely,\n\n[",
+     "round": 2,
+     "idx": 1
+    },
+    {
+     "ok": true,
+     "wall": 88.73109330899933,
+     "in_tokens": 1779,
+     "out_tokens": 350,
+     "finish_reason": "length",
+     "cache_n": 0,
+     "prefill_ms": 25912.953,
+     "prefill_tps": 68.65292427304598,
+     "decode_ms": 48878.214,
+     "decode_tps": 7.140195425307479,
+     "text": "[Date]\n\nNorthline Health Plan\nClaims Appeals Department\n[Address]\n\nRe: Claim Number: CLM-000127, Member ID: PAT-37050\n\nDear Claims Appeals Department,\n\nI am writing to appeal the denial of my claim, CLM-000127, which was denied on November 15, 2026. The claim was denied due to non-compliance with policy clause CLS-1003, which states that physical therapy is capped at 20 visits per calendar year.\n\nI understand that the policy clause CLS-1003 is in place to manage the costs of physical therapy services. However, I believe that my case is an exception to this rule. I was undergoing physical therapy treatment for a severe injury that required a longer treatment period than the standard 20 visits. Despite my best efforts to manage my condition, I required additional therapy sessions to achieve optimal recovery.\n\nI have attached medical records and provider letters that support my claim. These documents demonstrate that my treatment was medically necessary and that I exceeded the 20-visit limit due to the severity of my condition. I believe that my case warrants an exception to the policy clause CLS-1003.\n\nI would like to request an expedited review of my appeal, as I need a timely decision to continue my treatment. I have attached a copy of my medical records and provider letters to support my appeal.\n\nI would appreciate it if you could reconsider my claim and provide a written decision within thirty days of receiving this appeal. If the denial is upheld, I would like to request an independent external review at no cost.\n\nThank you for your time and consideration. I look forward to your response.\n\nSincerely,\n\n[Your Name]\nMember ID: PAT-37050",
+     "round": 2,
+     "idx": 2
+    },
+    {
+     "ok": true,
+     "wall": 88.5372605600005,
+     "in_tokens": 1769,
+     "out_tokens": 350,
+     "finish_reason": "length",
+     "cache_n": 0,
+     "prefill_ms": 12638.238,
+     "prefill_tps": 139.97204357126364,
+     "decode_ms": 74597.412,
+     "decode_tps": 4.6784464855161465,
+     "text": "[Date]\n\nLakeshore Benefits Group\nClaims Determination Notice\nMember ID: PAT-68600\nClaim number: CLM-000413\n\nRe: Appeal of Claim Denial for Services Provided by Westfield Family Practice\n\nDear Claims Determination Team,\n\nI am writing to appeal the denial of my claim for services provided by Westfield Family Practice on January 19-20, 2026. The claim was denied in its entirety, with an amount of $3127.24 denied, citing non-compliance with policy clause CLS-1004.\n\nI respectfully disagree with the denial and believe that the services provided were medically necessary and in line with the policy. According to [CLS-1004], inpatient admission requires proof of clinical deterioration. I would like to request that the plan reviews the medical records and clinical notes provided by the provider to determine if the admission was indeed justified.\n\nFurthermore, I would like to point out that the policy language does not explicitly state that clinical notes supporting medical necessity do not change a limit that applies by the terms of the policy, as stated in [CLS-2019]. I believe that the plan should consider the medical records and clinical notes in making its decision.\n\nI would appreciate it if the plan could reconsider its decision and provide a written response within the required 30-day timeframe. If the denial is upheld, I may request an independent external review at no cost, as per [CLS-2027].\n\nPlease find attached the supporting documents, including medical records and provider letters, as requested in [CLS-2002]. I have also included a short explanation of why the decision should change, as required in [CLS-2027].\n\nThank you for your time and consideration. I look",
+     "round": 2,
+     "idx": 3
+    }
+   ]
+  }
+ ]
+}
