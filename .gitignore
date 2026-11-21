@@ -1,18 +1,10 @@
-<<<<<<< HEAD
 # Ignore .env files
 .env
 
-#ignore .venv virtual environment
-.venv/
-
-#ignore python cache files
-__pycache__/
-*.pyc
-=======
+# Ignore .venv virtual environment
 .venv/
 
 # Generated tenant artifacts & Python bytecode
 data/synthetic_output/artifacts/
 __pycache__/
 *.py[cod]
->>>>>>> 13e5ac6 (Add deterministic policy, EOB, and denial generators and multi-tenant PDF exporter)
