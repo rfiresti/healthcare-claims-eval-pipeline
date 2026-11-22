@@ -1,9 +1,10 @@
 # Ignore .env files
 .env
 
-#ignore .venv virtual environment
+# Ignore .venv virtual environment
 .venv/
 
-#ignore python cache files
+# Generated tenant artifacts & Python bytecode
+data/synthetic_output/artifacts/
 __pycache__/
-*.pyc
+*.py[cod]
