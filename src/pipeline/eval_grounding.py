@@ -18,7 +18,7 @@ ungrounded, otherwise a one-word quote like "the" would pass check (b) trivially
 
 Usage (run from the repo root on the DB server, APP_DB_URI and ADMIN_DB_URI exported):
   # 0. offline self-test of the scoring logic, no DB or LLM needed
-  python src/pipeline/eval_grounding.py --self-test
+  python3 src/pipeline/eval_grounding.py --self-test
   # 1. dry run: show query + retrieved clauses for 2 claims, no LLM calls
   PYTHONPATH=src/pipeline python src/pipeline/eval_grounding.py \
       --tenant-id 00000000-0000-0000-0000-000000000001 --limit 2 --dry-run
@@ -163,7 +163,7 @@ def score(records):
         "citation_grounding": round(grounded / total, 4) if total else None,
         "claims_fully_grounded_rate": round(claims_all_grounded / n, 4) if n else None,
         "gold_hit_rate": round(gold_hits / total, 4) if total else None,
-        "ungrounded_reasons": reasons,
+        "citation_outcomes": reasons,
         "llm_wall_p50_s": walls[len(walls) // 2] if walls else None,
     }
 
@@ -209,10 +209,11 @@ def as_chunk(row):
         get = row._asdict().get
     else:
         get = lambda k: getattr(row, k, None)  # noqa: E731
-    cid, content = get("clause_id"), get("content")
+    cid = get("clause_id")
+    content = get("text") if get("text") is not None else get("content")  # retrieve() uses "text"
     if cid is None or content is None:
         raise SystemExit(
-            f"retrieve() row has no clause_id/content fields: {row!r}\n"
+            f"retrieve() row has no clause_id/text fields: {row!r}\n"
             "Paste this line to Claude so the adapter can be fixed."
         )
     return {"clause_id": str(cid), "content": content}
@@ -220,35 +221,9 @@ def as_chunk(row):
 
 def git_commit():
     try:
-        return subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
+        return subprocess.check_output(["git", "rev-parse", "HEAD"], text=True, stderr=subprocess.DEVNULL).strip()
     except Exception:
         return None
-
-
-def load_claims(admin_conn, tenant_id, denied_status):
-    """Denied claims + gold clause for ONE tenant (explicit filter: admin bypasses RLS)."""
-    with admin_conn.cursor() as cur:
-        cur.execute(
-            """SELECT c.claim_id::text, c.details, l.ground_truth_clause_id
-                 FROM claims c JOIN claim_labels l USING (tenant_id, claim_id)
-                WHERE c.tenant_id = %s AND c.claim_status = %s
-                ORDER BY c.claim_id""",
-            (tenant_id, denied_status),
-        )
-        rows = cur.fetchall()
-    admin_conn.commit()
-    return [{"tenant_id": tenant_id, "claim_id": r[0], "details": r[1], "gold": r[2]} for r in rows]
-
-
-def make_query(er_module, fn_name, details, mode):
-    fn = getattr(er_module, fn_name, None)
-    if fn is None:
-        names = sorted(n for n in dir(er_module) if callable(getattr(er_module, n)) and not n.startswith("_"))
-        raise SystemExit(
-            f"eval_retrieval has no function '{fn_name}'. Pass --query-fn with the one that "
-            f"builds the retrieval query. Functions available: {', '.join(names)}"
-        )
-    return scrub_clause_ids(fn(details, mode))
 
 
 # ---------------------------------------------------------------- main
@@ -262,12 +237,17 @@ def run(args):
         if not os.environ.get(var):
             raise SystemExit(f"{var} is not set in this shell (re-export it with read -rsp).")
 
+    # Claims and labels come from eval_retrieval.load_claims (admin role: app_user
+    # cannot read claim_labels), so both evals select claims the same way.
     admin = psycopg.connect(os.environ["ADMIN_DB_URI"])
     claims = []
     for t in args.tenant_id:
-        rows = load_claims(admin, t, args.denied_status)
-        print(f"tenant {t}: {len(rows)} {args.denied_status} claims")
-        claims += rows
+        rows, counts = er.load_claims(admin, t, args.denied_status)
+        print(f"tenant {t}: status counts {counts}; using {len(rows)} {args.denied_status} claims")
+        for r in rows:
+            claims.append({"tenant_id": t, "claim_id": str(r["claim_id"]), "row": r,
+                           "gold": r["ground_truth_clause_id"],
+                           "category": r.get("ground_truth_category")})
     admin.close()
 
     if args.ids_file:
@@ -286,16 +266,17 @@ def run(args):
     app = psycopg.connect(os.environ["APP_DB_URI"], autocommit=True)
     prepared = []
     for c in claims:
-        q = make_query(er, args.query_fn, c["details"], args.query)
+        q = er.build_query(c["row"], args.query, scrub=True)  # same query as eval_retrieval
+        q = scrub_clause_ids(q)  # belt and braces; build_query already scrubs
         chunks = [as_chunk(r) for r in retrieve(app, c["tenant_id"], q, k=args.k)]
         if not chunks:
             raise SystemExit(f"tenant {c['tenant_id']} returned no chunks; load its policy chunks first.")
-        prepared.append({**c, "query": q, "chunks": chunks})
+        prepared.append({**{k: v for k, v in c.items() if k != "row"}, "query": q, "chunks": chunks})
     app.close()
 
     if args.dry_run:
         for p in prepared:
-            print("\n=== claim", p["claim_id"], "tenant", p["tenant_id"], "gold", p["gold"])
+            print("\n=== claim", p["claim_id"], "tenant", p["tenant_id"], "gold", p["gold"], p.get("category"))
             print("query:", p["query"])
             for ch in p["chunks"]:
                 print(f"  [{ch['clause_id']}] {ch['content'][:160]!r}")
@@ -311,6 +292,7 @@ def run(args):
             by_id.setdefault(ch["clause_id"], []).append(ch["content"])
         rec = {
             "tenant_id": p["tenant_id"], "claim_id": p["claim_id"], "gold": p["gold"],
+            "category": p.get("category"),
             "query": p["query"], "retrieved": [ch["clause_id"] for ch in p["chunks"]],
             "citations": [], "error": None, "llm_wall_s": None,
         }
@@ -406,7 +388,7 @@ def self_test():
     assert s["claims_zero_citations"] == 1 and s["claims_error"] == 1
     assert s["gold_hit_rate"] == round(1 / 3, 4)
     assert s["claims_fully_grounded_rate"] == 0.25
-    assert s["ungrounded_reasons"] == {"ok": 2, "quote_not_in_clause": 1}
+    assert s["citation_outcomes"] == {"ok": 2, "quote_not_in_clause": 1}
 
     p = build_prompt("Denied: no prior auth.", [{"clause_id": "CLS-1002", "content": "Prior authorization..."}])
     assert "[CLS-1002]" in p and "Denied: no prior auth." in p
@@ -418,9 +400,8 @@ def main():
     ap.add_argument("--self-test", action="store_true", help="test scoring logic offline and exit")
     ap.add_argument("--tenant-id", action="append", default=[], help="repeat for several tenants")
     ap.add_argument("--denied-status", default="DENIED")
-    ap.add_argument("--query", default="both", help="query mode passed to eval_retrieval's builder")
-    ap.add_argument("--query-fn", default="build_query",
-                    help="name of eval_retrieval's query-building function, called as fn(details, mode)")
+    ap.add_argument("--query", default="both", choices=["reason", "text", "both"],
+                    help="query mode for eval_retrieval.build_query")
     ap.add_argument("--ids-file", help="restrict to claim IDs in this file (e.g. eval/dev_ids.txt)")
     ap.add_argument("--sample", type=int, help="random sample of N claims (fixed --seed)")
     ap.add_argument("--seed", type=int, default=42)
