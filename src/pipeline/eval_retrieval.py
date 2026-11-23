@@ -10,7 +10,8 @@ Claims and labels are read through RLS as the tenant, so only that tenant's rows
 
     add --limit 20 --show-sample first, to smoke-test and see what query text is being built.
 
-Connects as app_user through APP_DB_URI (never a superuser: RLS must apply). The policy chunks must already be
+Retrieval connects as app_user through APP_DB_URI (never a superuser: RLS must apply). Claims and labels are read
+with ADMIN_DB_URI when it is set (app_user may not be granted claim_labels), otherwise as app_user. The policy chunks must already be
 loaded for each tenant in vector_embeddings, with clause_id values equal to ground_truth_clause_id.
 
 Reports Recall@1/2/3/5, MRR, a per-category breakdown, misses, and an ablation (vector only, keyword only, hybrid).
@@ -25,6 +26,7 @@ import argparse
 import collections
 import json
 import os
+import re
 import sys
 
 TARGET_RECALL_AT_5 = 0.85
@@ -43,9 +45,18 @@ def denial_fields(details):
     return reason, text
 
 
-def build_query(claim, mode):
+CLAUSE_ID = re.compile(r"\bCLS-\d+\b", re.I)
+
+
+def build_query(claim, mode, scrub=True):
+    """Query text from the claim's denial fields. By default clause IDs (CLS-1004 ...) are removed: the denial
+    reason names the clause, and chunks start with their clause ID, so leaving it in lets keyword search match
+    the label itself and the score would not measure retrieval."""
     reason, text = denial_fields(claim["details"])
-    return {"reason": reason, "text": text, "both": (reason + ". " + text).strip(". ")}[mode]
+    q = {"reason": reason, "text": text, "both": (reason + ". " + text).strip(". ")}[mode]
+    if scrub:
+        q = re.sub(r"\s+", " ", CLAUSE_ID.sub("", q)).strip(" .")
+    return q
 
 
 def rank_of(clause_ids, gt):
@@ -65,11 +76,11 @@ def summarize(rows, ks=KS):
     return out
 
 
-def evaluate(retrieve_fn, claims, query_mode, k_max=max(KS)):
+def evaluate(retrieve_fn, claims, query_mode, k_max=max(KS), scrub=True):
     """retrieve_fn(query, k) -> [{"clause_id": ...}, ...]. Returns per-claim rows."""
     rows = []
     for c in claims:
-        ids = [h["clause_id"] for h in retrieve_fn(build_query(c, query_mode), k_max)]
+        ids = [h["clause_id"] for h in retrieve_fn(build_query(c, query_mode, scrub), k_max)]
         rows.append({"claim_id": c["claim_id"], "category": c.get("ground_truth_category"),
                      "gt": c["ground_truth_clause_id"], "top": ids, "rank": rank_of(ids, c["ground_truth_clause_id"])})
     return rows
@@ -88,14 +99,14 @@ def load_claims(conn, tenant_id, denied_status):
     """Denied claims joined to their labels, as the tenant. Returns (claims, status_counts)."""
     cm, cur = with_tenant(conn, tenant_id)
     try:
-        cur.execute("SELECT claim_status, count(*) FROM claims GROUP BY 1 ORDER BY 1")
+        cur.execute("SELECT claim_status, count(*) FROM claims WHERE tenant_id = %s GROUP BY 1 ORDER BY 1", (tenant_id,))
         counts = {r[0]: r[1] for r in cur.fetchall()}
         wanted = [denied_status] if denied_status else [s for s in counts if "den" in (s or "").lower()]
         if not wanted:
             return [], counts
         cur.execute("""SELECT c.claim_id, c.claim_status, c.details, l.ground_truth_clause_id, l.ground_truth_category
                        FROM claims c JOIN claim_labels l USING (tenant_id, claim_id)
-                       WHERE c.claim_status = ANY(%s) ORDER BY c.claim_id""", (wanted,))
+                       WHERE c.tenant_id = %s AND c.claim_status = ANY(%s) ORDER BY c.claim_id""", (tenant_id, wanted))
         cols = [d.name for d in cur.description]
         return [dict(zip(cols, r)) for r in cur.fetchall()], counts
     finally:
@@ -123,6 +134,8 @@ def main():
     ap.add_argument("--limit", type=int, default=None, help="only the first N denied claims per tenant (smoke test)")
     ap.add_argument("--show-sample", action="store_true", help="print one claim and the query built from it")
     ap.add_argument("--force", action="store_true", help="run even if some ground-truth clause_ids are not loaded")
+    ap.add_argument("--keep-clause-ids", action="store_true",
+                    help="leave clause IDs (CLS-1004) in the query; this lets keyword search match the label itself")
     ap.add_argument("--no-ablation", action="store_true")
     ap.add_argument("--out", default="eval_retrieval.json")
     a = ap.parse_args()
@@ -130,6 +143,10 @@ def main():
     dsn = os.environ.get("APP_DB_URI")
     if not dsn:
         sys.exit("Set APP_DB_URI (app_user connection string).")
+    # Retrieval always runs as app_user (RLS applies). The claims and ground-truth labels are evaluation data,
+    # not something the app reads, and app_user may not be allowed to select claim_labels; if ADMIN_DB_URI is set
+    # it is used for those reads only, with an explicit tenant filter in the query.
+    labels_dsn = os.environ.get("ADMIN_DB_URI") or dsn
 
     import psycopg
     from embedding_settings import MODEL_NAME
@@ -139,13 +156,15 @@ def main():
     if not a.no_ablation:
         variants += [("vector only", dict(w_vec=1.0, w_kw=0.0)), ("keyword only", dict(w_vec=0.0, w_kw=1.0))]
 
-    result = {"query_mode": a.query, "k_values": list(KS), "target_recall_at_5": TARGET_RECALL_AT_5, "tenants": {}}
+    result = {"query_mode": a.query, "clause_ids_removed_from_query": not a.keep_clause_ids, "k_values": list(KS), "target_recall_at_5": TARGET_RECALL_AT_5, "tenants": {}}
     ok = True
-    with psycopg.connect(dsn) as conn:
+    print("claims and labels are read as: %s; retrieval runs as: app_user" %
+          ("ADMIN_DB_URI" if labels_dsn != dsn else "app_user"))
+    with psycopg.connect(dsn) as conn, psycopg.connect(labels_dsn) as lconn:
         for tenant in a.tenant_id:
             tenant = check_tenant(tenant)
             print("\n=== tenant %s ===" % tenant)
-            claims, counts = load_claims(conn, tenant, a.denied_status)
+            claims, counts = load_claims(lconn, tenant, a.denied_status)
             print("claim_status values: %s" % counts)
             if a.limit:
                 claims = claims[:a.limit]
@@ -157,7 +176,7 @@ def main():
             print("denied claims scored: %d; distinct ground-truth clauses: %d %s" % (len(claims), len(gt_ids), sorted(gt_ids)))
             if a.show_sample:
                 c = claims[0]
-                print("sample claim %s -> %s\n  query (%s): %s" % (c["claim_id"], c["ground_truth_clause_id"], a.query, build_query(c, a.query)[:300]))
+                print("sample claim %s -> %s\n  query (%s): %s" % (c["claim_id"], c["ground_truth_clause_id"], a.query, build_query(c, a.query, not a.keep_clause_ids)[:300]))
 
             have = loaded_clause_ids(conn, tenant, MODEL_NAME)
             missing = sorted(gt_ids - have)
@@ -179,7 +198,7 @@ def main():
 
             t = {"clauses_visible": sorted(have), "gt_not_loaded": missing, "status_counts": counts, "variants": {}}
             for name, weights in variants:
-                rows = evaluate(lambda q, k: retrieve(conn, tenant, q, k=k, **weights), claims, a.query)
+                rows = evaluate(lambda q, k: retrieve(conn, tenant, q, k=k, **weights), claims, a.query, scrub=not a.keep_clause_ids)
                 m = summarize(rows)
                 by_cat = collections.defaultdict(list)
                 for r in rows:
