@@ -1,0 +1,413 @@
+{
+ "query_mode": "paraphrase",
+ "clause_ids_removed_from_query": true,
+ "k_values": [
+  1,
+  2,
+  3,
+  5
+ ],
+ "target_recall_at_5": 0.85,
+ "tenants": {
+  "00000000-0000-0000-0000-000000000001": {
+   "clauses_visible": [
+    "CLS-1001",
+    "CLS-1002",
+    "CLS-1003",
+    "CLS-1004",
+    "CLS-2001",
+    "CLS-2002",
+    "CLS-2003",
+    "CLS-2004",
+    "CLS-2005",
+    "CLS-2006",
+    "CLS-2007",
+    "CLS-2008",
+    "CLS-2009",
+    "CLS-2010",
+    "CLS-2011",
+    "CLS-2012",
+    "CLS-2013",
+    "CLS-2014",
+    "CLS-2015",
+    "CLS-2016",
+    "CLS-2017",
+    "CLS-2018",
+    "CLS-2019",
+    "CLS-2020",
+    "CLS-2021",
+    "CLS-2022",
+    "CLS-2023",
+    "CLS-2024"
+   ],
+   "gt_not_loaded": [],
+   "status_counts": {
+    "APPROVED": 265,
+    "DENIED": 261
+   },
+   "variants": {
+    "hybrid": {
+     "n": 79,
+     "recall@1": 0.9747,
+     "recall@2": 1.0,
+     "recall@3": 1.0,
+     "recall@5": 1.0,
+     "mrr": 0.9873,
+     "by_category": {
+      "Exclusion": {
+       "n": 25,
+       "recall@1": 0.92,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.96
+      },
+      "Limitation": {
+       "n": 18,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      },
+      "MedicalNecessity": {
+       "n": 18,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      },
+      "PreAuth": {
+       "n": 18,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      }
+     },
+     "misses": [],
+     "weights": {
+      "w_vec": 1.0,
+      "w_kw": 0.25
+     }
+    },
+    "vector only": {
+     "n": 79,
+     "recall@1": 0.962,
+     "recall@2": 0.9873,
+     "recall@3": 1.0,
+     "recall@5": 1.0,
+     "mrr": 0.9789,
+     "by_category": {
+      "Exclusion": {
+       "n": 25,
+       "recall@1": 0.92,
+       "recall@2": 0.96,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.9533
+      },
+      "Limitation": {
+       "n": 18,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      },
+      "MedicalNecessity": {
+       "n": 18,
+       "recall@1": 0.9444,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.9722
+      },
+      "PreAuth": {
+       "n": 18,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      }
+     },
+     "misses": [],
+     "weights": {
+      "w_vec": 1.0,
+      "w_kw": 0.0
+     }
+    },
+    "keyword only": {
+     "n": 79,
+     "recall@1": 0.8734,
+     "recall@2": 0.9747,
+     "recall@3": 0.9747,
+     "recall@5": 1.0,
+     "mrr": 0.9291,
+     "by_category": {
+      "Exclusion": {
+       "n": 25,
+       "recall@1": 0.88,
+       "recall@2": 0.92,
+       "recall@3": 0.92,
+       "recall@5": 1.0,
+       "mrr": 0.916
+      },
+      "Limitation": {
+       "n": 18,
+       "recall@1": 0.8889,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.9444
+      },
+      "MedicalNecessity": {
+       "n": 18,
+       "recall@1": 0.7222,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.8611
+      },
+      "PreAuth": {
+       "n": 18,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      }
+     },
+     "misses": [],
+     "weights": {
+      "w_vec": 0.0,
+      "w_kw": 1.0
+     }
+    }
+   }
+  },
+  "00000000-0000-0000-0000-000000000002": {
+   "clauses_visible": [
+    "CLS-1001",
+    "CLS-1002",
+    "CLS-1003",
+    "CLS-1004",
+    "CLS-2001",
+    "CLS-2002",
+    "CLS-2003",
+    "CLS-2004",
+    "CLS-2005",
+    "CLS-2006",
+    "CLS-2007",
+    "CLS-2008",
+    "CLS-2009",
+    "CLS-2010",
+    "CLS-2011",
+    "CLS-2012",
+    "CLS-2013",
+    "CLS-2014",
+    "CLS-2015",
+    "CLS-2016",
+    "CLS-2017",
+    "CLS-2018",
+    "CLS-2019",
+    "CLS-2020",
+    "CLS-2021",
+    "CLS-2022",
+    "CLS-2023",
+    "CLS-2024"
+   ],
+   "gt_not_loaded": [],
+   "status_counts": {
+    "APPROVED": 278,
+    "DENIED": 246
+   },
+   "variants": {
+    "hybrid": {
+     "n": 74,
+     "recall@1": 0.9865,
+     "recall@2": 1.0,
+     "recall@3": 1.0,
+     "recall@5": 1.0,
+     "mrr": 0.9932,
+     "by_category": {
+      "Exclusion": {
+       "n": 20,
+       "recall@1": 0.95,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.975
+      },
+      "Limitation": {
+       "n": 19,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      },
+      "MedicalNecessity": {
+       "n": 15,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      },
+      "PreAuth": {
+       "n": 20,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      }
+     },
+     "misses": [],
+     "weights": {
+      "w_vec": 1.0,
+      "w_kw": 0.25
+     }
+    },
+    "vector only": {
+     "n": 74,
+     "recall@1": 0.9865,
+     "recall@2": 0.9865,
+     "recall@3": 1.0,
+     "recall@5": 1.0,
+     "mrr": 0.991,
+     "by_category": {
+      "Exclusion": {
+       "n": 20,
+       "recall@1": 0.95,
+       "recall@2": 0.95,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.9667
+      },
+      "Limitation": {
+       "n": 19,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      },
+      "MedicalNecessity": {
+       "n": 15,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      },
+      "PreAuth": {
+       "n": 20,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      }
+     },
+     "misses": [],
+     "weights": {
+      "w_vec": 1.0,
+      "w_kw": 0.0
+     }
+    },
+    "keyword only": {
+     "n": 74,
+     "recall@1": 0.8514,
+     "recall@2": 0.9054,
+     "recall@3": 0.973,
+     "recall@5": 1.0,
+     "mrr": 0.907,
+     "by_category": {
+      "Exclusion": {
+       "n": 20,
+       "recall@1": 0.75,
+       "recall@2": 0.85,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.85
+      },
+      "Limitation": {
+       "n": 19,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      },
+      "MedicalNecessity": {
+       "n": 15,
+       "recall@1": 0.6,
+       "recall@2": 0.7333,
+       "recall@3": 0.8667,
+       "recall@5": 1.0,
+       "mrr": 0.7411
+      },
+      "PreAuth": {
+       "n": 20,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      }
+     },
+     "misses": [],
+     "weights": {
+      "w_vec": 0.0,
+      "w_kw": 1.0
+     }
+    }
+   }
+  }
+ },
+ "split": "test",
+ "ids_file": "eval/test_ids.txt",
+ "git_commit": "3a186ba",
+ "started": "2026-11-24T19:20:22",
+ "args": {
+  "tenant_id": [
+   "00000000-0000-0000-0000-000000000001",
+   "00000000-0000-0000-0000-000000000002"
+  ],
+  "denied_status": null,
+  "query": "paraphrase",
+  "limit": null,
+  "show_sample": false,
+  "force": false,
+  "keep_clause_ids": false,
+  "no_ablation": false,
+  "ids_file": "eval/test_ids.txt",
+  "split": "test",
+  "out_dir": "eval/runs",
+  "out": null
+ },
+ "paraphrases": {
+  "denied_status": "DENIED",
+  "endpoint": "http://10.4.36.58:30000",
+  "finished": "2026-11-24T03:09:50",
+  "git_commit": "0ddc830",
+  "min_run": 5,
+  "model": "bartowski/Meta-Llama-3-8B-Instruct-GGUF:Q4_K_M",
+  "prompt_version": "p3",
+  "seed": 516,
+  "started": "2026-11-24T02:56:45",
+  "temperature": 0.7,
+  "tenants": [
+   "00000000-0000-0000-0000-000000000001",
+   "00000000-0000-0000-0000-000000000002"
+  ],
+  "file": "eval/paraphrased_queries.json",
+  "n": 507
+ },
+ "finished": "2026-11-24T19:20:39"
+}

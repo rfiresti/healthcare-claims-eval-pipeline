@@ -1,0 +1,5448 @@
+{
+  "kind": "citation_grounding",
+  "split": "test",
+  "timestamp": "2026-11-24T19:40:34.203903+00:00",
+  "git_commit": "3a186ba5994b6bf97febc6afb10e55ab85510fc1",
+  "params": {
+    "tenant_id": [
+      "00000000-0000-0000-0000-000000000001",
+      "00000000-0000-0000-0000-000000000002"
+    ],
+    "denied_status": "DENIED",
+    "query": "paraphrase",
+    "ids_file": "eval/test_ids.txt",
+    "sample": null,
+    "seed": 42,
+    "limit": null,
+    "split": "test",
+    "k": 5,
+    "min_quote_words": 5,
+    "max_tokens": 200,
+    "timeout": 300,
+    "workers": 1,
+    "llm_url": "http://10.4.36.58:30000",
+    "out_dir": "eval/runs"
+  },
+  "schema": {
+    "type": "object",
+    "properties": {
+      "citations": {
+        "type": "array",
+        "maxItems": 3,
+        "items": {
+          "type": "object",
+          "properties": {
+            "clause_id": {
+              "type": "string",
+              "maxLength": 40
+            },
+            "quote": {
+              "type": "string",
+              "maxLength": 400
+            }
+          },
+          "required": [
+            "clause_id",
+            "quote"
+          ]
+        }
+      }
+    },
+    "required": [
+      "citations"
+    ]
+  },
+  "system_prompt": "You review denied health insurance claims. You are given a claim and a set of policy clauses, each labeled with its clause ID in square brackets. Cite the clause or clauses that support the denial, using ONLY the clauses provided. For each citation give the clause_id exactly as labeled and a quote of 5 to 30 words copied character for character from that clause's text. Do not paraphrase, shorten, or join separate sentences. A clause supports the denial if it states the rule the claim was denied under, even when the claim words it differently. For example, a claim denied because no lung specialist referred the member for a sleep study, given clause [CLS-9001] \"Sleep studies require a referral from a pulmonologist.\", gets {\"citations\": [{\"clause_id\": \"CLS-9001\", \"quote\": \"Sleep studies require a referral from a pulmonologist\"}]}. Return {\"citations\": []} only if none of the clauses relates to the denial reason.",
+  "elapsed_s": 1163.1,
+  "summary": {
+    "claims": 153,
+    "claims_with_citations": 153,
+    "claims_zero_citations": 0,
+    "claims_error": 0,
+    "citations_total": 153,
+    "citations_grounded": 153,
+    "citation_grounding": 1.0,
+    "claims_fully_grounded_rate": 1.0,
+    "gold_hit_rate": 1.0,
+    "citation_outcomes": {
+      "ok": 153
+    },
+    "llm_wall_p50_s": 7.49
+  },
+  "flagged": [],
+  "records": [
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000024",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Our plan has a limit of 20 physical therapy sessions per year, and we've reached that maximum.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2013",
+        "CLS-2014",
+        "CLS-2016",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 9.99,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 344,
+        "total_tokens": 376,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000027",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure you received is considered experimental and not covered under your insurance plan. This means it's not eligible for reimbursement.",
+      "retrieved": [
+        "CLS-2001",
+        "CLS-1001",
+        "CLS-2007",
+        "CLS-2014",
+        "CLS-2022"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.4,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 350,
+        "total_tokens": 379,
+        "prompt_tokens_details": {
+          "cached_tokens": 217
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000032",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure in question is considered experimental and is strictly excluded from coverage.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2002",
+        "CLS-2005"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.7,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 337,
+        "total_tokens": 369,
+        "prompt_tokens_details": {
+          "cached_tokens": 217
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000072",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "The inpatient admission was denied because we need proof that your condition showed a significant worsening before hospitalization.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2023",
+        "CLS-2001",
+        "CLS-2024",
+        "CLS-2021"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.42,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 345,
+        "total_tokens": 375,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000086",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "The hospital admission was denied because the medical records did not show a clear clinical decline in your condition, which is a requirement for inpatient care.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2023",
+        "CLS-2002",
+        "CLS-2019",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.73,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 347,
+        "total_tokens": 377,
+        "prompt_tokens_details": {
+          "cached_tokens": 251
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000099",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "This procedure is considered experimental and therefore not covered under our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2001",
+        "CLS-2022",
+        "CLS-2014",
+        "CLS-2007"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.56,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 339,
+        "total_tokens": 368,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000114",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The advanced imaging procedure was denied because it was not authorized within the required 48-hour timeframe prior to the service.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2007",
+        "CLS-2024",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.12,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 344,
+        "total_tokens": 375,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000116",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure you received for your condition is considered experimental and therefore not covered under our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2001",
+        "CLS-2024",
+        "CLS-2014",
+        "CLS-2022"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.37,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 344,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000129",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "We've reached the maximum allowed physical therapy sessions, 20 per year, and are therefore denying further treatment.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2013",
+        "CLS-2016",
+        "CLS-2021",
+        "CLS-2014"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.03,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 347,
+        "total_tokens": 379,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000134",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "Your inpatient admission was denied because we need evidence of a significant clinical decline to justify the level of care.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2002",
+        "CLS-2019",
+        "CLS-2023",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.08,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 340,
+        "total_tokens": 370,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000135",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The advanced imaging procedure was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2007",
+        "CLS-2024",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.4,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 341,
+        "total_tokens": 372,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000141",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "Advanced imaging was not authorized within the required 48-hour timeframe, therefore it was denied.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2024",
+        "CLS-2007",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.98,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 339,
+        "total_tokens": 370,
+        "prompt_tokens_details": {
+          "cached_tokens": 233
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000157",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The advanced imaging procedure was denied because it did not receive prior authorization within the required 48-hour timeframe.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2007",
+        "CLS-2024",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.54,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 342,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 233
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000161",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "We have reached the maximum number of physical therapy visits allowed annually, which is 20, and further sessions are not covered.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2014",
+        "CLS-2013",
+        "CLS-2016",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.27,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 348,
+        "total_tokens": 380,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000169",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Our coverage for physical therapy for this condition is capped at 20 sessions annually.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2013",
+        "CLS-2015",
+        "CLS-2016",
+        "CLS-2021"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.91,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 341,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 235
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000180",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "Your procedure for treating your condition was deemed experimental and is not covered by our plan due to strict exclusion from coverage.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2005",
+        "CLS-2006"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.67,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 348,
+        "total_tokens": 377,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000224",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure you received is considered experimental and is strictly excluded from coverage.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2002",
+        "CLS-2005"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.71,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 337,
+        "total_tokens": 369,
+        "prompt_tokens_details": {
+          "cached_tokens": 275
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000231",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure you received is considered experimental and is strictly excluded from coverage due to its experimental nature.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2002",
+        "CLS-2005"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.38,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 342,
+        "total_tokens": 374,
+        "prompt_tokens_details": {
+          "cached_tokens": 326
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000238",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Your physical therapy benefit is capped at a total of 20 sessions annually.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2013",
+        "CLS-2015",
+        "CLS-2016",
+        "CLS-2021"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.46,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 340,
+        "total_tokens": 372,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000252",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The advanced imaging service was denied because it was performed without prior authorization within the required 48-hour timeframe.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2007",
+        "CLS-2011",
+        "CLS-2010",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.13,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 342,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000266",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The advanced imaging service was denied because it was not approved within the required 48-hour timeframe.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2024",
+        "CLS-2005",
+        "CLS-2007",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.14,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 340,
+        "total_tokens": 371,
+        "prompt_tokens_details": {
+          "cached_tokens": 233
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000272",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "Advanced imaging was denied because prior authorization was not obtained within the 48-hour timeframe.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2024",
+        "CLS-2007",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.83,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 338,
+        "total_tokens": 369,
+        "prompt_tokens_details": {
+          "cached_tokens": 255
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000299",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "You have exceeded the allowed number of physical therapy sessions per year, which is capped at 20 visits.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2013",
+        "CLS-2014",
+        "CLS-2015",
+        "CLS-2016"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.62,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 344,
+        "total_tokens": 376,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000309",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure in question is considered experimental and therefore not eligible for coverage under our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2005",
+        "CLS-2003"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.55,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 339,
+        "total_tokens": 371,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000315",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The advanced imaging procedure was denied because it was not authorized within the required 48-hour timeframe prior to the service.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2007",
+        "CLS-2024",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.04,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 344,
+        "total_tokens": 375,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000343",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure you received is considered experimental and is strictly excluded from coverage under our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2002",
+        "CLS-2005"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.94,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 340,
+        "total_tokens": 369,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000349",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "We have reached the annual maximum of 20 physical therapy visits and are unable to authorize additional sessions.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2016",
+        "CLS-2014",
+        "CLS-2013",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.84,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 343,
+        "total_tokens": 375,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000356",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "This service was denied because prior authorization was not obtained within the required 48-hour timeframe for advanced imaging.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2010",
+        "CLS-2007",
+        "CLS-2011",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.3,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 342,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000374",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "Your treatment for the specified condition was denied because it is considered an experimental procedure, which is strictly excluded from coverage under our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2002",
+        "CLS-2005"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.09,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 349,
+        "total_tokens": 378,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000404",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "Inpatient admission was denied because we need to see evidence of a worsening condition that necessitated hospitalization.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2023",
+        "CLS-2001",
+        "CLS-2024",
+        "CLS-2021"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.35,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 345,
+        "total_tokens": 375,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000418",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "The inpatient admission was denied due to lack of evidence showing a clinical deterioration that justified the level of care required.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2019",
+        "CLS-2023",
+        "CLS-2002",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.87,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 341,
+        "total_tokens": 371,
+        "prompt_tokens_details": {
+          "cached_tokens": 232
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000450",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure in question is considered experimental and is strictly excluded from coverage due to its experimental nature.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2002",
+        "CLS-2005"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.37,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 342,
+        "total_tokens": 374,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000465",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Our benefits for physical therapy have been fully utilized, with 20 sessions allowed per calendar year.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2013",
+        "CLS-2015",
+        "CLS-2016",
+        "CLS-2021"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.71,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 344,
+        "total_tokens": 376,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000472",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The advanced imaging service was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2007",
+        "CLS-2010",
+        "CLS-2011",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.68,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1002\",\n\"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 34,
+        "prompt_tokens": 341,
+        "total_tokens": 375,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000473",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure you received is considered experimental and is not covered under your insurance plan. This is because it is a treatment that has not been deemed safe and effective by the medical community and is strictly excluded from coverage.",
+      "retrieved": [
+        "CLS-2001",
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2003",
+        "CLS-2002"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.79,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 368,
+        "total_tokens": 400,
+        "prompt_tokens_details": {
+          "cached_tokens": 217
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000490",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The advanced imaging service was not authorized within the required 48-hour timeframe, so it is not covered by your plan.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2024",
+        "CLS-2011",
+        "CLS-2010",
+        "CLS-2007"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.22,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 345,
+        "total_tokens": 376,
+        "prompt_tokens_details": {
+          "cached_tokens": 217
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000491",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "Advanced imaging was denied because prior authorization was not obtained within 48 hours of service.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2007",
+        "CLS-2010",
+        "CLS-2024",
+        "CLS-2005"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.03,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 338,
+        "total_tokens": 369,
+        "prompt_tokens_details": {
+          "cached_tokens": 233
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000500",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "Your procedure for treating your condition is considered experimental and therefore not covered by our plan, as it is strictly excluded from coverage.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2006",
+        "CLS-2002"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.91,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 354,
+        "total_tokens": 383,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000502",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "Advanced imaging was denied because it was not authorized within the required 48-hour timeframe prior to the service.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2024",
+        "CLS-2007",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.49,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 342,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000517",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The treatment you received for your condition is considered experimental and therefore is not covered by our insurance plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2014",
+        "CLS-2022",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.2,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 345,
+        "total_tokens": 374,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000535",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "Inpatient admission was denied because the medical records did not show a clear clinical deterioration, which is a requirement for inpatient hospitalization.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2019",
+        "CLS-2023",
+        "CLS-2024",
+        "CLS-2002"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.41,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 345,
+        "total_tokens": 375,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000548",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "Inpatient admission was denied because we need documentation showing a clear clinical decline to justify the level of care.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2019",
+        "CLS-2023",
+        "CLS-2002",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.09,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 339,
+        "total_tokens": 369,
+        "prompt_tokens_details": {
+          "cached_tokens": 266
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000580",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure in question is considered experimental and therefore is strictly excluded from coverage.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2005",
+        "CLS-2002"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.54,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 338,
+        "total_tokens": 370,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000583",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure you received for your medical condition was deemed experimental and therefore is not covered under our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2001",
+        "CLS-2009",
+        "CLS-2014",
+        "CLS-2022"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.18,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 342,
+        "total_tokens": 371,
+        "prompt_tokens_details": {
+          "cached_tokens": 232
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000604",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Your physical therapy sessions have exceeded our annual limit of 20 treatments.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2013",
+        "CLS-2016",
+        "CLS-2014",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.51,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 337,
+        "total_tokens": 369,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000647",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "You are eligible for physical therapy treatment up to 20 times per year.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2013",
+        "CLS-2021",
+        "CLS-2014",
+        "CLS-2016"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.3,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 340,
+        "total_tokens": 372,
+        "prompt_tokens_details": {
+          "cached_tokens": 253
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000687",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Your physical therapy treatment has exceeded the annual limit of 20 sessions, and additional sessions are not covered.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2016",
+        "CLS-2014",
+        "CLS-2013",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.39,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 344,
+        "total_tokens": 376,
+        "prompt_tokens_details": {
+          "cached_tokens": 235
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000690",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "You have reached the annual maximum of 20 physical therapy sessions, and further treatment is not covered.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2013",
+        "CLS-2016",
+        "CLS-2015",
+        "CLS-2021"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.32,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 345,
+        "total_tokens": 377,
+        "prompt_tokens_details": {
+          "cached_tokens": 235
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000735",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure performed to treat your condition is considered experimental and is strictly excluded from coverage under our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2006",
+        "CLS-2002"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.78,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 349,
+        "total_tokens": 381,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000740",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure was denied because it is considered experimental and is strictly excluded from coverage as per our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2002",
+        "CLS-2005"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.08,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 343,
+        "total_tokens": 375,
+        "prompt_tokens_details": {
+          "cached_tokens": 275
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000743",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "In order to justify an inpatient admission, we need to see evidence of a significant decline in your condition.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2024",
+        "CLS-2021",
+        "CLS-2020",
+        "CLS-2001"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.37,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 348,
+        "total_tokens": 378,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000761",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "We denied your inpatient admission because we need to see evidence that your condition has worsened to a point where hospitalization was medically necessary, as inpatient admission without proof of clinical deterioration is not covered.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2019",
+        "CLS-2023",
+        "CLS-2002",
+        "CLS-2001"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.49,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 360,
+        "total_tokens": 390,
+        "prompt_tokens_details": {
+          "cached_tokens": 232
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000762",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "Inpatient admission was denied due to lack of evidence showing clinical deterioration, which is required for inpatient services.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2019",
+        "CLS-2005",
+        "CLS-2023",
+        "CLS-2002"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.5,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1004\",\n\"quote\": \"Inpatient admission requires proof of clinical deterioration\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 33,
+        "prompt_tokens": 337,
+        "total_tokens": 370,
+        "prompt_tokens_details": {
+          "cached_tokens": 248
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000777",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "The claim was denied due to lack of evidence showing a clinical deterioration necessitating inpatient admission.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2019",
+        "CLS-2002",
+        "CLS-2023",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.64,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 337,
+        "total_tokens": 367,
+        "prompt_tokens_details": {
+          "cached_tokens": 249
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000795",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure in question is considered experimental and therefore not eligible for coverage under our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2005",
+        "CLS-2003"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.48,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 339,
+        "total_tokens": 371,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000805",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Your physical therapy treatment has reached the maximum number of sessions allowed per calendar year, which is 20.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2016",
+        "CLS-2013",
+        "CLS-2014",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.86,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 344,
+        "total_tokens": 376,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000811",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "Advanced imaging services were not authorized within the required 48-hour window, so we cannot approve this claim.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2024",
+        "CLS-2007",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.99,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 342,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000819",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "We denied the claim because the medical record does not show clinical deterioration justifying an inpatient admission.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2019",
+        "CLS-2002",
+        "CLS-2023",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.67,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 338,
+        "total_tokens": 368,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000826",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "The reason for denial is that the inpatient admission does not meet the criteria as it lacks proof of clinical deterioration, requiring further documentation to support the necessity of inpatient care.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2019",
+        "CLS-2023",
+        "CLS-2002",
+        "CLS-2009"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.83,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 349,
+        "total_tokens": 379,
+        "prompt_tokens_details": {
+          "cached_tokens": 248
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000833",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Your physical therapy treatment has reached the maximum number of visits allowed in a calendar year, which is 20.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2013",
+        "CLS-2014",
+        "CLS-2016",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.39,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 345,
+        "total_tokens": 377,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000839",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Our policy limits physical therapy to a maximum of 20 sessions annually, and this has been reached.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2016",
+        "CLS-2013",
+        "CLS-2014",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.41,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 343,
+        "total_tokens": 375,
+        "prompt_tokens_details": {
+          "cached_tokens": 235
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000844",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Your physical therapy treatment has reached the maximum of 20 visits allowed per calendar year, and further sessions are not covered.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2014",
+        "CLS-2013",
+        "CLS-2016",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.42,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 347,
+        "total_tokens": 379,
+        "prompt_tokens_details": {
+          "cached_tokens": 235
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000866",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure you received is considered experimental and is strictly excluded from coverage.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2002",
+        "CLS-2005"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.43,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 337,
+        "total_tokens": 369,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000878",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The treatment you received for your condition is considered experimental and is strictly excluded from our coverage.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2002",
+        "CLS-2001",
+        "CLS-2005"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.67,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 341,
+        "total_tokens": 370,
+        "prompt_tokens_details": {
+          "cached_tokens": 253
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000884",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The advanced imaging procedure was not authorized within the required 48-hour timeframe, so we cannot cover it.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2024",
+        "CLS-2007",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.44,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 342,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000890",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure in question is considered experimental and therefore not covered under our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2001",
+        "CLS-2022",
+        "CLS-2007",
+        "CLS-2014"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.56,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 341,
+        "total_tokens": 370,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000908",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "We denied your inpatient admission because we need evidence that your condition worsened to a point where a hospital stay was medically necessary.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2023",
+        "CLS-2019",
+        "CLS-2024",
+        "CLS-2009"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.9,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 339,
+        "total_tokens": 369,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000909",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The advanced imaging procedure was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2007",
+        "CLS-2024",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.82,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 341,
+        "total_tokens": 372,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000920",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure you received for your condition is considered experimental and is strictly excluded from coverage.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2002",
+        "CLS-2005"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.95,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 340,
+        "total_tokens": 372,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000936",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Your physical therapy sessions have been limited to 20 visits annually.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2014",
+        "CLS-2016",
+        "CLS-2013",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.22,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 336,
+        "total_tokens": 368,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000942",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "This procedure is considered experimental and is strictly excluded from coverage under our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2002",
+        "CLS-2005"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.5,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 338,
+        "total_tokens": 367,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000969",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "Inpatient admission was denied because the medical records did not demonstrate a clear clinical deterioration that warrants a hospital stay.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2019",
+        "CLS-2023",
+        "CLS-2002",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.88,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 340,
+        "total_tokens": 370,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-000996",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The treatment you received for your condition was considered experimental and therefore not covered by our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2014",
+        "CLS-2022",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.25,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 343,
+        "total_tokens": 372,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-001000",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "Inpatient admission requires documentation showing a clear clinical deterioration, indicating a significant change in patient condition, to justify the level of care.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2019",
+        "CLS-2023",
+        "CLS-2024",
+        "CLS-2020"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.2,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 342,
+        "total_tokens": 372,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-001015",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "The benefit for physical therapy has been exhausted due to the annual maximum of 20 sessions.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2021",
+        "CLS-2016",
+        "CLS-2013",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.84,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 343,
+        "total_tokens": 375,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-001034",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "Your inpatient admission was denied because we need evidence that your condition has worsened clinically to justify the level of care.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2002",
+        "CLS-2019",
+        "CLS-2024",
+        "CLS-2023"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.28,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 342,
+        "total_tokens": 372,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-001036",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "To support an inpatient admission, we need evidence that the patient's condition has worsened clinically.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2019",
+        "CLS-2024",
+        "CLS-2023",
+        "CLS-2021"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.22,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 338,
+        "total_tokens": 368,
+        "prompt_tokens_details": {
+          "cached_tokens": 232
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-001037",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The claim for advanced imaging was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2024",
+        "CLS-2007",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.29,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 342,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000001",
+      "claim_id": "CLM-001043",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The advanced imaging procedure was denied because it was not authorized within the required 48-hour timeframe prior to the service being performed.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2007",
+        "CLS-2024",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.97,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1002\",\n\"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 34,
+        "prompt_tokens": 346,
+        "total_tokens": 380,
+        "prompt_tokens_details": {
+          "cached_tokens": 233
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000041",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Our plan has a limit of 20 physical therapy sessions per year, which has been reached.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2014",
+        "CLS-2013",
+        "CLS-2016",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.85,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 342,
+        "total_tokens": 374,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000043",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The treatment you received for your condition was deemed experimental and is not covered under our policy.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2022",
+        "CLS-2024",
+        "CLS-2002"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.61,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 345,
+        "total_tokens": 377,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000068",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Your physical therapy sessions are limited to 20 sessions per calendar year, as per your plan's terms.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2016",
+        "CLS-2014",
+        "CLS-2013",
+        "CLS-2021"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.48,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 346,
+        "total_tokens": 378,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000112",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Your physical therapy treatment has been denied due to exceeding the maximum number of sessions allowed for a calendar year, which is 20.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2016",
+        "CLS-2013",
+        "CLS-2014",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.32,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 349,
+        "total_tokens": 381,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000125",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure you underwent is considered experimental and is not covered by our insurance plan because it is not recognized as a standard treatment by the medical community and is not proven to be effective.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2001",
+        "CLS-2004",
+        "CLS-2014",
+        "CLS-2009"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.94,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 356,
+        "total_tokens": 385,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000126",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The treatment you received is considered experimental and therefore not covered under our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2014",
+        "CLS-2022",
+        "CLS-2002"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.67,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 341,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 232
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000127",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "We've reached the annual maximum for physical therapy sessions, which is 20. Additional sessions won't be covered.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2016",
+        "CLS-2013",
+        "CLS-2015",
+        "CLS-2021"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.48,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 348,
+        "total_tokens": 380,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000138",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Your physical therapy treatment has exceeded the allowed 20 visits for this calendar year, and further sessions are not covered due to this limit.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2014",
+        "CLS-2016",
+        "CLS-2013",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.42,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 350,
+        "total_tokens": 382,
+        "prompt_tokens_details": {
+          "cached_tokens": 235
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000145",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The advanced imaging requested was not approved due to lack of prior authorization within the required 48-hour timeframe.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2024",
+        "CLS-2007",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.67,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 342,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000146",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure you received was deemed experimental and is strictly excluded from coverage due to its unproven effectiveness.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2002",
+        "CLS-2005"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.73,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 344,
+        "total_tokens": 376,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000151",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "The inpatient admission was denied due to lack of evidence showing a clinical deterioration.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2019",
+        "CLS-2002",
+        "CLS-2023",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.93,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 334,
+        "total_tokens": 364,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000166",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "Advanced imaging was denied because it was not authorized within the required 48-hour timeframe prior to the procedure.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2007",
+        "CLS-2024",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.89,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 342,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000172",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "Your claim was denied because advanced imaging was not authorized within the 48-hour timeframe required by our plan.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2024",
+        "CLS-2007",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.59,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 342,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 233
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000184",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "To support an inpatient admission, we need evidence that the patient's condition had worsened clinically prior to admission.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2024",
+        "CLS-2023",
+        "CLS-2019",
+        "CLS-2012"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.72,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 339,
+        "total_tokens": 369,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000186",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "You have reached the maximum number of physical therapy visits allowed per calendar year, which is 20, and we are therefore denying further coverage for this service.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2013",
+        "CLS-2014",
+        "CLS-2016",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.35,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 354,
+        "total_tokens": 386,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000187",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "We cannot approve inpatient admission without evidence of worsening condition.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2002",
+        "CLS-2021",
+        "CLS-2024",
+        "CLS-2023"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.82,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 336,
+        "total_tokens": 366,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000216",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure you received is considered experimental and therefore not eligible for coverage under our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2005",
+        "CLS-2003"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.32,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 339,
+        "total_tokens": 371,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000220",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "This plan covers physical therapy for a limited number of sessions, up to 20, within a calendar year.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2016",
+        "CLS-2014",
+        "CLS-2013",
+        "CLS-2021"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.23,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 347,
+        "total_tokens": 379,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000237",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "We cannot approve your inpatient admission due to lack of evidence showing a significant clinical deterioration that necessitated this level of care.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2019",
+        "CLS-2023",
+        "CLS-2002",
+        "CLS-2021"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.5,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 344,
+        "total_tokens": 374,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000240",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Physical therapy services were denied because the maximum number of visits per calendar year has been reached, which is 20 visits.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2014",
+        "CLS-2013",
+        "CLS-2016",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.65,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 347,
+        "total_tokens": 379,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000268",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Our plan has a maximum allowance for physical therapy visits, which is capped at 20 sessions per year.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2013",
+        "CLS-2014",
+        "CLS-2015",
+        "CLS-2016"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.33,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 344,
+        "total_tokens": 376,
+        "prompt_tokens_details": {
+          "cached_tokens": 235
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000276",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "We denied the claim because inpatient admission requires clear evidence of clinical deterioration, which was not provided.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2019",
+        "CLS-2023",
+        "CLS-2002",
+        "CLS-2005"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.43,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1004\",\n\"quote\": \"Inpatient admission requires proof of clinical deterioration\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 33,
+        "prompt_tokens": 335,
+        "total_tokens": 368,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000294",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The advanced imaging service was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2007",
+        "CLS-2010",
+        "CLS-2011",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.71,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1002\",\n\"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 34,
+        "prompt_tokens": 341,
+        "total_tokens": 375,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000311",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Your physical therapy treatment has reached the maximum allowed for this calendar year, with a cap of 20 visits.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2013",
+        "CLS-2014",
+        "CLS-2015",
+        "CLS-2016"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 9.08,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 345,
+        "total_tokens": 377,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000312",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The treatment you received for your condition is not covered because it is considered experimental and falls outside the scope of our plan's coverage.",
+      "retrieved": [
+        "CLS-2004",
+        "CLS-1001",
+        "CLS-2001",
+        "CLS-2002",
+        "CLS-2005"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.7,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 349,
+        "total_tokens": 378,
+        "prompt_tokens_details": {
+          "cached_tokens": 217
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000325",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "Inpatient admission was denied because the evidence did not show a clinical deterioration justifying the level of care.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2002",
+        "CLS-2019",
+        "CLS-2023",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.82,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 339,
+        "total_tokens": 369,
+        "prompt_tokens_details": {
+          "cached_tokens": 217
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000326",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "Inpatient admission was denied because the medical records did not demonstrate a clear clinical deterioration requiring hospitalization.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2023",
+        "CLS-2019",
+        "CLS-2002",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.44,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 338,
+        "total_tokens": 368,
+        "prompt_tokens_details": {
+          "cached_tokens": 232
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000350",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Your physical therapy sessions have reached the maximum allowed per calendar year, which is 20 visits, and we cannot approve additional requests.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2014",
+        "CLS-2013",
+        "CLS-2016",
+        "CLS-2021"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.95,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 351,
+        "total_tokens": 383,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000353",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Physical therapy services have reached the 20-visit limit for the calendar year, and further sessions are not covered.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2014",
+        "CLS-2016",
+        "CLS-2013",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.58,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 346,
+        "total_tokens": 378,
+        "prompt_tokens_details": {
+          "cached_tokens": 255
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000358",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The imaging service was not approved because prior authorization was not obtained within the required 48-hour time frame.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2010",
+        "CLS-2007",
+        "CLS-2024",
+        "CLS-2011"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.27,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 342,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000391",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "Advanced imaging was denied due to lack of prior authorization within the required 48-hour timeframe.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2024",
+        "CLS-2007",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.16,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 339,
+        "total_tokens": 370,
+        "prompt_tokens_details": {
+          "cached_tokens": 233
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000414",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The advanced imaging service was denied because it was not authorized within the required 48 hour window prior to the procedure.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2007",
+        "CLS-2011",
+        "CLS-2010",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.43,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 344,
+        "total_tokens": 375,
+        "prompt_tokens_details": {
+          "cached_tokens": 233
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000422",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "This treatment for the specified condition is not covered because it is considered experimental and not medically necessary.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2022",
+        "CLS-2009",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 9.21,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 341,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000437",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Your physical therapy treatment has reached the maximum allowed visits for this calendar year, which is 20 visits.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2013",
+        "CLS-2014",
+        "CLS-2015",
+        "CLS-2016"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.76,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 344,
+        "total_tokens": 376,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000448",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "Advanced imaging was not approved because prior authorization was not received within the required 48 hour time frame.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2007",
+        "CLS-2024",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.18,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 341,
+        "total_tokens": 372,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000454",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure in question is considered experimental and is strictly excluded from coverage as it has not been proven to be safe and effective by the scientific community.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2002",
+        "CLS-2003"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.72,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 355,
+        "total_tokens": 387,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000460",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "The inpatient admission was denied because we need proof that your condition had worsened clinically before hospitalization.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2023",
+        "CLS-2019",
+        "CLS-2002",
+        "CLS-2001"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.4,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 340,
+        "total_tokens": 370,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000475",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The treatment you received for your condition is considered an experimental procedure and is strictly excluded from coverage.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2002",
+        "CLS-2006"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.18,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 348,
+        "total_tokens": 377,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000494",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "The claim was denied because the evidence does not support a clear clinical deterioration justifying an inpatient stay.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2019",
+        "CLS-2023",
+        "CLS-2024",
+        "CLS-2002"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.43,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 339,
+        "total_tokens": 369,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000505",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The advanced imaging service was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2007",
+        "CLS-2010",
+        "CLS-2011",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.33,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1002\",\n\"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 34,
+        "prompt_tokens": 341,
+        "total_tokens": 375,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000513",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure in question is considered experimental and therefore not covered under our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2001",
+        "CLS-2022",
+        "CLS-2007",
+        "CLS-2014"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.31,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 341,
+        "total_tokens": 370,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000518",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "The claim was denied because the medical evidence did not show a clear clinical deterioration requiring an inpatient admission.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2002",
+        "CLS-2019",
+        "CLS-2024",
+        "CLS-2023"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.48,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 339,
+        "total_tokens": 369,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000526",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "Advanced imaging was not approved because prior authorization was not received within the required 48 hour time frame.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2007",
+        "CLS-2024",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.9,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 341,
+        "total_tokens": 372,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000531",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Your physical therapy services have reached the annual limit of 20 visits, and we're unable to approve further treatment at this time.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2014",
+        "CLS-2013",
+        "CLS-2015",
+        "CLS-2016"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.33,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 349,
+        "total_tokens": 381,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000593",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "You have already received the maximum of 20 physical therapy sessions in this calendar year, and we are unable to approve any additional sessions.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2016",
+        "CLS-2013",
+        "CLS-2014",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.8,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 350,
+        "total_tokens": 382,
+        "prompt_tokens_details": {
+          "cached_tokens": 235
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000622",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Our review indicates that your physical therapy treatment has reached the annual limit of 20 visits, and therefore we are denying further coverage for this service.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2014",
+        "CLS-2013",
+        "CLS-2015",
+        "CLS-2003"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.61,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 352,
+        "total_tokens": 384,
+        "prompt_tokens_details": {
+          "cached_tokens": 235
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000654",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "We denied the claim because the advanced imaging procedure didn't meet the pre-approval requirement, which is 48 hours before the service was rendered.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2024",
+        "CLS-2007",
+        "CLS-2010",
+        "CLS-2011"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.62,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 350,
+        "total_tokens": 381,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000656",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "You have already received the maximum 20 physical therapy visits within a calendar year, and we cannot authorize additional sessions.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2016",
+        "CLS-2013",
+        "CLS-2014",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.47,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 346,
+        "total_tokens": 378,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000683",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure you received is considered experimental and is not covered by our plan as per our strict exclusion on experimental treatments.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2014",
+        "CLS-2022"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.23,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 349,
+        "total_tokens": 378,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000695",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "Advanced imaging was not preauthorized within the required 48-hour window, so it was denied.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2024",
+        "CLS-2007",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.12,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1002\",\n\"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 34,
+        "prompt_tokens": 340,
+        "total_tokens": 374,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000712",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure was deemed experimental and therefore not covered under our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2001",
+        "CLS-2014",
+        "CLS-2022",
+        "CLS-2007"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.27,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 339,
+        "total_tokens": 368,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000765",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The advanced imaging service was denied due to a lack of prior authorization within the required 48-hour timeframe.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2007",
+        "CLS-2010",
+        "CLS-2005",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.55,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 342,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000791",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure you had was deemed experimental and is not covered by our plan because it is not a proven treatment method.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2014",
+        "CLS-2007"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.95,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 347,
+        "total_tokens": 376,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000798",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "Advanced imaging was denied because it was not authorized within the 48-hour timeframe required for such procedures.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2024",
+        "CLS-2007",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.43,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 341,
+        "total_tokens": 372,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000803",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The treatment you received for your condition was denied because it is considered experimental and is strictly excluded from coverage.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2002",
+        "CLS-2005",
+        "CLS-2003"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.37,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 343,
+        "total_tokens": 375,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000809",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Your physical therapy treatment has reached the maximum of 20 visits within a calendar year, and we cannot approve additional sessions.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2014",
+        "CLS-2016",
+        "CLS-2013",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.91,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 347,
+        "total_tokens": 379,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000843",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The treatment you received for your condition is not covered because it's considered an experimental procedure, which is strictly excluded from our coverage.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2002",
+        "CLS-2001",
+        "CLS-2005"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.12,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 349,
+        "total_tokens": 378,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000855",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The advanced imaging service was denied because it wasn't authorized within the required 48-hour timeframe prior to the procedure.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2007",
+        "CLS-2024",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.99,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 344,
+        "total_tokens": 375,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000857",
+      "gold": "CLS-1003",
+      "category": "Limitation",
+      "query": "Physical therapy is subject to a annual visit maximum of 20 sessions.",
+      "retrieved": [
+        "CLS-1003",
+        "CLS-2013",
+        "CLS-2021",
+        "CLS-2016",
+        "CLS-2015"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1003",
+          "quote": "Physical therapy capped at 20 visits per calendar year.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.09,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1003\", \"quote\": \"Physical therapy capped at 20 visits per calendar year.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 339,
+        "total_tokens": 371,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000883",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "Advanced imaging was not preauthorized within 48 hours as required, therefore this service is denied.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2010",
+        "CLS-2007",
+        "CLS-2024",
+        "CLS-2008"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.12,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 342,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000894",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The treatment you received is considered an experimental procedure and is not covered by our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2014",
+        "CLS-2022"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.98,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 343,
+        "total_tokens": 372,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000907",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The treatment you received for your condition is considered experimental and therefore not covered under our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2014",
+        "CLS-2024",
+        "CLS-2022"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.15,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 343,
+        "total_tokens": 372,
+        "prompt_tokens_details": {
+          "cached_tokens": 252
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000931",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "Inpatient admission was denied because we require evidence of a clinical decline before approving hospital stays.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2023",
+        "CLS-2019",
+        "CLS-2002",
+        "CLS-2009"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.88,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 332,
+        "total_tokens": 362,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000933",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "Advanced imaging was not authorized within the required 48 hour timeframe, therefore the service was denied.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2024",
+        "CLS-2010",
+        "CLS-2007",
+        "CLS-2011"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.71,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1002\",\n\"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 34,
+        "prompt_tokens": 340,
+        "total_tokens": 374,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000938",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "The inpatient admission was denied because we require evidence of a clinical deterioration to justify hospitalization.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2019",
+        "CLS-2023",
+        "CLS-2024",
+        "CLS-2009"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 6.93,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 332,
+        "total_tokens": 362,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000945",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "We require evidence of a significant decline in your condition to justify inpatient admission, as the current documentation does not support a need for hospitalization.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2019",
+        "CLS-2023",
+        "CLS-2009",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.31,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 342,
+        "total_tokens": 372,
+        "prompt_tokens_details": {
+          "cached_tokens": 266
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000951",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "We require documentation of a noticeable decline in your condition before approving inpatient hospitalization.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2019",
+        "CLS-2023",
+        "CLS-2010",
+        "CLS-2009"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.2,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 328,
+        "total_tokens": 358,
+        "prompt_tokens_details": {
+          "cached_tokens": 266
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000959",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "The advanced imaging service was denied because it was not authorized within the required 48-hour timeframe.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2024",
+        "CLS-2007",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.14,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 340,
+        "total_tokens": 371,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000967",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure is considered experimental and therefore not eligible for coverage under our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2005",
+        "CLS-2001",
+        "CLS-2003"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.19,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 337,
+        "total_tokens": 369,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000973",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "This treatment for the specified condition is considered experimental and therefore not covered under our plan due to the strict exclusion of experimental procedures from coverage.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2006",
+        "CLS-2003"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.27,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1001\", \"quote\": \"Experimental procedures are strictly excluded from coverage.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 29,
+        "prompt_tokens": 355,
+        "total_tokens": 384,
+        "prompt_tokens_details": {
+          "cached_tokens": 253
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-000991",
+      "gold": "CLS-1001",
+      "category": "Exclusion",
+      "query": "The procedure you received is considered experimental and is strictly excluded from coverage under our plan.",
+      "retrieved": [
+        "CLS-1001",
+        "CLS-2004",
+        "CLS-2001",
+        "CLS-2002",
+        "CLS-2005"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1001",
+          "quote": "Experimental procedures are strictly excluded from coverage.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.03,
+      "raw": "{\n\"citations\": [\n{\n\"clause_id\": \"CLS-1001\",\n\"quote\": \"Experimental procedures are strictly excluded from coverage.\"\n}\n]\n}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 340,
+        "total_tokens": 372,
+        "prompt_tokens_details": {
+          "cached_tokens": 275
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-001005",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "Your advanced imaging procedure was denied because it did not receive prior authorization within the required 48-hour timeframe.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2024",
+        "CLS-2007",
+        "CLS-2011",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 7.99,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 342,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-001038",
+      "gold": "CLS-1002",
+      "category": "PreAuth",
+      "query": "Advanced imaging was denied because prior authorization was not received within the 48-hour window required by our plan.",
+      "retrieved": [
+        "CLS-1002",
+        "CLS-2007",
+        "CLS-2011",
+        "CLS-2024",
+        "CLS-2010"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1002",
+          "quote": "Advanced imaging requires prior authorization within 48 hours.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.3,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1002\", \"quote\": \"Advanced imaging requires prior authorization within 48 hours.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 342,
+        "total_tokens": 373,
+        "prompt_tokens_details": {
+          "cached_tokens": 233
+        }
+      }
+    },
+    {
+      "tenant_id": "00000000-0000-0000-0000-000000000002",
+      "claim_id": "CLM-001039",
+      "gold": "CLS-1004",
+      "category": "MedicalNecessity",
+      "query": "Inpatient admission was denied because we need to see evidence of a clinically significant decline in your condition requiring hospitalization.",
+      "retrieved": [
+        "CLS-1004",
+        "CLS-2023",
+        "CLS-2019",
+        "CLS-2002",
+        "CLS-2024"
+      ],
+      "citations": [
+        {
+          "clause_id": "CLS-1004",
+          "quote": "Inpatient admission requires proof of clinical deterioration.",
+          "grounded": true,
+          "reason": "ok",
+          "gold_hit": true
+        }
+      ],
+      "error": null,
+      "llm_wall_s": 8.18,
+      "raw": "{\"citations\": [{\"clause_id\": \"CLS-1004\", \"quote\": \"Inpatient admission requires proof of clinical deterioration.\"}]}",
+      "finish_reason": "stop",
+      "usage": {
+        "completion_tokens": 30,
+        "prompt_tokens": 341,
+        "total_tokens": 371,
+        "prompt_tokens_details": {
+          "cached_tokens": 218
+        }
+      }
+    }
+  ],
+  "paraphrases": {
+    "denied_status": "DENIED",
+    "endpoint": "http://10.4.36.58:30000",
+    "finished": "2026-11-24T03:09:50",
+    "git_commit": "0ddc830",
+    "min_run": 5,
+    "model": "bartowski/Meta-Llama-3-8B-Instruct-GGUF:Q4_K_M",
+    "prompt_version": "p3",
+    "seed": 516,
+    "started": "2026-11-24T02:56:45",
+    "temperature": 0.7,
+    "tenants": [
+      "00000000-0000-0000-0000-000000000001",
+      "00000000-0000-0000-0000-000000000002"
+    ],
+    "file": "eval/paraphrased_queries.json",
+    "n": 507
+  }
+}
