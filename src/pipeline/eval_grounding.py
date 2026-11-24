@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Citation Grounding eval (Week 4 runbook, Task 3 Steps 3-4).
+"""Citation Grounding eval.
 
-Definition (runbook proposal, to be confirmed with the team):
+Definition (agreed with the team, Nov 23):
   For each denied claim, retrieve k=5 clauses as that claim's tenant, then ask the
   model to cite the clause(s) supporting the denial using ONLY those clauses, as
   JSON {"citations": [{"clause_id": ..., "quote": ...}]}.
@@ -339,6 +339,7 @@ def run(args):
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     out = out_dir / f"grounding_{args.split}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    run_doc["paraphrases"] = er.paraphrase_meta()
     out.write_text(json.dumps(run_doc, indent=2, default=str))
 
     print("\n" + json.dumps(summary, indent=2))
@@ -400,7 +401,7 @@ def main():
     ap.add_argument("--self-test", action="store_true", help="test scoring logic offline and exit")
     ap.add_argument("--tenant-id", action="append", default=[], help="repeat for several tenants")
     ap.add_argument("--denied-status", default="DENIED")
-    ap.add_argument("--query", default="both", choices=["reason", "text", "both"],
+    ap.add_argument("--query", default="both", choices=["reason", "text", "both", "paraphrase"],
                     help="query mode for eval_retrieval.build_query")
     ap.add_argument("--ids-file", help="restrict to claim IDs in this file (e.g. eval/dev_ids.txt)")
     ap.add_argument("--sample", type=int, help="random sample of N claims (fixed --seed)")
