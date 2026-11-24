@@ -75,8 +75,9 @@ SYSTEM_PROMPT = (
     "clause or clauses that support the denial, using ONLY the clauses provided. "
     "For each citation give the clause_id exactly as labeled and a quote of 5 to 30 "
     "words copied character for character from that clause's text. Do not paraphrase, "
-    "shorten, or join separate sentences. If no clause supports the denial, return "
-    '{"citations": []}.'
+    "shorten, or join separate sentences. A clause supports the denial if it states the rule "
+    "the claim was denied under, even when the claim words it differently. Return "
+    '{"citations": []} only if none of the clauses relates to the denial reason.'
 )
 
 
