@@ -212,9 +212,9 @@ def main():
 
     import psycopg
     from embedding_settings import MODEL_NAME
-    from retrieve import check_tenant, retrieve
+    from retrieve import DEFAULT_W_KW, DEFAULT_W_VEC, check_tenant, retrieve
 
-    variants = [("hybrid", dict(w_vec=1.0, w_kw=1.0))]
+    variants = [("hybrid", dict(w_vec=DEFAULT_W_VEC, w_kw=DEFAULT_W_KW))]
     if not a.no_ablation:
         variants += [("vector only", dict(w_vec=1.0, w_kw=0.0)), ("keyword only", dict(w_vec=0.0, w_kw=1.0))]
 
@@ -272,6 +272,7 @@ def main():
                     by_cat[r["category"]].append(r)
                 m["by_category"] = {c: summarize(v) for c, v in sorted(by_cat.items(), key=lambda kv: str(kv[0]))}
                 m["misses"] = [r for r in rows if not r["rank"] or r["rank"] > max(KS)]
+                m["weights"] = weights
                 t["variants"][name] = m
             result["tenants"][tenant] = t
 
