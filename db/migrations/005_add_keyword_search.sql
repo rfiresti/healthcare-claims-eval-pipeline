@@ -1,4 +1,4 @@
--- Week 4, Task 2: keyword search over policy clause chunks, for the hybrid retrieve() function.
+-- Week 4: keyword search over policy clause chunks, for the hybrid retrieve() function.
 --
 -- Additive only: one generated column and one index on vector_embeddings. No grants or
 -- policies change. vector_embeddings.content holds the clause-level chunk text and

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build bench_prompts.json for Week 4, Task 1, Step 2.
+"""Build bench_prompts.json for the Week 4 inference latency benchmark.
 
 Run on VM 3 (it needs to reach the llama.cpp server for exact token counts):
 
@@ -13,7 +13,7 @@ Output:
                           has no output cap for a "reference" key)
 
 The claim records only carry a one-sentence denial text, so the letter, clauses and
-draft text are padded with generic filler to reach the runbook's size targets
+draft text are padded with generic filler to reach the target prompt sizes
 (extraction ~800, draft ~1,800, critique ~2,200 input tokens). Latency depends on
 token counts, not on what the words say. Real token counts are measured with the
 server's /tokenize endpoint and printed at the end; adjust TARGETS if they are off.

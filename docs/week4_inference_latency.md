@@ -1,4 +1,4 @@
-# Week 4, Task 1: Inference latency on the CPU endpoint
+# Week 4: Inference latency on the CPU endpoint
 
 Status: Steps 1 to 4 done (Nov 16 to 19, 2026), at `-c 4096` and again at `-c 16384`. The model decision (Step 6) is not made yet; criteria and freeze date are still to be agreed with the team.
 
@@ -23,7 +23,7 @@ Launch command (container arguments):
 ## Method
 
 - `make_bench_prompts.py` builds 20 prompts for each of three Path A call profiles from the denied claims in `data/synthetic_output/labeled_claims.json`. Token counts come from the server's `/tokenize` endpoint.
-- Each claim record holds only a one-sentence denial text, so the denial letter and policy clauses are padded with generic filler to reach the runbook's sizes. The four clauses that are not the claim's own are placeholders. Latency depends on token count, not wording.
+- Each claim record holds only a one-sentence denial text, so the denial letter and policy clauses are padded with generic filler to reach the target sizes. The four clauses that are not the claim's own are placeholders. Latency depends on token count, not wording.
 - `run_benchmark.py` sends one request at a time from VM 3, with temperature 0 and prompt caching off (`cache_prompt: false`). One warm-up call is not recorded.
 - Extraction requests use a JSON schema (`response_format`). Output caps: extraction 120, draft 350, critique 100 tokens.
 
@@ -84,7 +84,7 @@ Estimate, not measured: scaling the 60 s Path A pass by the draft slowdown gives
 
 ## Decision: TBD (measurements in, criteria not yet agreed)
 
-Criteria still to be agreed with the team. The proposed starting point from the Week 4 runbook:
+Criteria still to be agreed with the team. The proposed starting point:
 
 | Criterion | Proposed threshold | Measured so far |
 | --- | --- | --- |

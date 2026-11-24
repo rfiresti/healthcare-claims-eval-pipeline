@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Week 4, Task 1, Step 4: concurrency probe for the llama.cpp server.
+"""Week 4 inference latency: concurrency probe for the llama.cpp server.
 
 Fires the draft profile with 1, 2 and 4 simultaneous requests (3 rounds each) and
 records errors, slow calls and throughput. Run it from benchmarks/inference_latency/
