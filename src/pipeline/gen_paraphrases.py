@@ -11,6 +11,8 @@ retried if it:
   * names a clause, policy or claim ID (CLS-, POL-, CLM-);
   * drops a number from the original (as digits or a word, e.g. 5 / five),
     since distractor clauses differ from real ones mostly by a number;
+  * adds a number the original does not have (an invented date or amount);
+  * still contains a placeholder such as [Claims Reviewer];
   * is shorter than 6 or longer than 60 words.
 
 Output: eval/paraphrased_queries.json
@@ -46,7 +48,7 @@ DEFAULT_TENANTS = [
     "00000000-0000-0000-0000-000000000002",
 ]
 DEFAULT_ENDPOINT = "http://10.4.36.58:30000"
-PROMPT_VERSION = "p2"
+PROMPT_VERSION = "p3"
 MIN_RUN = 5
 MIN_WORDS, MAX_WORDS = 6, 60
 ID_RE = re.compile(r"\b(?:CLS|POL|CLM)[-\s_]?\d", re.IGNORECASE)
@@ -59,13 +61,16 @@ NUM_WORDS = ("zero one two three four five six seven eight nine ten eleven twelv
 SYSTEM = "You write short, plain notes in the voice of a health insurance claims reviewer."
 USER = (
     "A claim was denied for this reason:\n\n\"{denial}\"\n\n"
-    "Rewrite it as a 1-2 sentence denial note a claims reviewer might send to the member. "
-    "Keep every specific fact (the service, any numbers, time limits and conditions), "
-    "but use your own wording: do not copy any run of {min_run} or more words from the "
-    "reason above. Do not mention clause, policy or claim numbers. "
-    "Reply with the note only."
+    "Rewrite it as the 1-2 sentence explanation a claims reviewer would give the member. "
+    "Keep the reason exactly as specific as the original: the same service, the same "
+    "condition or exclusion (for example, if it says experimental, say so), and every "
+    "number and time limit. Do not generalize it and do not add facts such as dates, "
+    "amounts or names. Use your own wording: do not copy any run of {min_run} or more "
+    "words from the reason above. Do not mention clause, policy or claim numbers. "
+    "Write only the explanation: no greeting, no sign-off, no title or label, no "
+    "placeholders."
 )
-RETRY = ("That note copied \"{run}\" from the original. Write it again with different "
+RETRY = ("That explanation copied \"{run}\" from the original. Write it again with different "
          "wording, keeping the same facts. Reply with the note only.")
 
 
@@ -92,9 +97,16 @@ def longest_shared_run(a, b):
 
 
 def clean(reply):
-    text = reply.strip().strip('"').strip()
-    text = re.sub(r"^(denial note|note)\s*:\s*", "", text, flags=re.IGNORECASE)
-    return " ".join(text.split())
+    """Strip letter boilerplate the model adds despite the prompt."""
+    text = " ".join(reply.split()).strip().strip('"').strip()
+    text = re.sub(r"^(dear|hello|hi)\b[^,:]{0,40}[,:]\s*", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"\s*\b(sincerely|regards|best regards|kind regards|thank you)\b.*$", "",
+                  text, flags=re.IGNORECASE)
+    # a short label before a colon, e.g. "Denial:" or "Denial of Physical Therapy Services:"
+    m = re.match(r"^([A-Za-z][\w /-]{0,50}):\s+(?=\S)", text)
+    if m and len(m.group(1).split()) <= 6:
+        text = text[m.end():]
+    return text.strip().strip('"').strip()
 
 
 def problem(text, source):
@@ -105,10 +117,16 @@ def problem(text, source):
     if ID_RE.search(text):
         return "names an ID", None
     have = set(NUM_RE.findall(text)) | set(words(text))
-    for num in NUM_RE.findall(ID_STRIP_RE.sub("", source)):
+    src_nums = NUM_RE.findall(ID_STRIP_RE.sub("", source))
+    for num in src_nums:
         word = NUM_WORDS[int(num)] if num.isdigit() and int(num) <= 20 else None
         if num not in have and word not in have:
             return f"drops the number {num}", None
+    extra = set(NUM_RE.findall(text)) - set(src_nums)
+    if extra:
+        return f"adds the number {sorted(extra)[0]}", None
+    if re.search(r"\[[^\]]*\]", text):
+        return "contains a placeholder", None
     run_len, run = longest_shared_run(text, source)
     if run_len >= MIN_RUN:
         return f"copies {run_len} words", run
@@ -157,8 +175,9 @@ def paraphrase(endpoint, claim_id, source, base_seed, temperature, max_attempts)
         reason, run = bad
         messages += [{"role": "assistant", "content": reply},
                      {"role": "user", "content": RETRY.format(run=run) if run else
-                      f"That note was rejected ({reason}). Write it again: 1-2 sentences, keep "
-                      "every number from the original, no ID numbers. Reply with the note only."}]
+                      f"That explanation was rejected ({reason}). Write it again: 1-2 sentences, "
+                      "keep every number from the original and add none, no ID numbers, no "
+                      "greeting or sign-off. Reply with the explanation only."}]
     return None, max_attempts, None, reason
 
 
