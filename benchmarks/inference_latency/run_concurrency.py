@@ -26,7 +26,7 @@ import requests
 
 from run_benchmark import one_call, pct
 
-DRAFT_CAP = 350          # same output cap as the Step 3 draft profile
+DRAFT_CAP = 350          # same output cap as the single-request draft profile
 TEMPLATE_TOKENS = 20     # chat-template tokens the server adds on top of /tokenize counts
 
 
@@ -69,7 +69,7 @@ def context_check(base, prompts, users, assume_yes):
         print("n_ctx per slot (/slots):    %s" % per_slot)
     print("longest draft prompt:       %d tokens (%s)" % (longest, counted))
     print("one draft needs up to:      ~%d tokens (prompt + template + %d output cap)" % (per_req, DRAFT_CAP))
-    print("The Step 1 startup log said kv_unified = true, which means the n_ctx above is probably one pool")
+    print("The server startup log said kv_unified = true, which means the n_ctx above is probably one pool")
     print("shared by all slots, even though each slot reports the full size. The burst results settle it.\n")
     print("%-6s %-22s %s" % ("users", "tokens needed at once", "fits in n_ctx?"))
     misfit = False

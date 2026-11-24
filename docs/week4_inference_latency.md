@@ -1,6 +1,6 @@
 # Week 4: Inference latency on the CPU endpoint
 
-Status: Steps 1 to 4 done (Nov 16 to 19, 2026), at `-c 4096` and again at `-c 16384`. The model decision (Step 6) is not made yet; criteria and freeze date are still to be agreed with the team.
+Status: Measurements done (Nov 16 to 19, 2026), at `-c 4096` and again at `-c 16384`. Decision: stay on CPU with this model, frozen Nov 23, 2026 (see Decision).
 
 ## Setup
 
@@ -64,7 +64,7 @@ Prefill is unchanged (about 155 tokens/s). Decode is about 75% faster than in th
 - **The reference run does not reproduce the Week 2 figure.** The deck reports a 78-token answer in 9.2 s warm (about 8.5 tokens/s). Here the same output length took 5.9 s. The deck's rate equals 78 ÷ 9.2, so it looks like an end-to-end figure, and the Week 2 prompt may have been a few hundred tokens. The Week 2 method has not been confirmed.
 - **Prompts are synthetic**, with filler text and placeholder clauses.
 
-## Concurrency (Step 4)
+## Concurrency
 
 Method: the draft profile with 1, 2 and 4 simultaneous requests, 3 rounds each (3, 6 and 12 calls), 10 s idle between bursts, `run_concurrency.py`.
 
@@ -82,17 +82,19 @@ Reading it: all requests in a burst slow down about equally, so the slots do run
 
 Estimate, not measured: scaling the 60 s Path A pass by the draft slowdown gives about 97 s with 2 users and about 170 s with 4 users at once. Extraction and critique were not run under load.
 
-## Decision: TBD (measurements in, criteria not yet agreed)
+## Decision: stay on CPU (model frozen Nov 23, 2026)
 
-Criteria still to be agreed with the team. The proposed starting point:
+The CPU endpoint is the model of record for Path A and the Week 4 evaluation: `Meta-Llama-3-8B-Instruct` Q4_K_M on llama.cpp `b12316`, launched with `-c 16384` and 4 slots (the Nov 19 relaunch above). Steve made the call on Nov 23 and shared it with the team in the Nov 23 update. All three criteria are met:
 
-| Criterion | Proposed threshold | Measured so far |
-| --- | --- | --- |
-| Estimated time for one Path A pass | 3 minutes or less | about 60 s single user at `-c 16384` (83 s in the first run); about 170 s estimated with 4 at once |
-| Crashes, out-of-memory errors or timeouts | 0 | 0 in 130 single-request calls and 21 concurrent calls at `-c 16384`; concurrent drafts failed at `-c 4096` (fixed by the relaunch) |
-| Extraction replies that validate against the schema | 10 of 10 | 20 of 20 in both runs |
+| Criterion | Threshold | Measured | Met |
+| --- | --- | --- | --- |
+| Estimated time for one Path A pass | 3 minutes or less | about 60 s single user at `-c 16384` (83 s in the first run); about 170 s estimated with 4 at once | Yes |
+| Crashes, out-of-memory errors or timeouts | 0 | 0 in 130 single-request calls and 21 concurrent calls at `-c 16384`; concurrent drafts failed at `-c 4096` (fixed by the relaunch) | Yes |
+| Extraction replies that validate against the schema | 10 of 10 | 20 of 20 in both runs | Yes |
 
-Model freeze date: TBD (proposed Fri Nov 20).
+**Model freeze: Nov 23, 2026** (the proposed date was Nov 20). After this date, the model, the llama.cpp build and the launch flags stay as they are. If any of them changes, the Citation Grounding runs in `eval/scorecard.md` have to be redone.
+
+Limits to keep in mind: the 4-user figure (about 170 s) is an estimate close to the 3-minute limit, and extraction and critique were not run under load. Keep concurrent Path A runs to 4 or fewer.
 
 ## Reproduce
 
