@@ -76,7 +76,11 @@ SYSTEM_PROMPT = (
     "For each citation give the clause_id exactly as labeled and a quote of 5 to 30 "
     "words copied character for character from that clause's text. Do not paraphrase, "
     "shorten, or join separate sentences. A clause supports the denial if it states the rule "
-    "the claim was denied under, even when the claim words it differently. Return "
+    "the claim was denied under, even when the claim words it differently. For example, a "
+    "claim denied because no lung specialist referred the member for a sleep study, given "
+    'clause [CLS-9001] "Sleep studies require a referral from a pulmonologist.", gets '
+    '{"citations": [{"clause_id": "CLS-9001", "quote": "Sleep studies require a referral '
+    'from a pulmonologist"}]}. Return '
     '{"citations": []} only if none of the clauses relates to the denial reason.'
 )
 
