@@ -1,0 +1,99 @@
+...FFFFFF                                                                [100%]
+=================================== FAILURES ===================================
+_____________ test_cannot_read_other_tenants_thread[other tenant] ______________
+
+threads = {'ca8b89da-5148-4805-a3cb-799caccb700e': 'a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82', 'bb6abed4-10ed-4120-bf36-a133cc7bf4bd': '6012015d-8a57-4729-a067-4116982b5651'}
+a_saved = {'configurable': {'thread_id': 'a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82', 'checkpoint_ns': '', 'checkpoint_id': '1f1e951d-1a16-6eee-bffe-ef5d5c957d6a'}}
+tenant = 'bb6abed4-10ed-4120-bf36-a133cc7bf4bd'
+
+    @pytest.mark.parametrize("tenant", [B, None], ids=["other tenant", "no tenant"])
+    def test_cannot_read_other_tenants_thread(threads, a_saved, tenant):
+        with app_conn(tenant) as c:
+            saver = PostgresSaver(c)
+>           assert saver.get_tuple(cfg(threads[A])) is None
+E           AssertionError: assert CheckpointTuple(config={'configurable': {'thread_id': 'a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82', 'checkpoint_ns': '', 'ch...a={'step': 0, 'source': 'input'}, parent_config=None, pending_writes=[('task-1', 'draft', 'tenant A draft (pending)')]) is None
+E            +  where CheckpointTuple(config={'configurable': {'thread_id': 'a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82', 'checkpoint_ns': '', 'ch...a={'step': 0, 'source': 'input'}, parent_config=None, pending_writes=[('task-1', 'draft', 'tenant A draft (pending)')]) = get_tuple({'configurable': {'thread_id': 'a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82', 'checkpoint_ns': ''}})
+E            +    where get_tuple = <langgraph.checkpoint.postgres.PostgresSaver object at 0x7e174a3aacf0>.get_tuple
+E            +    and   {'configurable': {'thread_id': 'a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82', 'checkpoint_ns': ''}} = cfg('a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82')
+
+tests/test_checkpointer_postgres.py:120: AssertionError
+_______________ test_cannot_read_other_tenants_thread[no tenant] _______________
+
+threads = {'ca8b89da-5148-4805-a3cb-799caccb700e': 'a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82', 'bb6abed4-10ed-4120-bf36-a133cc7bf4bd': '6012015d-8a57-4729-a067-4116982b5651'}
+a_saved = {'configurable': {'thread_id': 'a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82', 'checkpoint_ns': '', 'checkpoint_id': '1f1e951d-1a16-6eee-bffe-ef5d5c957d6a'}}
+tenant = None
+
+    @pytest.mark.parametrize("tenant", [B, None], ids=["other tenant", "no tenant"])
+    def test_cannot_read_other_tenants_thread(threads, a_saved, tenant):
+        with app_conn(tenant) as c:
+            saver = PostgresSaver(c)
+>           assert saver.get_tuple(cfg(threads[A])) is None
+E           AssertionError: assert CheckpointTuple(config={'configurable': {'thread_id': 'a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82', 'checkpoint_ns': '', 'ch...a={'step': 0, 'source': 'input'}, parent_config=None, pending_writes=[('task-1', 'draft', 'tenant A draft (pending)')]) is None
+E            +  where CheckpointTuple(config={'configurable': {'thread_id': 'a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82', 'checkpoint_ns': '', 'ch...a={'step': 0, 'source': 'input'}, parent_config=None, pending_writes=[('task-1', 'draft', 'tenant A draft (pending)')]) = get_tuple({'configurable': {'thread_id': 'a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82', 'checkpoint_ns': ''}})
+E            +    where get_tuple = <langgraph.checkpoint.postgres.PostgresSaver object at 0x7e174a3ab800>.get_tuple
+E            +    and   {'configurable': {'thread_id': 'a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82', 'checkpoint_ns': ''}} = cfg('a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82')
+
+tests/test_checkpointer_postgres.py:120: AssertionError
+___________ test_cannot_write_to_other_tenants_thread[other tenant] ____________
+
+threads = {'ca8b89da-5148-4805-a3cb-799caccb700e': 'a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82', 'bb6abed4-10ed-4120-bf36-a133cc7bf4bd': '6012015d-8a57-4729-a067-4116982b5651'}
+a_saved = {'configurable': {'thread_id': 'a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82', 'checkpoint_ns': '', 'checkpoint_id': '1f1e951d-1a16-6eee-bffe-ef5d5c957d6a'}}
+tenant = 'bb6abed4-10ed-4120-bf36-a133cc7bf4bd'
+
+    @pytest.mark.parametrize("tenant", [B, None], ids=["other tenant", "no tenant"])
+    def test_cannot_write_to_other_tenants_thread(threads, a_saved, tenant):
+        before = {t: admin_count(t, threads[A]) for t in TABLES}
+        with app_conn(tenant) as c:
+>           with pytest.raises(psycopg.errors.InsufficientPrivilege):
+E           Failed: DID NOT RAISE InsufficientPrivilege
+
+tests/test_checkpointer_postgres.py:129: Failed
+_____________ test_cannot_write_to_other_tenants_thread[no tenant] _____________
+
+threads = {'ca8b89da-5148-4805-a3cb-799caccb700e': 'a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82', 'bb6abed4-10ed-4120-bf36-a133cc7bf4bd': '6012015d-8a57-4729-a067-4116982b5651'}
+a_saved = {'configurable': {'thread_id': 'a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82', 'checkpoint_ns': '', 'checkpoint_id': '1f1e951d-1a16-6eee-bffe-ef5d5c957d6a'}}
+tenant = None
+
+    @pytest.mark.parametrize("tenant", [B, None], ids=["other tenant", "no tenant"])
+    def test_cannot_write_to_other_tenants_thread(threads, a_saved, tenant):
+        before = {t: admin_count(t, threads[A]) for t in TABLES}
+        with app_conn(tenant) as c:
+>           with pytest.raises(psycopg.errors.InsufficientPrivilege):
+E           Failed: DID NOT RAISE InsufficientPrivilege
+
+tests/test_checkpointer_postgres.py:129: Failed
+________________ test_cannot_open_conversation_for_other_tenant ________________
+
+threads = {'ca8b89da-5148-4805-a3cb-799caccb700e': 'a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82', 'bb6abed4-10ed-4120-bf36-a133cc7bf4bd': '6012015d-8a57-4729-a067-4116982b5651'}
+
+    def test_cannot_open_conversation_for_other_tenant(threads):
+        with app_conn(B) as c:
+>           with pytest.raises(psycopg.errors.InsufficientPrivilege):
+E           Failed: DID NOT RAISE InsufficientPrivilege
+
+tests/test_checkpointer_postgres.py:136: Failed
+_________________ test_own_thread_still_writable_by_owner_only _________________
+
+threads = {'ca8b89da-5148-4805-a3cb-799caccb700e': 'a1b9dfd0-1ed5-4a9d-8421-c6949ef17f82', 'bb6abed4-10ed-4120-bf36-a133cc7bf4bd': '6012015d-8a57-4729-a067-4116982b5651'}
+
+    def test_own_thread_still_writable_by_owner_only(threads):
+        """Tenant B can checkpoint its own thread; the same thread stays invisible to A."""
+        with app_conn(B) as c:
+            write_checkpoint(PostgresSaver(c), threads[B], "tenant B draft")
+        with app_conn(A) as c:
+>           assert PostgresSaver(c).get_tuple(cfg(threads[B])) is None
+E           AssertionError: assert CheckpointTuple(config={'configurable': {'thread_id': '6012015d-8a57-4729-a067-4116982b5651', 'checkpoint_ns': '', 'ch...a={'step': 0, 'source': 'input'}, parent_config=None, pending_writes=[('task-1', 'draft', 'tenant B draft (pending)')]) is None
+E            +  where CheckpointTuple(config={'configurable': {'thread_id': '6012015d-8a57-4729-a067-4116982b5651', 'checkpoint_ns': '', 'ch...a={'step': 0, 'source': 'input'}, parent_config=None, pending_writes=[('task-1', 'draft', 'tenant B draft (pending)')]) = get_tuple({'configurable': {'thread_id': '6012015d-8a57-4729-a067-4116982b5651', 'checkpoint_ns': ''}})
+E            +    where get_tuple = <langgraph.checkpoint.postgres.PostgresSaver object at 0x7e174a203110>.get_tuple
+E            +      where <langgraph.checkpoint.postgres.PostgresSaver object at 0x7e174a203110> = PostgresSaver(<psycopg.Connection [IDLE] (host=10.4.36.107 user=admin_owner database=claims_db) at 0x7e174a2004a0>)
+E            +    and   {'configurable': {'thread_id': '6012015d-8a57-4729-a067-4116982b5651', 'checkpoint_ns': ''}} = cfg('6012015d-8a57-4729-a067-4116982b5651')
+
+tests/test_checkpointer_postgres.py:145: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_checkpointer_postgres.py::test_cannot_read_other_tenants_thread[other tenant]
+FAILED tests/test_checkpointer_postgres.py::test_cannot_read_other_tenants_thread[no tenant]
+FAILED tests/test_checkpointer_postgres.py::test_cannot_write_to_other_tenants_thread[other tenant]
+FAILED tests/test_checkpointer_postgres.py::test_cannot_write_to_other_tenants_thread[no tenant]
+FAILED tests/test_checkpointer_postgres.py::test_cannot_open_conversation_for_other_tenant
+FAILED tests/test_checkpointer_postgres.py::test_own_thread_still_writable_by_owner_only
+6 failed, 3 passed in 0.44s

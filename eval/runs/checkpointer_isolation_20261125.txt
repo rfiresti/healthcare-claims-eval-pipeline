@@ -1,0 +1,13 @@
+.........                                                                [100%]
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_checkpointer_postgres.py::test_schema_matches_installed_library
+PASSED tests/test_checkpointer_postgres.py::test_owner_round_trip
+PASSED tests/test_checkpointer_postgres.py::test_resume_on_new_connection
+PASSED tests/test_checkpointer_postgres.py::test_cannot_read_other_tenants_thread[other tenant]
+PASSED tests/test_checkpointer_postgres.py::test_cannot_read_other_tenants_thread[no tenant]
+PASSED tests/test_checkpointer_postgres.py::test_cannot_write_to_other_tenants_thread[other tenant]
+PASSED tests/test_checkpointer_postgres.py::test_cannot_write_to_other_tenants_thread[no tenant]
+PASSED tests/test_checkpointer_postgres.py::test_cannot_open_conversation_for_other_tenant
+PASSED tests/test_checkpointer_postgres.py::test_own_thread_still_writable_by_owner_only
+9 passed in 0.56s
