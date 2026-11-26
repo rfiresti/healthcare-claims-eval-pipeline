@@ -1,0 +1,51 @@
+.........................................                                [100%]
+==================================== PASSES ====================================
+_ test_retrieve_never_returns_other_tenant[5-90a008e7-573f-48fe-87ee-89bc1e6e62d8] _
+---------------------------- Captured stderr setup -----------------------------
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'sentence-transformers/all-MiniLM-L6-v2'.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 1376.86it/s]
+------------------------------ Captured log setup ------------------------------
+WARNING  huggingface_hub.hf_api:hf_api.py:3662 Could not reach the Hub (Cannot reach https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'sentence-transformers/all-MiniLM-L6-v2'.
+=========================== short test summary info ============================
+PASSED tests/test_retrieval_isolation.py::test_retrieve_never_returns_other_tenant[5-90a008e7-573f-48fe-87ee-89bc1e6e62d8]
+PASSED tests/test_retrieval_isolation.py::test_retrieve_never_returns_other_tenant[5-69f9acc7-363c-43de-9f81-d68a77d31c57]
+PASSED tests/test_retrieval_isolation.py::test_retrieve_never_returns_other_tenant[50-90a008e7-573f-48fe-87ee-89bc1e6e62d8]
+PASSED tests/test_retrieval_isolation.py::test_retrieve_never_returns_other_tenant[50-69f9acc7-363c-43de-9f81-d68a77d31c57]
+PASSED tests/test_retrieval_isolation.py::test_retrieve_rejects_missing_or_malformed_tenant[None]
+PASSED tests/test_retrieval_isolation.py::test_retrieve_rejects_missing_or_malformed_tenant[]
+PASSED tests/test_retrieval_isolation.py::test_retrieve_rejects_missing_or_malformed_tenant[not-a-uuid]
+PASSED tests/test_retrieval_isolation.py::test_tenant_does_not_leak_across_transactions
+PASSED tests/test_retrieval_isolation.py::test_concurrent_tenants
+PASSED tests/test_retrieval_isolation.py::test_no_tenant_means_no_rows[documents]
+PASSED tests/test_retrieval_isolation.py::test_no_tenant_means_no_rows[vector_embeddings]
+PASSED tests/test_retrieval_isolation.py::test_no_tenant_means_no_rows[conversations]
+PASSED tests/test_retrieval_isolation.py::test_no_tenant_means_no_rows[checkpoints]
+PASSED tests/test_retrieval_isolation.py::test_no_tenant_means_no_rows[checkpoint_blobs]
+PASSED tests/test_retrieval_isolation.py::test_no_tenant_means_no_rows[checkpoint_writes]
+PASSED tests/test_retrieval_isolation.py::test_raw_select_sees_only_own_rows[documents]
+PASSED tests/test_retrieval_isolation.py::test_raw_select_sees_only_own_rows[vector_embeddings]
+PASSED tests/test_retrieval_isolation.py::test_raw_select_sees_only_own_rows[conversations]
+PASSED tests/test_retrieval_isolation.py::test_checkpoint_tables_see_only_own_threads[checkpoints]
+PASSED tests/test_retrieval_isolation.py::test_checkpoint_tables_see_only_own_threads[checkpoint_blobs]
+PASSED tests/test_retrieval_isolation.py::test_checkpoint_tables_see_only_own_threads[checkpoint_writes]
+PASSED tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[documents]
+PASSED tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[vector_embeddings]
+PASSED tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[conversations]
+PASSED tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[checkpoints on B's thread]
+PASSED tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[checkpoints on no thread]
+PASSED tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[checkpoint_blobs on B's thread]
+PASSED tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[checkpoint_writes on B's thread]
+PASSED tests/test_retrieval_isolation.py::test_embedding_cannot_point_at_other_tenants_document
+PASSED tests/test_retrieval_isolation.py::test_cannot_update_or_delete_other_tenants_rows[documents]
+PASSED tests/test_retrieval_isolation.py::test_cannot_update_or_delete_other_tenants_rows[vector_embeddings]
+PASSED tests/test_retrieval_isolation.py::test_cannot_update_or_delete_other_tenants_rows[conversations]
+PASSED tests/test_retrieval_isolation.py::test_cannot_update_or_delete_other_tenants_rows[checkpoints]
+PASSED tests/test_retrieval_isolation.py::test_cannot_update_or_delete_other_tenants_rows[checkpoint_blobs]
+PASSED tests/test_retrieval_isolation.py::test_cannot_update_or_delete_other_tenants_rows[checkpoint_writes]
+PASSED tests/test_retrieval_isolation.py::test_app_role_cannot_truncate[documents]
+PASSED tests/test_retrieval_isolation.py::test_app_role_cannot_truncate[vector_embeddings]
+PASSED tests/test_retrieval_isolation.py::test_app_role_cannot_truncate[conversations]
+PASSED tests/test_retrieval_isolation.py::test_app_role_cannot_truncate[checkpoints]
+PASSED tests/test_retrieval_isolation.py::test_app_role_cannot_truncate[checkpoint_blobs]
+PASSED tests/test_retrieval_isolation.py::test_app_role_cannot_truncate[checkpoint_writes]
+41 passed in 25.89s
