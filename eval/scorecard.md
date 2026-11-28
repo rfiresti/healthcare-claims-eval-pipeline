@@ -78,3 +78,14 @@ In `both` mode, all three variants score 100% R@1, which is the copy leakage. In
  
 **Not tested:** Whether prompt v3 still declines to cite when no retrieved clause applies (the gold clause is removed from the retrieved set).
  
+
+## Week 5 Orchestration, RLS Checkpointing & Concurrency Verification (2026-11-28)
+
+Appended after the Nov 24 frozen held-out scorecard without modifying the held-out test baseline.
+
+- **7-Node LangGraph Workflow & Concurrency:** `appeal_graph.py`, `extract.py`, and `draft_critique.py` execute structured extraction, deterministic grounding critique (1-revision cap, verbatim quote check, fail-closed `"ungrounded"` status), HITL pause/resume (`interrupt_review` and `Command(resume=...)`), and a 4-slot semaphore (`LLM_SEMAPHORE = threading.BoundedSemaphore(4)`) against `http://10.4.36.58:30000`.
+- **4-Worker `extract` Benchmark:** 8 denied claims across 4 workers with `BoundedSemaphore(4)` completed in `36.97s` wall time (`0.22 req/s`), `p50` latency `18,483.5 ms`, `p95` latency `22,467.2 ms` (range `14,319.8 ms` to `22,467.2 ms`).
+- **RLS Persistence & Tenancy Checks:** `rls_checkpointer.py` (`PostgresSaver` with `autocommit=True`, `prepare_threshold=0`, `dict_row`) and transaction-scoped `retrieve()` (`set_config('app.current_tenant_id', ..., true)`) passed 41/41 isolation tests (`eval/week5_retrieval_isolation.txt`) and 6/6 checkpoint tenancy checks (`eval/week5_checkpoint_tenancy.txt`); synthetic test threads were purged afterward.
+- **Nov 28 Dev Verification Runs:**
+  - Retrieval (`eval/runs/retrieval_dev_paraphrase_20261128-013816.json`, `--ids-file eval/dev_ids.txt`, `--query paraphrase`): `100.0%` hybrid `Recall@5` on both tenants (`96.7%` / `96.5%` `R@1`, `0.981` / `0.979` `MRR`, `0` misses at `k=5`).
+  - Grounding (`eval/runs/grounding_dev_20261128_014017.json`, `eval/week5_eval_grounding_s20.log`, `--sample 20 --workers 2`): `100.0%` citation grounding (`20/20`), `100.0%` claims fully grounded, `100.0%` gold-hit rate, `0` zero-citation claims, `0` errors (`llm_wall_p50_s = 6.98s`, `1.2 min` total).

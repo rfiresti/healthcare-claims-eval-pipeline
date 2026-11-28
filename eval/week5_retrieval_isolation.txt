@@ -1,0 +1,51 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.2.0, pluggy-1.7.0 -- /home/exouser/healthcare-claims-eval-pipeline/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/exouser/healthcare-claims-eval-pipeline
+configfile: pytest.ini
+plugins: anyio-4.16.0, langsmith-0.14.17
+collecting ... collected 41 items
+
+tests/test_retrieval_isolation.py::test_retrieve_never_returns_other_tenant[5-58001e2d-7d20-4c6e-923f-dcc58b9fc8e1] PASSED [  2%]
+tests/test_retrieval_isolation.py::test_retrieve_never_returns_other_tenant[5-2eb6e052-abe5-4d46-9c96-7de08519a7ec] PASSED [  4%]
+tests/test_retrieval_isolation.py::test_retrieve_never_returns_other_tenant[50-58001e2d-7d20-4c6e-923f-dcc58b9fc8e1] PASSED [  7%]
+tests/test_retrieval_isolation.py::test_retrieve_never_returns_other_tenant[50-2eb6e052-abe5-4d46-9c96-7de08519a7ec] PASSED [  9%]
+tests/test_retrieval_isolation.py::test_retrieve_rejects_missing_or_malformed_tenant[None] PASSED [ 12%]
+tests/test_retrieval_isolation.py::test_retrieve_rejects_missing_or_malformed_tenant[] PASSED [ 14%]
+tests/test_retrieval_isolation.py::test_retrieve_rejects_missing_or_malformed_tenant[not-a-uuid] PASSED [ 17%]
+tests/test_retrieval_isolation.py::test_tenant_does_not_leak_across_transactions PASSED [ 19%]
+tests/test_retrieval_isolation.py::test_concurrent_tenants PASSED        [ 21%]
+tests/test_retrieval_isolation.py::test_no_tenant_means_no_rows[documents] PASSED [ 24%]
+tests/test_retrieval_isolation.py::test_no_tenant_means_no_rows[vector_embeddings] PASSED [ 26%]
+tests/test_retrieval_isolation.py::test_no_tenant_means_no_rows[conversations] PASSED [ 29%]
+tests/test_retrieval_isolation.py::test_no_tenant_means_no_rows[checkpoints] PASSED [ 31%]
+tests/test_retrieval_isolation.py::test_no_tenant_means_no_rows[checkpoint_blobs] PASSED [ 34%]
+tests/test_retrieval_isolation.py::test_no_tenant_means_no_rows[checkpoint_writes] PASSED [ 36%]
+tests/test_retrieval_isolation.py::test_raw_select_sees_only_own_rows[documents] PASSED [ 39%]
+tests/test_retrieval_isolation.py::test_raw_select_sees_only_own_rows[vector_embeddings] PASSED [ 41%]
+tests/test_retrieval_isolation.py::test_raw_select_sees_only_own_rows[conversations] PASSED [ 43%]
+tests/test_retrieval_isolation.py::test_checkpoint_tables_see_only_own_threads[checkpoints] PASSED [ 46%]
+tests/test_retrieval_isolation.py::test_checkpoint_tables_see_only_own_threads[checkpoint_blobs] PASSED [ 48%]
+tests/test_retrieval_isolation.py::test_checkpoint_tables_see_only_own_threads[checkpoint_writes] PASSED [ 51%]
+tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[documents] PASSED [ 53%]
+tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[vector_embeddings] PASSED [ 56%]
+tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[conversations] PASSED [ 58%]
+tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[checkpoints on B's thread] PASSED [ 60%]
+tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[checkpoints on no thread] PASSED [ 63%]
+tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[checkpoint_blobs on B's thread] PASSED [ 65%]
+tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[checkpoint_writes on B's thread] PASSED [ 68%]
+tests/test_retrieval_isolation.py::test_embedding_cannot_point_at_other_tenants_document PASSED [ 70%]
+tests/test_retrieval_isolation.py::test_cannot_update_or_delete_other_tenants_rows[documents] PASSED [ 73%]
+tests/test_retrieval_isolation.py::test_cannot_update_or_delete_other_tenants_rows[vector_embeddings] PASSED [ 75%]
+tests/test_retrieval_isolation.py::test_cannot_update_or_delete_other_tenants_rows[conversations] PASSED [ 78%]
+tests/test_retrieval_isolation.py::test_cannot_update_or_delete_other_tenants_rows[checkpoints] PASSED [ 80%]
+tests/test_retrieval_isolation.py::test_cannot_update_or_delete_other_tenants_rows[checkpoint_blobs] PASSED [ 82%]
+tests/test_retrieval_isolation.py::test_cannot_update_or_delete_other_tenants_rows[checkpoint_writes] PASSED [ 85%]
+tests/test_retrieval_isolation.py::test_app_role_cannot_truncate[documents] PASSED [ 87%]
+tests/test_retrieval_isolation.py::test_app_role_cannot_truncate[vector_embeddings] PASSED [ 90%]
+tests/test_retrieval_isolation.py::test_app_role_cannot_truncate[conversations] PASSED [ 92%]
+tests/test_retrieval_isolation.py::test_app_role_cannot_truncate[checkpoints] PASSED [ 95%]
+tests/test_retrieval_isolation.py::test_app_role_cannot_truncate[checkpoint_blobs] PASSED [ 97%]
+tests/test_retrieval_isolation.py::test_app_role_cannot_truncate[checkpoint_writes] PASSED [100%]
+
+============================= 41 passed in 14.17s ==============================

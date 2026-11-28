@@ -1,0 +1,42 @@
+tenant 00000000-0000-0000-0000-000000000001: status counts {'APPROVED': 265, 'DENIED': 261}; using 261 DENIED claims
+tenant 00000000-0000-0000-0000-000000000002: status counts {'APPROVED': 278, 'DENIED': 246}; using 246 DENIED claims
+after --ids-file: 354 claims
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 10991.31it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[1/20] CLM-000121 ok 10.6s
+[2/20] CLM-000102 ok 10.79s
+[3/20] CLM-000291 ok 6.45s
+[4/20] CLM-000128 ok 7.67s
+[5/20] CLM-000303 ok 7.1s
+[6/20] CLM-000329 ok 6.23s
+[7/20] CLM-000340 ok 6.7s
+[8/20] CLM-000438 ok 6.53s
+[9/20] CLM-000678 ok 6.51s
+[10/20] CLM-000667 ok 6.68s
+[11/20] CLM-000693 ok 6.92s
+[12/20] CLM-000741 ok 6.98s
+[13/20] CLM-000223 ok 6.89s
+[14/20] CLM-000852 ok 8.59s
+[15/20] CLM-000429 ok 7.83s
+[16/20] CLM-000567 ok 7.88s
+[17/20] CLM-000739 ok 5.37s
+[18/20] CLM-000696 ok 6.9s
+[19/20] CLM-000999 ok 6.99s
+[20/20] CLM-000874 ok 7.15s
+
+{
+  "claims": 20,
+  "claims_with_citations": 20,
+  "claims_zero_citations": 0,
+  "claims_error": 0,
+  "citations_total": 20,
+  "citations_grounded": 20,
+  "citation_grounding": 1.0,
+  "claims_fully_grounded_rate": 1.0,
+  "gold_hit_rate": 1.0,
+  "citation_outcomes": {
+    "ok": 20
+  },
+  "llm_wall_p50_s": 6.98
+}
+elapsed 1.2 min, run file: eval/runs/grounding_dev_20261128_014017.json

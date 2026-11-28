@@ -1,0 +1,15 @@
+Test 1: A runs the workflow on its own conversation
+  expected: allowed, got: allowed
+Test 2: A can see its own checkpoints
+  expected: more than 0, got: 3
+Test 3: A tries a thread that has no conversation
+  expected: blocked, got: blocked
+Test 4: B can see A's data
+  expected: 0 checkpoints, got: 0
+  expected: 0 conversations, got: 0
+Test 5: B tries to run the workflow on A's thread
+  expected: blocked, got: blocked
+Test 6: no tenant set
+  expected: 0 checkpoints, got: 0
+  expected: 0 conversations, got: 0
+Cleanup done
