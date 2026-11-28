@@ -1,0 +1,302 @@
+{
+ "context": {
+  "n_ctx": 4096,
+  "total_slots": 4,
+  "per_slot_n_ctx": [
+   4096,
+   4096,
+   4096,
+   4096
+  ],
+  "longest_draft_prompt_tokens": 1784,
+  "per_request_tokens": 2154
+ },
+ "draft_cap": 350,
+ "rounds": 3,
+ "bursts": [
+  {
+   "users": 1,
+   "calls": 3,
+   "ok": 3,
+   "errors": 0,
+   "elapsed_s": 144.9,
+   "draft_calls_per_min": 1.24,
+   "p50": 48.1,
+   "p95": 48.7,
+   "max": 48.7,
+   "slow": 0,
+   "short_prompt": 0,
+   "early_stop_at_length": 0,
+   "walls_by_round": [
+    [
+     48.1
+    ],
+    [
+     48.7
+    ],
+    [
+     48.1
+    ]
+   ],
+   "first_error": null,
+   "requests": [
+    {
+     "ok": true,
+     "wall": 48.050623388000076,
+     "in_tokens": 1769,
+     "out_tokens": 350,
+     "finish_reason": "length",
+     "cache_n": 0,
+     "prefill_ms": 11555.866,
+     "prefill_tps": 153.08242584329034,
+     "decode_ms": 36487.852,
+     "decode_tps": 9.564827219755223,
+     "text": "[Date]\n\nLakeshore Benefits Group\nClaims Determination Notice\nMember ID: PAT-68600\nClaim number: CLM-000413\n\nRe: Appeal of Claim Denial for Services Provided by Westfield Family Practice\n\nDear Claims Determination Team,\n\nI am writing to appeal the denial of my claim for services provided by Westfield Family Practice on January 19-20, 2026. The claim was denied in its entirety, with an amount of $3127.24 denied, citing non-compliance with policy clause CLS-1004.\n\nI respectfully disagree with the denial and believe that the services provided were medically necessary and in line with the policy. According to [CLS-1004], inpatient admission requires proof of clinical deterioration. I would like to request a review of the claim, as I believe that the clinical notes and medical records provided by the provider demonstrate a clear clinical deterioration that justified the inpatient admission.\n\nI would like to request that the plan reviews the claim again, taking into account the clinical notes and medical records provided by the provider. I believe that a re-evaluation of the claim, using staff who were not involved in the original decision, would be beneficial in determining whether the services provided were medically necessary and in line with the policy.\n\nI have attached the supporting documents, including medical records and provider letters, to this appeal. I would appreciate it if the plan could review these documents and consider them in their decision.\n\nI would like to request an expedited review of this appeal, as I need a timely decision to ensure that my medical needs are met. I would appreciate it if the plan could expedite the review process and provide a written decision within 30 days of receiving this appeal.\n\n",
+     "round": 0,
+     "idx": 0
+    },
+    {
+     "ok": true,
+     "wall": 48.67953684899999,
+     "in_tokens": 1763,
+     "out_tokens": 350,
+     "finish_reason": "length",
+     "cache_n": 0,
+     "prefill_ms": 11289.016,
+     "prefill_tps": 156.16950139852756,
+     "decode_ms": 37133.381,
+     "decode_tps": 9.398551669722723,
+     "text": "[Date]\n\nMeridian Mutual Insurance\nClaims Department\n[Address]\n\nRe: Appeal of Claim Number CLM-000418\n\nDear Claims Department,\n\nI am writing to appeal the denial of my claim, CLM-000418, which was denied on November 16, 2026. The claim was denied due to non-compliance with policy clause CLS-1004, which requires proof of clinical deterioration for inpatient admission. I am appealing this decision and providing supporting documentation to demonstrate that the admission was medically necessary.\n\nAs stated in policy clause CLS-2003, a member may ask for a copy of every document, record, and guideline that was relied on in making this decision, free of charge. I am requesting a copy of the clinical notes and medical records that were used to make this decision, as well as any other relevant documentation.\n\nI would like to point out that policy clause CLS-2023 states that services that exceed a stated visit or dollar limit are denied even when they are medically appropriate. However, in this case, the admission was medically necessary and was not excessive. I believe that the denial of this claim is not in line with the policy and that the admission was necessary to treat my condition.\n\nI am attaching the supporting documentation, including medical records and provider letters, to this appeal. I would appreciate it if you could review this documentation and reconsider the denial of my claim.\n\nI would like to request an expedited review of this appeal, as I need the decision sooner for medical reasons. Please let me know if this is possible and if so, what the next steps would be.\n\nThank you for your time and consideration. I look forward to hearing from you soon.\n\nSincerely,\n\n[Your Name",
+     "round": 1,
+     "idx": 0
+    },
+    {
+     "ok": true,
+     "wall": 48.132636149000064,
+     "in_tokens": 1766,
+     "out_tokens": 350,
+     "finish_reason": "length",
+     "cache_n": 0,
+     "prefill_ms": 11300.955,
+     "prefill_tps": 156.26997895310618,
+     "decode_ms": 36577.819,
+     "decode_tps": 9.541301519371617,
+     "text": "[Date]\n\nMeridian Mutual Insurance\nClaims Department\n[Address]\n\nRe: Appeal of Claim Number CLM-000420\n\nDear Claims Department,\n\nI am writing to appeal the denial of my claim, CLM-000420, which was denied on October 23, 2026. The claim was denied due to non-compliance with policy clause CLS-1003, which states that physical therapy is capped at 20 visits per calendar year.\n\nI understand that the policy limits are in place to ensure responsible use of benefits. However, I believe that my case warrants an exception to this limit. I had a severe injury that required extensive physical therapy to recover. The therapy sessions were spaced out over several weeks, and I was making significant progress towards recovery. Unfortunately, I exceeded the 20-visit limit before I was able to fully recover.\n\nI would like to request that the plan review my case and consider an exception to the 20-visit limit. I believe that my medical records and provider letters will support my claim and demonstrate that the therapy was medically necessary and not excessive.\n\nI would like to request an expedited review of my appeal, as I am experiencing ongoing medical issues related to my injury and require a timely resolution.\n\nI have attached the following supporting documents to this appeal:\n\n* Medical records from Westfield Family Practice\n* Provider letters from my physical therapist\n* Receipts for the physical therapy sessions\n\nI would appreciate it if you could review my appeal and provide a written decision within the next 30 days. If the denial is upheld, I would like to request an independent external review at no cost.\n\nThank you for your time and consideration. Please do not hesitate to contact me if you require any additional information.\n\n",
+     "round": 2,
+     "idx": 0
+    }
+   ]
+  },
+  {
+   "users": 2,
+   "calls": 6,
+   "ok": 2,
+   "errors": 4,
+   "elapsed_s": 186.8,
+   "draft_calls_per_min": 0.64,
+   "p50": 67.4,
+   "p95": 67.4,
+   "max": 67.4,
+   "slow": 0,
+   "short_prompt": 0,
+   "early_stop_at_length": 0,
+   "walls_by_round": [
+    [
+     67.4,
+     60.6
+    ],
+    [],
+    []
+   ],
+   "first_error": [
+    500,
+    "{\"error\":{\"code\":500,\"message\":\"Context size has been exceeded.\",\"type\":\"server_error\"}}"
+   ],
+   "requests": [
+    {
+     "ok": true,
+     "wall": 67.44116853900005,
+     "in_tokens": 1753,
+     "out_tokens": 347,
+     "finish_reason": "stop",
+     "cache_n": 0,
+     "prefill_ms": 12933.983,
+     "prefill_tps": 135.5344289535559,
+     "decode_ms": 54250.819,
+     "decode_tps": 6.3777839003683985,
+     "text": "[Date]\n\nLakeshore Benefits Group\nClaims Determination Notice\nMember ID: PAT-83297\nClaim number: CLM-000414\n\nRe: Appeal of Claim Denial for Advanced Imaging Services\n\nDear Claims Review Committee,\n\nI am writing to appeal the denial of my claim for advanced imaging services provided by Eastgate Orthopedic Clinic on June 8-12, 2026. The claim was denied due to non-compliance with policy clause CLS-1002, which requires prior authorization within 48 hours for advanced imaging services.\n\nI understand that the plan requires prior authorization for advanced imaging services, and I acknowledge that the services were not authorized prior to the 48-hour window. However, I would like to request reconsideration of the denial based on the following:\n\n* The services were medically necessary and were provided to treat my condition.\n* The provider submitted the claim in a timely manner, and the delay in authorization was not due to any fault on their part.\n* I am not aware of any other policy clauses that would preclude coverage for these services.\n\nI am submitting this appeal in writing, as required by policy clause CLS-1002, and I am attaching supporting documents, including medical records and provider letters, to support my appeal.\n\nI would appreciate it if the Claims Review Committee could reconsider the denial of my claim and provide a written decision within the required 30-day timeframe. If the denial is upheld, I may request an expedited review by telephone or an independent external review at no cost.\n\nThank you for your time and consideration. Please do not hesitate to contact me if you require any additional information.\n\nSincerely,\n\n[Your Name]\nMember ID: PAT-83297",
+     "round": 0,
+     "idx": 0
+    },
+    {
+     "ok": true,
+     "wall": 60.5767541969999,
+     "in_tokens": 1776,
+     "out_tokens": 282,
+     "finish_reason": "stop",
+     "cache_n": 0,
+     "prefill_ms": 22622.752,
+     "prefill_tps": 78.50503776021591,
+     "decode_ms": 37694.108,
+     "decode_tps": 7.4547459778063985,
+     "text": "[Date]\n\nMeridian Mutual Insurance\nClaims Department\n[Address]\n\nRe: Appeal of Claim Number CLM-000128\n\nDear Claims Department,\n\nI am writing to appeal the denial of my claim, CLM-000128, which was denied on November 9, 2026. The claim was denied due to non-compliance with policy clause CLS-1001, which excludes experimental procedures from coverage.\n\nI understand that the policy clause CLS-1001 states that experimental procedures are strictly excluded from coverage. However, I would like to request that the claim be re-reviewed to determine if the procedure in question was medically necessary and not experimental. I believe that the procedure was medically necessary and should be covered under my policy.\n\nI would like to provide additional information and supporting documents to support my appeal. I have attached medical records and provider letters that demonstrate the medical necessity of the procedure. I believe that these documents will help to support my appeal and demonstrate that the procedure was not experimental.\n\nI would appreciate it if you could reconsider the denial of my claim and provide a written decision within thirty days of receiving this appeal. If the denial is upheld, I may request an expedited review by telephone or an independent external review at no cost.\n\nThank you for your time and consideration. I look forward to hearing from you soon.\n\nSincerely,\n\n[Your Name]\n\nMember ID: PAT-33780",
+     "round": 0,
+     "idx": 1
+    },
+    {
+     "ok": false,
+     "wall": 60.691903938999985,
+     "status": 500,
+     "error": "{\"error\":{\"code\":500,\"message\":\"Context size has been exceeded.\",\"type\":\"server_error\"}}",
+     "round": 1,
+     "idx": 0
+    },
+    {
+     "ok": false,
+     "wall": 60.691265308000084,
+     "status": 500,
+     "error": "{\"error\":{\"code\":500,\"message\":\"Context size has been exceeded.\",\"type\":\"server_error\"}}",
+     "round": 1,
+     "idx": 1
+    },
+    {
+     "ok": false,
+     "wall": 58.71223813500001,
+     "status": 500,
+     "error": "{\"error\":{\"code\":500,\"message\":\"Context size has been exceeded.\",\"type\":\"server_error\"}}",
+     "round": 2,
+     "idx": 0
+    },
+    {
+     "ok": false,
+     "wall": 58.71163294799999,
+     "status": 500,
+     "error": "{\"error\":{\"code\":500,\"message\":\"Context size has been exceeded.\",\"type\":\"server_error\"}}",
+     "round": 2,
+     "idx": 1
+    }
+   ]
+  },
+  {
+   "users": 4,
+   "calls": 12,
+   "ok": 0,
+   "errors": 12,
+   "elapsed_s": 77.0,
+   "draft_calls_per_min": 0.0,
+   "p50": null,
+   "p95": null,
+   "max": null,
+   "slow": 0,
+   "short_prompt": 0,
+   "early_stop_at_length": 0,
+   "walls_by_round": [
+    [],
+    [],
+    []
+   ],
+   "first_error": [
+    500,
+    "{\"error\":{\"code\":500,\"message\":\"Context size has been exceeded.\",\"type\":\"server_error\"}}"
+   ],
+   "requests": [
+    {
+     "ok": false,
+     "wall": 25.477612673000067,
+     "status": 500,
+     "error": "{\"error\":{\"code\":500,\"message\":\"Context size has been exceeded.\",\"type\":\"server_error\"}}",
+     "round": 0,
+     "idx": 0
+    },
+    {
+     "ok": false,
+     "wall": 25.475938273999873,
+     "status": 500,
+     "error": "{\"error\":{\"code\":500,\"message\":\"Context size has been exceeded.\",\"type\":\"server_error\"}}",
+     "round": 0,
+     "idx": 1
+    },
+    {
+     "ok": false,
+     "wall": 25.474274212999944,
+     "status": 500,
+     "error": "{\"error\":{\"code\":500,\"message\":\"Context size has been exceeded.\",\"type\":\"server_error\"}}",
+     "round": 0,
+     "idx": 2
+    },
+    {
+     "ok": false,
+     "wall": 25.474248323999973,
+     "status": 500,
+     "error": "{\"error\":{\"code\":500,\"message\":\"Context size has been exceeded.\",\"type\":\"server_error\"}}",
+     "round": 0,
+     "idx": 3
+    },
+    {
+     "ok": false,
+     "wall": 26.01266859600014,
+     "status": 500,
+     "error": "{\"error\":{\"code\":500,\"message\":\"Context size has been exceeded.\",\"type\":\"server_error\"}}",
+     "round": 1,
+     "idx": 0
+    },
+    {
+     "ok": false,
+     "wall": 26.010103900000104,
+     "status": 500,
+     "error": "{\"error\":{\"code\":500,\"message\":\"Context size has been exceeded.\",\"type\":\"server_error\"}}",
+     "round": 1,
+     "idx": 1
+    },
+    {
+     "ok": false,
+     "wall": 26.01025191000008,
+     "status": 500,
+     "error": "{\"error\":{\"code\":500,\"message\":\"Context size has been exceeded.\",\"type\":\"server_error\"}}",
+     "round": 1,
+     "idx": 2
+    },
+    {
+     "ok": false,
+     "wall": 26.009598259999848,
+     "status": 500,
+     "error": "{\"error\":{\"code\":500,\"message\":\"Context size has been exceeded.\",\"type\":\"server_error\"}}",
+     "round": 1,
+     "idx": 3
+    },
+    {
+     "ok": false,
+     "wall": 25.46983541199984,
+     "status": 500,
+     "error": "{\"error\":{\"code\":500,\"message\":\"Context size has been exceeded.\",\"type\":\"server_error\"}}",
+     "round": 2,
+     "idx": 0
+    },
+    {
+     "ok": false,
+     "wall": 25.46897557500006,
+     "status": 500,
+     "error": "{\"error\":{\"code\":500,\"message\":\"Context size has been exceeded.\",\"type\":\"server_error\"}}",
+     "round": 2,
+     "idx": 1
+    },
+    {
+     "ok": false,
+     "wall": 25.466438962999973,
+     "status": 500,
+     "error": "{\"error\":{\"code\":500,\"message\":\"Context size has been exceeded.\",\"type\":\"server_error\"}}",
+     "round": 2,
+     "idx": 2
+    },
+    {
+     "ok": false,
+     "wall": 25.467385041999933,
+     "status": 500,
+     "error": "{\"error\":{\"code\":500,\"message\":\"Context size has been exceeded.\",\"type\":\"server_error\"}}",
+     "round": 2,
+     "idx": 3
+    }
+   ]
+  }
+ ]
+}
