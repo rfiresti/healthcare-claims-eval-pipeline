@@ -1,0 +1,27 @@
+{
+  "policy_id": "POL-01001",
+  "payer_name": "Claims Eval Synthetic Plan",
+  "effective_date": "2026-01-01",
+  "clauses": [
+    {
+      "clause_id": "CLS-1001",
+      "category": "Exclusion",
+      "clause_text": "Experimental procedures are strictly excluded from coverage."
+    },
+    {
+      "clause_id": "CLS-1002",
+      "category": "PreAuth",
+      "clause_text": "Advanced imaging requires prior authorization within 48 hours."
+    },
+    {
+      "clause_id": "CLS-1003",
+      "category": "Limitation",
+      "clause_text": "Physical therapy capped at 20 visits per calendar year."
+    },
+    {
+      "clause_id": "CLS-1004",
+      "category": "MedicalNecessity",
+      "clause_text": "Inpatient admission requires proof of clinical deterioration."
+    }
+  ]
+}
