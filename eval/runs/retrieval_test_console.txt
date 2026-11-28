@@ -1,0 +1,141 @@
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'sentence-transformers/all-MiniLM-L6-v2'.
+claims and labels are read as: ADMIN_DB_URI; retrieval runs as: app_user
+
+=== tenant 00000000-0000-0000-0000-000000000001 ===
+claim_status values: {'APPROVED': 265, 'DENIED': 261}
+claims in eval/test_ids.txt: 79
+denied claims scored: 79; distinct ground-truth clauses: 4 ['CLS-1001', 'CLS-1002', 'CLS-1003', 'CLS-1004']
+clause_ids visible in vector_embeddings: 28 ['CLS-1001', 'CLS-1002', 'CLS-1003', 'CLS-1004', 'CLS-2001', 'CLS-2002', 'CLS-2003', 'CLS-2004']; ground-truth ids not loaded: 0
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 1186.10it/s]
+
+variant            n      R@1      R@2      R@3      R@5     MRR
+hybrid            79    97.5%   100.0%   100.0%   100.0%   0.987
+vector only       79    96.2%    98.7%   100.0%   100.0%   0.979
+keyword only      79    87.3%    97.5%    97.5%   100.0%   0.929
+
+hybrid Recall@5 = 100.0% vs target 85%: PASS
+by category (hybrid):
+  Exclusion          n=25   R@1  92.0%  R@5 100.0%
+  Limitation         n=18   R@1 100.0%  R@5 100.0%
+  MedicalNecessity   n=18   R@1 100.0%  R@5 100.0%
+  PreAuth            n=18   R@1 100.0%  R@5 100.0%
+misses at k=5 (hybrid): 0
+
+=== tenant 00000000-0000-0000-0000-000000000002 ===
+claim_status values: {'APPROVED': 278, 'DENIED': 246}
+claims in eval/test_ids.txt: 74
+denied claims scored: 74; distinct ground-truth clauses: 4 ['CLS-1001', 'CLS-1002', 'CLS-1003', 'CLS-1004']
+clause_ids visible in vector_embeddings: 28 ['CLS-1001', 'CLS-1002', 'CLS-1003', 'CLS-1004', 'CLS-2001', 'CLS-2002', 'CLS-2003', 'CLS-2004']; ground-truth ids not loaded: 0
+
+variant            n      R@1      R@2      R@3      R@5     MRR
+hybrid            74    98.7%   100.0%   100.0%   100.0%   0.993
+vector only       74    98.7%    98.7%   100.0%   100.0%   0.991
+keyword only      74    85.1%    90.5%    97.3%   100.0%   0.907
+
+hybrid Recall@5 = 100.0% vs target 85%: PASS
+by category (hybrid):
+  Exclusion          n=20   R@1  95.0%  R@5 100.0%
+  Limitation         n=19   R@1 100.0%  R@5 100.0%
+  MedicalNecessity   n=15   R@1 100.0%  R@5 100.0%
+  PreAuth            n=20   R@1 100.0%  R@5 100.0%
+misses at k=5 (hybrid): 0
+
+Wrote eval/runs/retrieval_test_paraphrase_20261124-192022.json
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'sentence-transformers/all-MiniLM-L6-v2'.
+claims and labels are read as: ADMIN_DB_URI; retrieval runs as: app_user
+
+=== tenant 00000000-0000-0000-0000-000000000001 ===
+claim_status values: {'APPROVED': 265, 'DENIED': 261}
+claims in eval/test_ids.txt: 79
+denied claims scored: 79; distinct ground-truth clauses: 4 ['CLS-1001', 'CLS-1002', 'CLS-1003', 'CLS-1004']
+clause_ids visible in vector_embeddings: 28 ['CLS-1001', 'CLS-1002', 'CLS-1003', 'CLS-1004', 'CLS-2001', 'CLS-2002', 'CLS-2003', 'CLS-2004']; ground-truth ids not loaded: 0
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 4296.76it/s]
+
+variant            n      R@1      R@2      R@3      R@5     MRR
+hybrid            79   100.0%   100.0%   100.0%   100.0%   1.000
+vector only       79   100.0%   100.0%   100.0%   100.0%   1.000
+keyword only      79   100.0%   100.0%   100.0%   100.0%   1.000
+
+hybrid Recall@5 = 100.0% vs target 85%: PASS
+by category (hybrid):
+  Exclusion          n=25   R@1 100.0%  R@5 100.0%
+  Limitation         n=18   R@1 100.0%  R@5 100.0%
+  MedicalNecessity   n=18   R@1 100.0%  R@5 100.0%
+  PreAuth            n=18   R@1 100.0%  R@5 100.0%
+misses at k=5 (hybrid): 0
+
+=== tenant 00000000-0000-0000-0000-000000000002 ===
+claim_status values: {'APPROVED': 278, 'DENIED': 246}
+claims in eval/test_ids.txt: 74
+denied claims scored: 74; distinct ground-truth clauses: 4 ['CLS-1001', 'CLS-1002', 'CLS-1003', 'CLS-1004']
+clause_ids visible in vector_embeddings: 28 ['CLS-1001', 'CLS-1002', 'CLS-1003', 'CLS-1004', 'CLS-2001', 'CLS-2002', 'CLS-2003', 'CLS-2004']; ground-truth ids not loaded: 0
+
+variant            n      R@1      R@2      R@3      R@5     MRR
+hybrid            74   100.0%   100.0%   100.0%   100.0%   1.000
+vector only       74   100.0%   100.0%   100.0%   100.0%   1.000
+keyword only      74   100.0%   100.0%   100.0%   100.0%   1.000
+
+hybrid Recall@5 = 100.0% vs target 85%: PASS
+by category (hybrid):
+  Exclusion          n=20   R@1 100.0%  R@5 100.0%
+  Limitation         n=19   R@1 100.0%  R@5 100.0%
+  MedicalNecessity   n=15   R@1 100.0%  R@5 100.0%
+  PreAuth            n=20   R@1 100.0%  R@5 100.0%
+misses at k=5 (hybrid): 0
+
+Wrote eval/runs/retrieval_test_both_20261124-192041.json
+Caveat: the denial text repeats the gold clause word for word, so --query both is an upper bound.
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'sentence-transformers/all-MiniLM-L6-v2'.
+claims and labels are read as: ADMIN_DB_URI; retrieval runs as: app_user
+
+=== tenant 00000000-0000-0000-0000-000000000001 ===
+claim_status values: {'APPROVED': 265, 'DENIED': 261}
+claims in eval/test_ids.txt: 79
+denied claims scored: 79; distinct ground-truth clauses: 4 ['CLS-1001', 'CLS-1002', 'CLS-1003', 'CLS-1004']
+clause_ids visible in vector_embeddings: 28 ['CLS-1001', 'CLS-1002', 'CLS-1003', 'CLS-1004', 'CLS-2001', 'CLS-2002', 'CLS-2003', 'CLS-2004']; ground-truth ids not loaded: 0
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 4337.13it/s]
+
+variant            n      R@1      R@2      R@3      R@5     MRR
+hybrid            79     0.0%     0.0%    31.6%    31.6%   0.105
+vector only       79     0.0%     0.0%    31.6%    31.6%   0.105
+keyword only      79     0.0%     0.0%     0.0%    22.8%   0.046
+
+hybrid Recall@5 = 31.6% vs target 85%: BELOW TARGET
+by category (hybrid):
+  Exclusion          n=25   R@1   0.0%  R@5 100.0%
+  Limitation         n=18   R@1   0.0%  R@5   0.0%
+  MedicalNecessity   n=18   R@1   0.0%  R@5   0.0%
+  PreAuth            n=18   R@1   0.0%  R@5   0.0%
+misses at k=5 (hybrid): 54
+  CLM-000024 wanted CLS-1003, got ['CLS-2006', 'CLS-2005', 'CLS-1001', 'CLS-2002', 'CLS-2001']
+  CLM-000072 wanted CLS-1004, got ['CLS-2006', 'CLS-2005', 'CLS-1001', 'CLS-2002', 'CLS-2001']
+  CLM-000086 wanted CLS-1004, got ['CLS-2006', 'CLS-2005', 'CLS-1001', 'CLS-2002', 'CLS-2001']
+  CLM-000114 wanted CLS-1002, got ['CLS-2006', 'CLS-2005', 'CLS-1001', 'CLS-2002', 'CLS-2001']
+  CLM-000129 wanted CLS-1003, got ['CLS-2006', 'CLS-2005', 'CLS-1001', 'CLS-2002', 'CLS-2001']
+
+=== tenant 00000000-0000-0000-0000-000000000002 ===
+claim_status values: {'APPROVED': 278, 'DENIED': 246}
+claims in eval/test_ids.txt: 74
+denied claims scored: 74; distinct ground-truth clauses: 4 ['CLS-1001', 'CLS-1002', 'CLS-1003', 'CLS-1004']
+clause_ids visible in vector_embeddings: 28 ['CLS-1001', 'CLS-1002', 'CLS-1003', 'CLS-1004', 'CLS-2001', 'CLS-2002', 'CLS-2003', 'CLS-2004']; ground-truth ids not loaded: 0
+
+variant            n      R@1      R@2      R@3      R@5     MRR
+hybrid            74     0.0%     0.0%    27.0%    27.0%   0.090
+vector only       74     0.0%     0.0%    27.0%    27.0%   0.090
+keyword only      74     0.0%     0.0%     0.0%     0.0%   0.000
+
+hybrid Recall@5 = 27.0% vs target 85%: BELOW TARGET
+by category (hybrid):
+  Exclusion          n=20   R@1   0.0%  R@5 100.0%
+  Limitation         n=19   R@1   0.0%  R@5   0.0%
+  MedicalNecessity   n=15   R@1   0.0%  R@5   0.0%
+  PreAuth            n=20   R@1   0.0%  R@5   0.0%
+misses at k=5 (hybrid): 54
+  CLM-000041 wanted CLS-1003, got ['CLS-2006', 'CLS-2005', 'CLS-1001', 'CLS-2002', 'CLS-2001']
+  CLM-000068 wanted CLS-1003, got ['CLS-2006', 'CLS-2005', 'CLS-1001', 'CLS-2002', 'CLS-2001']
+  CLM-000112 wanted CLS-1003, got ['CLS-2006', 'CLS-2005', 'CLS-1001', 'CLS-2002', 'CLS-2001']
+  CLM-000127 wanted CLS-1003, got ['CLS-2006', 'CLS-2005', 'CLS-1001', 'CLS-2002', 'CLS-2001']
+  CLM-000138 wanted CLS-1003, got ['CLS-2006', 'CLS-2005', 'CLS-1001', 'CLS-2002', 'CLS-2001']
+
+Wrote eval/runs/retrieval_test_reason_20261124-192053.json
+Caveat: with clause IDs removed every reason query is the same string, so --query reason is a floor.

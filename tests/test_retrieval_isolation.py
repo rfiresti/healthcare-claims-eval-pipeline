@@ -1,4 +1,4 @@
-"""Tenant-isolation tests for retrieval and row-level security (Week 4, Task 4). Run with:
+"""Tenant-isolation tests for retrieval and row-level security (Week 4). Run with:
 
     ADMIN_DB_URI=... APP_DB_URI=... pytest -v -m isolation --junitxml=eval/isolation_report.xml
 

@@ -1,0 +1,564 @@
+FFFF...FFFFFFFFFFFFFFFFFFFFF.FFFFFFFFFFFF                                [100%]
+=================================== FAILURES ===================================
+_ test_retrieve_never_returns_other_tenant[5-22cb3dcb-737a-4a7a-9e0d-0866a7242784] _
+
+me = '22cb3dcb-737a-4a7a-9e0d-0866a7242784', k = 5
+
+    @pytest.mark.parametrize("me", [A, B])
+    @pytest.mark.parametrize("k", [5, 50])
+    def test_retrieve_never_returns_other_tenant(me, k):
+        with app() as conn:
+            res = retrieve.retrieve(conn, me, MARK[OTHER[me]] + " coverage exclusion", k=k)
+        assert len(res) == N_CHUNKS, "expected exactly the caller's own %d chunks, got %d" % (N_CHUNKS, len(res))
+>       assert all(MARK[OTHER[me]] not in r["text"] for r in res)
+E       assert False
+E        +  where False = all(<generator object test_retrieve_never_returns_other_tenant.<locals>.<genexpr> at 0x773c3049d2a0>)
+
+tests/test_retrieval_isolation.py:114: AssertionError
+---------------------------- Captured stderr setup -----------------------------
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'sentence-transformers/all-MiniLM-L6-v2'.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 4516.84it/s]
+------------------------------ Captured log setup ------------------------------
+WARNING  huggingface_hub.hf_api:hf_api.py:3662 Could not reach the Hub (Cannot reach https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'sentence-transformers/all-MiniLM-L6-v2'.
+_ test_retrieve_never_returns_other_tenant[5-92d711fb-00d0-4ebe-91c5-21cd14594cf8] _
+
+me = '92d711fb-00d0-4ebe-91c5-21cd14594cf8', k = 5
+
+    @pytest.mark.parametrize("me", [A, B])
+    @pytest.mark.parametrize("k", [5, 50])
+    def test_retrieve_never_returns_other_tenant(me, k):
+        with app() as conn:
+            res = retrieve.retrieve(conn, me, MARK[OTHER[me]] + " coverage exclusion", k=k)
+        assert len(res) == N_CHUNKS, "expected exactly the caller's own %d chunks, got %d" % (N_CHUNKS, len(res))
+>       assert all(MARK[OTHER[me]] not in r["text"] for r in res)
+E       assert False
+E        +  where False = all(<generator object test_retrieve_never_returns_other_tenant.<locals>.<genexpr> at 0x773c303cf4c0>)
+
+tests/test_retrieval_isolation.py:114: AssertionError
+_ test_retrieve_never_returns_other_tenant[50-22cb3dcb-737a-4a7a-9e0d-0866a7242784] _
+
+me = '22cb3dcb-737a-4a7a-9e0d-0866a7242784', k = 50
+
+    @pytest.mark.parametrize("me", [A, B])
+    @pytest.mark.parametrize("k", [5, 50])
+    def test_retrieve_never_returns_other_tenant(me, k):
+        with app() as conn:
+            res = retrieve.retrieve(conn, me, MARK[OTHER[me]] + " coverage exclusion", k=k)
+>       assert len(res) == N_CHUNKS, "expected exactly the caller's own %d chunks, got %d" % (N_CHUNKS, len(res))
+E       AssertionError: expected exactly the caller's own 5 chunks, got 23
+E       assert 23 == 5
+E        +  where 23 = len([{'clause_id': 'ISO-92d711fb-0', 'text': 'Clause 0: coverage exclusion TENANT-B-CANARY-2m8x', 'score': 0.0204257006874...d': 'ISO-22cb3dcb-0', 'text': 'Clause 0: coverage exclusion TENANT-A-CANARY-9f3k', 'score': 0.018882858435097242}, ...])
+
+tests/test_retrieval_isolation.py:113: AssertionError
+_ test_retrieve_never_returns_other_tenant[50-92d711fb-00d0-4ebe-91c5-21cd14594cf8] _
+
+me = '92d711fb-00d0-4ebe-91c5-21cd14594cf8', k = 50
+
+    @pytest.mark.parametrize("me", [A, B])
+    @pytest.mark.parametrize("k", [5, 50])
+    def test_retrieve_never_returns_other_tenant(me, k):
+        with app() as conn:
+            res = retrieve.retrieve(conn, me, MARK[OTHER[me]] + " coverage exclusion", k=k)
+>       assert len(res) == N_CHUNKS, "expected exactly the caller's own %d chunks, got %d" % (N_CHUNKS, len(res))
+E       AssertionError: expected exactly the caller's own 5 chunks, got 23
+E       assert 23 == 5
+E        +  where 23 = len([{'clause_id': 'ISO-22cb3dcb-0', 'text': 'Clause 0: coverage exclusion TENANT-A-CANARY-9f3k', 'score': 0.0204257006874...d': 'ISO-92d711fb-3', 'text': 'Clause 3: coverage exclusion TENANT-B-CANARY-2m8x', 'score': 0.018774703557312252}, ...])
+
+tests/test_retrieval_isolation.py:113: AssertionError
+________________ test_tenant_does_not_leak_across_transactions _________________
+
+    def test_tenant_does_not_leak_across_transactions():
+        with app() as conn:
+            retrieve.retrieve(conn, A, "coverage exclusion", k=5)          # its transaction has ended
+            with conn.transaction(), conn.cursor() as cur:                  # no tenant set now
+                cur.execute("SELECT count(*) FROM vector_embeddings")
+>               assert cur.fetchone()[0] == 0
+E               assert 70 == 0
+
+tests/test_retrieval_isolation.py:129: AssertionError
+___________________________ test_concurrent_tenants ____________________________
+
+    def test_concurrent_tenants():
+        with ThreadPoolExecutor(8) as ex:
+            futs = [ex.submit(_hammer, A) for _ in range(4)] + [ex.submit(_hammer, B) for _ in range(4)]
+>           assert all(f.result() for f in futs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_retrieval_isolation.py:143: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_retrieval_isolation.py:143: in <genexpr>
+    assert all(f.result() for f in futs)
+               ^^^^^^^^^^
+/usr/lib/python3.12/concurrent/futures/_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+/usr/lib/python3.12/concurrent/futures/_base.py:401: in __get_result
+    raise self._exception
+/usr/lib/python3.12/concurrent/futures/thread.py:58: in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+me = '22cb3dcb-737a-4a7a-9e0d-0866a7242784', n = 100
+
+    def _hammer(me, n=100):
+        with app() as conn:
+            for _ in range(n):
+                res = retrieve.retrieve(conn, me, "coverage exclusion", k=5)
+>               assert res and all(MARK[OTHER[me]] not in r["text"] for r in res)
+E               AssertionError: assert ([{'clause_id': 'ISO-22cb3dcb-2', 'text': 'Clause 2: coverage exclusion TENANT-A-CANARY-9f3k', 'score': 0.0200699132111...use_id': 'ISO-22cb3dcb-1', 'text': 'Clause 1: coverage exclusion TENANT-A-CANARY-9f3k', 'score': 0.019196428571428573}] and False)
+E                +  where False = all(<generator object _hammer.<locals>.<genexpr> at 0x773c30153220>)
+
+tests/test_retrieval_isolation.py:136: AssertionError
+___________________ test_no_tenant_means_no_rows[documents] ____________________
+
+table = 'documents'
+
+    @pytest.mark.parametrize("table", ALL_TABLES)
+    def test_no_tenant_means_no_rows(table):
+        with app() as conn, conn.transaction(), conn.cursor() as cur:
+            cur.execute(f"SELECT count(*) FROM {table}")
+>           assert cur.fetchone()[0] == 0
+E           assert 11 == 0
+
+tests/test_retrieval_isolation.py:152: AssertionError
+_______________ test_no_tenant_means_no_rows[vector_embeddings] ________________
+
+table = 'vector_embeddings'
+
+    @pytest.mark.parametrize("table", ALL_TABLES)
+    def test_no_tenant_means_no_rows(table):
+        with app() as conn, conn.transaction(), conn.cursor() as cur:
+            cur.execute(f"SELECT count(*) FROM {table}")
+>           assert cur.fetchone()[0] == 0
+E           assert 70 == 0
+
+tests/test_retrieval_isolation.py:152: AssertionError
+_________________ test_no_tenant_means_no_rows[conversations] __________________
+
+table = 'conversations'
+
+    @pytest.mark.parametrize("table", ALL_TABLES)
+    def test_no_tenant_means_no_rows(table):
+        with app() as conn, conn.transaction(), conn.cursor() as cur:
+            cur.execute(f"SELECT count(*) FROM {table}")
+>           assert cur.fetchone()[0] == 0
+E           assert 3 == 0
+
+tests/test_retrieval_isolation.py:152: AssertionError
+__________________ test_no_tenant_means_no_rows[checkpoints] ___________________
+
+table = 'checkpoints'
+
+    @pytest.mark.parametrize("table", ALL_TABLES)
+    def test_no_tenant_means_no_rows(table):
+        with app() as conn, conn.transaction(), conn.cursor() as cur:
+            cur.execute(f"SELECT count(*) FROM {table}")
+>           assert cur.fetchone()[0] == 0
+E           assert 2 == 0
+
+tests/test_retrieval_isolation.py:152: AssertionError
+________________ test_no_tenant_means_no_rows[checkpoint_blobs] ________________
+
+table = 'checkpoint_blobs'
+
+    @pytest.mark.parametrize("table", ALL_TABLES)
+    def test_no_tenant_means_no_rows(table):
+        with app() as conn, conn.transaction(), conn.cursor() as cur:
+            cur.execute(f"SELECT count(*) FROM {table}")
+>           assert cur.fetchone()[0] == 0
+E           assert 2 == 0
+
+tests/test_retrieval_isolation.py:152: AssertionError
+_______________ test_no_tenant_means_no_rows[checkpoint_writes] ________________
+
+table = 'checkpoint_writes'
+
+    @pytest.mark.parametrize("table", ALL_TABLES)
+    def test_no_tenant_means_no_rows(table):
+        with app() as conn, conn.transaction(), conn.cursor() as cur:
+            cur.execute(f"SELECT count(*) FROM {table}")
+>           assert cur.fetchone()[0] == 0
+E           assert 2 == 0
+
+tests/test_retrieval_isolation.py:152: AssertionError
+________________ test_raw_select_sees_only_own_rows[documents] _________________
+
+table = 'documents'
+
+    @pytest.mark.parametrize("table", TENANT_TABLES)
+    def test_raw_select_sees_only_own_rows(table):
+        with app() as conn, conn.transaction():
+            cur = as_tenant(conn, A)
+            cur.execute(f"SELECT count(*) FROM {table} WHERE tenant_id <> %s", (A,))
+>           assert cur.fetchone()[0] == 0
+E           assert 10 == 0
+
+tests/test_retrieval_isolation.py:160: AssertionError
+____________ test_raw_select_sees_only_own_rows[vector_embeddings] _____________
+
+table = 'vector_embeddings'
+
+    @pytest.mark.parametrize("table", TENANT_TABLES)
+    def test_raw_select_sees_only_own_rows(table):
+        with app() as conn, conn.transaction():
+            cur = as_tenant(conn, A)
+            cur.execute(f"SELECT count(*) FROM {table} WHERE tenant_id <> %s", (A,))
+>           assert cur.fetchone()[0] == 0
+E           assert 65 == 0
+
+tests/test_retrieval_isolation.py:160: AssertionError
+______________ test_raw_select_sees_only_own_rows[conversations] _______________
+
+table = 'conversations'
+
+    @pytest.mark.parametrize("table", TENANT_TABLES)
+    def test_raw_select_sees_only_own_rows(table):
+        with app() as conn, conn.transaction():
+            cur = as_tenant(conn, A)
+            cur.execute(f"SELECT count(*) FROM {table} WHERE tenant_id <> %s", (A,))
+>           assert cur.fetchone()[0] == 0
+E           assert 2 == 0
+
+tests/test_retrieval_isolation.py:160: AssertionError
+___________ test_checkpoint_tables_see_only_own_threads[checkpoints] ___________
+
+table = 'checkpoints'
+
+    @pytest.mark.parametrize("table", THREAD_TABLES)
+    def test_checkpoint_tables_see_only_own_threads(table):
+        with app() as conn, conn.transaction():
+            cur = as_tenant(conn, A)
+            cur.execute(f"SELECT count(*) FROM {table} WHERE thread_id = %s", (THREAD[B],))
+>           assert cur.fetchone()[0] == 0
+E           assert 1 == 0
+
+tests/test_retrieval_isolation.py:171: AssertionError
+________ test_checkpoint_tables_see_only_own_threads[checkpoint_blobs] _________
+
+table = 'checkpoint_blobs'
+
+    @pytest.mark.parametrize("table", THREAD_TABLES)
+    def test_checkpoint_tables_see_only_own_threads(table):
+        with app() as conn, conn.transaction():
+            cur = as_tenant(conn, A)
+            cur.execute(f"SELECT count(*) FROM {table} WHERE thread_id = %s", (THREAD[B],))
+>           assert cur.fetchone()[0] == 0
+E           assert 1 == 0
+
+tests/test_retrieval_isolation.py:171: AssertionError
+________ test_checkpoint_tables_see_only_own_threads[checkpoint_writes] ________
+
+table = 'checkpoint_writes'
+
+    @pytest.mark.parametrize("table", THREAD_TABLES)
+    def test_checkpoint_tables_see_only_own_threads(table):
+        with app() as conn, conn.transaction():
+            cur = as_tenant(conn, A)
+            cur.execute(f"SELECT count(*) FROM {table} WHERE thread_id = %s", (THREAD[B],))
+>           assert cur.fetchone()[0] == 0
+E           assert 1 == 0
+
+tests/test_retrieval_isolation.py:171: AssertionError
+________________ test_cannot_insert_for_other_tenant[documents] ________________
+
+name = 'documents'
+sql = "INSERT INTO documents (tenant_id, doc_type, source_name, content) VALUES (%(b)s, 'policy', 'x', 'x')"
+
+    @pytest.mark.parametrize("name,sql", WRITES_AS_A, ids=[w[0] for w in WRITES_AS_A])
+    def test_cannot_insert_for_other_tenant(name, sql):
+        params = {"b": B, "bdoc": DOC[B], "bthread": THREAD[B], "vec": "[" + ",".join(["1"] + ["0"] * 383) + "]"}
+>       with app() as conn, pytest.raises(psycopg.errors.InsufficientPrivilege) as e:
+E       Failed: DID NOT RAISE InsufficientPrivilege
+
+tests/test_retrieval_isolation.py:192: Failed
+____________ test_cannot_insert_for_other_tenant[vector_embeddings] ____________
+
+name = 'vector_embeddings'
+sql = "INSERT INTO vector_embeddings (tenant_id, document_id, clause_id, chunk_index, content, embedding, model_name) VALUES (%(b)s, %(bdoc)s, 'x', 98, 'x', %(vec)s::vector, 'x')"
+
+    @pytest.mark.parametrize("name,sql", WRITES_AS_A, ids=[w[0] for w in WRITES_AS_A])
+    def test_cannot_insert_for_other_tenant(name, sql):
+        params = {"b": B, "bdoc": DOC[B], "bthread": THREAD[B], "vec": "[" + ",".join(["1"] + ["0"] * 383) + "]"}
+>       with app() as conn, pytest.raises(psycopg.errors.InsufficientPrivilege) as e:
+E       Failed: DID NOT RAISE InsufficientPrivilege
+
+tests/test_retrieval_isolation.py:192: Failed
+______________ test_cannot_insert_for_other_tenant[conversations] ______________
+
+name = 'conversations'
+sql = "INSERT INTO conversations (id, tenant_id) VALUES ('isolation-x', %(b)s)"
+
+    @pytest.mark.parametrize("name,sql", WRITES_AS_A, ids=[w[0] for w in WRITES_AS_A])
+    def test_cannot_insert_for_other_tenant(name, sql):
+        params = {"b": B, "bdoc": DOC[B], "bthread": THREAD[B], "vec": "[" + ",".join(["1"] + ["0"] * 383) + "]"}
+>       with app() as conn, pytest.raises(psycopg.errors.InsufficientPrivilege) as e:
+E       Failed: DID NOT RAISE InsufficientPrivilege
+
+tests/test_retrieval_isolation.py:192: Failed
+________ test_cannot_insert_for_other_tenant[checkpoints on B's thread] ________
+
+name = "checkpoints on B's thread"
+sql = "INSERT INTO checkpoints (thread_id, checkpoint_ns, checkpoint_id, checkpoint) VALUES (%(bthread)s, '', 'x', '{}'::jsonb)"
+
+    @pytest.mark.parametrize("name,sql", WRITES_AS_A, ids=[w[0] for w in WRITES_AS_A])
+    def test_cannot_insert_for_other_tenant(name, sql):
+        params = {"b": B, "bdoc": DOC[B], "bthread": THREAD[B], "vec": "[" + ",".join(["1"] + ["0"] * 383) + "]"}
+>       with app() as conn, pytest.raises(psycopg.errors.InsufficientPrivilege) as e:
+E       Failed: DID NOT RAISE InsufficientPrivilege
+
+tests/test_retrieval_isolation.py:192: Failed
+________ test_cannot_insert_for_other_tenant[checkpoints on no thread] _________
+
+name = 'checkpoints on no thread'
+sql = "INSERT INTO checkpoints (thread_id, checkpoint_ns, checkpoint_id, checkpoint) VALUES ('isolation-no-such-thread', '', 'x', '{}'::jsonb)"
+
+    @pytest.mark.parametrize("name,sql", WRITES_AS_A, ids=[w[0] for w in WRITES_AS_A])
+    def test_cannot_insert_for_other_tenant(name, sql):
+        params = {"b": B, "bdoc": DOC[B], "bthread": THREAD[B], "vec": "[" + ",".join(["1"] + ["0"] * 383) + "]"}
+>       with app() as conn, pytest.raises(psycopg.errors.InsufficientPrivilege) as e:
+E       Failed: DID NOT RAISE InsufficientPrivilege
+
+tests/test_retrieval_isolation.py:192: Failed
+_____ test_cannot_insert_for_other_tenant[checkpoint_blobs on B's thread] ______
+
+name = "checkpoint_blobs on B's thread"
+sql = "INSERT INTO checkpoint_blobs (thread_id, checkpoint_ns, channel, version, type) VALUES (%(bthread)s, '', 'x', 'x', 'x')"
+
+    @pytest.mark.parametrize("name,sql", WRITES_AS_A, ids=[w[0] for w in WRITES_AS_A])
+    def test_cannot_insert_for_other_tenant(name, sql):
+        params = {"b": B, "bdoc": DOC[B], "bthread": THREAD[B], "vec": "[" + ",".join(["1"] + ["0"] * 383) + "]"}
+>       with app() as conn, pytest.raises(psycopg.errors.InsufficientPrivilege) as e:
+E       Failed: DID NOT RAISE InsufficientPrivilege
+
+tests/test_retrieval_isolation.py:192: Failed
+_____ test_cannot_insert_for_other_tenant[checkpoint_writes on B's thread] _____
+
+name = "checkpoint_writes on B's thread"
+sql = "INSERT INTO checkpoint_writes (thread_id, checkpoint_ns, checkpoint_id, task_id, idx, channel, blob) VALUES (%(bthread)s, '', 'x', 'x', 0, 'x', 'x')"
+
+    @pytest.mark.parametrize("name,sql", WRITES_AS_A, ids=[w[0] for w in WRITES_AS_A])
+    def test_cannot_insert_for_other_tenant(name, sql):
+        params = {"b": B, "bdoc": DOC[B], "bthread": THREAD[B], "vec": "[" + ",".join(["1"] + ["0"] * 383) + "]"}
+>       with app() as conn, pytest.raises(psycopg.errors.InsufficientPrivilege) as e:
+E       Failed: DID NOT RAISE InsufficientPrivilege
+
+tests/test_retrieval_isolation.py:192: Failed
+__________ test_cannot_update_or_delete_other_tenants_rows[documents] __________
+
+table = 'documents', col = 'tenant_id'
+val = <function <lambda> at 0x773c6a960cc0>, setc = "content = 'x'"
+
+    @pytest.mark.parametrize("table,col,val,setc", MODIFY, ids=[m[0] for m in MODIFY])
+    def test_cannot_update_or_delete_other_tenants_rows(table, col, val, setc):
+        before = admin_count(f"SELECT count(*) FROM {table} WHERE {col} = %s", (val(),))
+        with app() as conn, conn.transaction():
+            cur = as_tenant(conn, A)
+            cur.execute(f"UPDATE {table} SET {setc} WHERE {col} = %s", (val(),))
+>           assert cur.rowcount == 0
+E           assert 2 == 0
+E            +  where 2 = <psycopg.Cursor [COMMAND_OK] [INTRANS] (host=10.4.36.107 user=admin_owner database=claims_db) at 0x773c301e4a10>.rowcount
+
+tests/test_retrieval_isolation.py:225: AssertionError
+______ test_cannot_update_or_delete_other_tenants_rows[vector_embeddings] ______
+
+table = 'vector_embeddings', col = 'tenant_id'
+val = <function <lambda> at 0x773c6a960d60>, setc = "content = 'x'"
+
+    @pytest.mark.parametrize("table,col,val,setc", MODIFY, ids=[m[0] for m in MODIFY])
+    def test_cannot_update_or_delete_other_tenants_rows(table, col, val, setc):
+        before = admin_count(f"SELECT count(*) FROM {table} WHERE {col} = %s", (val(),))
+        with app() as conn, conn.transaction():
+            cur = as_tenant(conn, A)
+            cur.execute(f"UPDATE {table} SET {setc} WHERE {col} = %s", (val(),))
+>           assert cur.rowcount == 0
+E           assert 6 == 0
+E            +  where 6 = <psycopg.Cursor [COMMAND_OK] [INTRANS] (host=10.4.36.107 user=admin_owner database=claims_db) at 0x773c301e4890>.rowcount
+
+tests/test_retrieval_isolation.py:225: AssertionError
+________ test_cannot_update_or_delete_other_tenants_rows[conversations] ________
+
+table = 'conversations', col = 'tenant_id'
+val = <function <lambda> at 0x773c6a960e00>, setc = 'created_at = now()'
+
+    @pytest.mark.parametrize("table,col,val,setc", MODIFY, ids=[m[0] for m in MODIFY])
+    def test_cannot_update_or_delete_other_tenants_rows(table, col, val, setc):
+        before = admin_count(f"SELECT count(*) FROM {table} WHERE {col} = %s", (val(),))
+        with app() as conn, conn.transaction():
+            cur = as_tenant(conn, A)
+            cur.execute(f"UPDATE {table} SET {setc} WHERE {col} = %s", (val(),))
+>           assert cur.rowcount == 0
+E           assert 2 == 0
+E            +  where 2 = <psycopg.Cursor [COMMAND_OK] [INTRANS] (host=10.4.36.107 user=admin_owner database=claims_db) at 0x773c301e4f50>.rowcount
+
+tests/test_retrieval_isolation.py:225: AssertionError
+_________ test_cannot_update_or_delete_other_tenants_rows[checkpoints] _________
+
+table = 'checkpoints', col = 'thread_id'
+val = <function <lambda> at 0x773c6a960ea0>, setc = "type = 'x'"
+
+    @pytest.mark.parametrize("table,col,val,setc", MODIFY, ids=[m[0] for m in MODIFY])
+    def test_cannot_update_or_delete_other_tenants_rows(table, col, val, setc):
+        before = admin_count(f"SELECT count(*) FROM {table} WHERE {col} = %s", (val(),))
+        with app() as conn, conn.transaction():
+            cur = as_tenant(conn, A)
+            cur.execute(f"UPDATE {table} SET {setc} WHERE {col} = %s", (val(),))
+>           assert cur.rowcount == 0
+E           assert 2 == 0
+E            +  where 2 = <psycopg.Cursor [COMMAND_OK] [INTRANS] (host=10.4.36.107 user=admin_owner database=claims_db) at 0x773c301e6d50>.rowcount
+
+tests/test_retrieval_isolation.py:225: AssertionError
+______ test_cannot_update_or_delete_other_tenants_rows[checkpoint_blobs] _______
+
+table = 'checkpoint_blobs', col = 'thread_id'
+val = <function <lambda> at 0x773c6a960f40>, setc = "type = 'x'"
+
+    @pytest.mark.parametrize("table,col,val,setc", MODIFY, ids=[m[0] for m in MODIFY])
+    def test_cannot_update_or_delete_other_tenants_rows(table, col, val, setc):
+        before = admin_count(f"SELECT count(*) FROM {table} WHERE {col} = %s", (val(),))
+        with app() as conn, conn.transaction():
+            cur = as_tenant(conn, A)
+            cur.execute(f"UPDATE {table} SET {setc} WHERE {col} = %s", (val(),))
+>           assert cur.rowcount == 0
+E           assert 2 == 0
+E            +  where 2 = <psycopg.Cursor [COMMAND_OK] [INTRANS] (host=10.4.36.107 user=admin_owner database=claims_db) at 0x773c301e7590>.rowcount
+
+tests/test_retrieval_isolation.py:225: AssertionError
+______ test_cannot_update_or_delete_other_tenants_rows[checkpoint_writes] ______
+
+table = 'checkpoint_writes', col = 'thread_id'
+val = <function <lambda> at 0x773c6a960fe0>, setc = "type = 'x'"
+
+    @pytest.mark.parametrize("table,col,val,setc", MODIFY, ids=[m[0] for m in MODIFY])
+    def test_cannot_update_or_delete_other_tenants_rows(table, col, val, setc):
+        before = admin_count(f"SELECT count(*) FROM {table} WHERE {col} = %s", (val(),))
+        with app() as conn, conn.transaction():
+            cur = as_tenant(conn, A)
+            cur.execute(f"UPDATE {table} SET {setc} WHERE {col} = %s", (val(),))
+>           assert cur.rowcount == 0
+E           assert 2 == 0
+E            +  where 2 = <psycopg.Cursor [COMMAND_OK] [INTRANS] (host=10.4.36.107 user=admin_owner database=claims_db) at 0x773c301e7dd0>.rowcount
+
+tests/test_retrieval_isolation.py:225: AssertionError
+___________________ test_app_role_cannot_truncate[documents] ___________________
+
+table = 'documents'
+
+    @pytest.mark.parametrize("table", ALL_TABLES)
+    def test_app_role_cannot_truncate(table):
+        # TRUNCATE ignores RLS, so only the missing privilege stops it. Checked in the catalog, never executed.
+        with app() as conn:
+            ok = conn.execute("SELECT has_table_privilege(current_user, %s, 'TRUNCATE')", (table,)).fetchone()[0]
+>       assert ok is False
+E       assert True is False
+
+tests/test_retrieval_isolation.py:236: AssertionError
+_______________ test_app_role_cannot_truncate[vector_embeddings] _______________
+
+table = 'vector_embeddings'
+
+    @pytest.mark.parametrize("table", ALL_TABLES)
+    def test_app_role_cannot_truncate(table):
+        # TRUNCATE ignores RLS, so only the missing privilege stops it. Checked in the catalog, never executed.
+        with app() as conn:
+            ok = conn.execute("SELECT has_table_privilege(current_user, %s, 'TRUNCATE')", (table,)).fetchone()[0]
+>       assert ok is False
+E       assert True is False
+
+tests/test_retrieval_isolation.py:236: AssertionError
+_________________ test_app_role_cannot_truncate[conversations] _________________
+
+table = 'conversations'
+
+    @pytest.mark.parametrize("table", ALL_TABLES)
+    def test_app_role_cannot_truncate(table):
+        # TRUNCATE ignores RLS, so only the missing privilege stops it. Checked in the catalog, never executed.
+        with app() as conn:
+            ok = conn.execute("SELECT has_table_privilege(current_user, %s, 'TRUNCATE')", (table,)).fetchone()[0]
+>       assert ok is False
+E       assert True is False
+
+tests/test_retrieval_isolation.py:236: AssertionError
+__________________ test_app_role_cannot_truncate[checkpoints] __________________
+
+table = 'checkpoints'
+
+    @pytest.mark.parametrize("table", ALL_TABLES)
+    def test_app_role_cannot_truncate(table):
+        # TRUNCATE ignores RLS, so only the missing privilege stops it. Checked in the catalog, never executed.
+        with app() as conn:
+            ok = conn.execute("SELECT has_table_privilege(current_user, %s, 'TRUNCATE')", (table,)).fetchone()[0]
+>       assert ok is False
+E       assert True is False
+
+tests/test_retrieval_isolation.py:236: AssertionError
+_______________ test_app_role_cannot_truncate[checkpoint_blobs] ________________
+
+table = 'checkpoint_blobs'
+
+    @pytest.mark.parametrize("table", ALL_TABLES)
+    def test_app_role_cannot_truncate(table):
+        # TRUNCATE ignores RLS, so only the missing privilege stops it. Checked in the catalog, never executed.
+        with app() as conn:
+            ok = conn.execute("SELECT has_table_privilege(current_user, %s, 'TRUNCATE')", (table,)).fetchone()[0]
+>       assert ok is False
+E       assert True is False
+
+tests/test_retrieval_isolation.py:236: AssertionError
+_______________ test_app_role_cannot_truncate[checkpoint_writes] _______________
+
+table = 'checkpoint_writes'
+
+    @pytest.mark.parametrize("table", ALL_TABLES)
+    def test_app_role_cannot_truncate(table):
+        # TRUNCATE ignores RLS, so only the missing privilege stops it. Checked in the catalog, never executed.
+        with app() as conn:
+            ok = conn.execute("SELECT has_table_privilege(current_user, %s, 'TRUNCATE')", (table,)).fetchone()[0]
+>       assert ok is False
+E       assert True is False
+
+tests/test_retrieval_isolation.py:236: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_retrieval_isolation.py::test_retrieve_rejects_missing_or_malformed_tenant[None]
+PASSED tests/test_retrieval_isolation.py::test_retrieve_rejects_missing_or_malformed_tenant[]
+PASSED tests/test_retrieval_isolation.py::test_retrieve_rejects_missing_or_malformed_tenant[not-a-uuid]
+PASSED tests/test_retrieval_isolation.py::test_embedding_cannot_point_at_other_tenants_document
+FAILED tests/test_retrieval_isolation.py::test_retrieve_never_returns_other_tenant[5-22cb3dcb-737a-4a7a-9e0d-0866a7242784]
+FAILED tests/test_retrieval_isolation.py::test_retrieve_never_returns_other_tenant[5-92d711fb-00d0-4ebe-91c5-21cd14594cf8]
+FAILED tests/test_retrieval_isolation.py::test_retrieve_never_returns_other_tenant[50-22cb3dcb-737a-4a7a-9e0d-0866a7242784]
+FAILED tests/test_retrieval_isolation.py::test_retrieve_never_returns_other_tenant[50-92d711fb-00d0-4ebe-91c5-21cd14594cf8]
+FAILED tests/test_retrieval_isolation.py::test_tenant_does_not_leak_across_transactions
+FAILED tests/test_retrieval_isolation.py::test_concurrent_tenants - Assertion...
+FAILED tests/test_retrieval_isolation.py::test_no_tenant_means_no_rows[documents]
+FAILED tests/test_retrieval_isolation.py::test_no_tenant_means_no_rows[vector_embeddings]
+FAILED tests/test_retrieval_isolation.py::test_no_tenant_means_no_rows[conversations]
+FAILED tests/test_retrieval_isolation.py::test_no_tenant_means_no_rows[checkpoints]
+FAILED tests/test_retrieval_isolation.py::test_no_tenant_means_no_rows[checkpoint_blobs]
+FAILED tests/test_retrieval_isolation.py::test_no_tenant_means_no_rows[checkpoint_writes]
+FAILED tests/test_retrieval_isolation.py::test_raw_select_sees_only_own_rows[documents]
+FAILED tests/test_retrieval_isolation.py::test_raw_select_sees_only_own_rows[vector_embeddings]
+FAILED tests/test_retrieval_isolation.py::test_raw_select_sees_only_own_rows[conversations]
+FAILED tests/test_retrieval_isolation.py::test_checkpoint_tables_see_only_own_threads[checkpoints]
+FAILED tests/test_retrieval_isolation.py::test_checkpoint_tables_see_only_own_threads[checkpoint_blobs]
+FAILED tests/test_retrieval_isolation.py::test_checkpoint_tables_see_only_own_threads[checkpoint_writes]
+FAILED tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[documents]
+FAILED tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[vector_embeddings]
+FAILED tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[conversations]
+FAILED tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[checkpoints on B's thread]
+FAILED tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[checkpoints on no thread]
+FAILED tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[checkpoint_blobs on B's thread]
+FAILED tests/test_retrieval_isolation.py::test_cannot_insert_for_other_tenant[checkpoint_writes on B's thread]
+FAILED tests/test_retrieval_isolation.py::test_cannot_update_or_delete_other_tenants_rows[documents]
+FAILED tests/test_retrieval_isolation.py::test_cannot_update_or_delete_other_tenants_rows[vector_embeddings]
+FAILED tests/test_retrieval_isolation.py::test_cannot_update_or_delete_other_tenants_rows[conversations]
+FAILED tests/test_retrieval_isolation.py::test_cannot_update_or_delete_other_tenants_rows[checkpoints]
+FAILED tests/test_retrieval_isolation.py::test_cannot_update_or_delete_other_tenants_rows[checkpoint_blobs]
+FAILED tests/test_retrieval_isolation.py::test_cannot_update_or_delete_other_tenants_rows[checkpoint_writes]
+FAILED tests/test_retrieval_isolation.py::test_app_role_cannot_truncate[documents]
+FAILED tests/test_retrieval_isolation.py::test_app_role_cannot_truncate[vector_embeddings]
+FAILED tests/test_retrieval_isolation.py::test_app_role_cannot_truncate[conversations]
+FAILED tests/test_retrieval_isolation.py::test_app_role_cannot_truncate[checkpoints]
+FAILED tests/test_retrieval_isolation.py::test_app_role_cannot_truncate[checkpoint_blobs]
+FAILED tests/test_retrieval_isolation.py::test_app_role_cannot_truncate[checkpoint_writes]
+37 failed, 4 passed in 5.79s

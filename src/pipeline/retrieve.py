@@ -54,7 +54,13 @@ def check_tenant(tenant_id):
     return str(uuid.UUID(str(tenant_id)))
 
 
-def fuse(vec_rows, kw_rows, k, w_vec=1.0, w_kw=1.0):
+# Hybrid fusion weights. w_kw = 0.25 was chosen on the dev set (Nov 23) with sweep_fusion.py:
+# best pooled MRR on paraphrased queries; 1.0 let keyword matches push near-miss clauses up.
+DEFAULT_W_VEC = 1.0
+DEFAULT_W_KW = 0.25
+
+
+def fuse(vec_rows, kw_rows, k, w_vec=DEFAULT_W_VEC, w_kw=DEFAULT_W_KW):
     """Reciprocal Rank Fusion. Each row is (id, clause_id, content), best first. Returns the top k."""
     scores, rows = {}, {}
     for weight, lst in ((w_vec, vec_rows), (w_kw, kw_rows)):
@@ -65,7 +71,7 @@ def fuse(vec_rows, kw_rows, k, w_vec=1.0, w_kw=1.0):
     return [{"clause_id": rows[i][0], "text": rows[i][1], "score": scores[i]} for i in top]
 
 
-def retrieve(conn, tenant_id, query, k=5, n_candidates=20, w_vec=1.0, w_kw=1.0, ef_search=100):
+def retrieve(conn, tenant_id, query, k=5, n_candidates=20, w_vec=DEFAULT_W_VEC, w_kw=DEFAULT_W_KW, ef_search=100):
     """Top-k clause chunks for `query`, as the given tenant.
 
     `conn` must be a psycopg 3 connection with no transaction open: the tenant setting is local to this

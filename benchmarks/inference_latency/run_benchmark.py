@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Week 4, Task 1, Step 3: single-request latency benchmark for the llama.cpp server.
+"""Week 4 inference latency: single-request latency benchmark for the llama.cpp server.
 
 Runs the reference prompt, then every prompt in bench_prompts.json one at a time
-(no concurrency; Step 4 handles that). Prompt caching is turned off so repeated
+(no concurrency; run_concurrency.py handles that). Prompt caching is turned off so repeated
 prompts do not make prefill look faster than it is.
 
     python3 run_benchmark.py --base http://10.4.36.58:30000 \

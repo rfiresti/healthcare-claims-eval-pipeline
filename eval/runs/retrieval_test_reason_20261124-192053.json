@@ -1,0 +1,4965 @@
+{
+ "query_mode": "reason",
+ "clause_ids_removed_from_query": true,
+ "k_values": [
+  1,
+  2,
+  3,
+  5
+ ],
+ "target_recall_at_5": 0.85,
+ "tenants": {
+  "00000000-0000-0000-0000-000000000001": {
+   "clauses_visible": [
+    "CLS-1001",
+    "CLS-1002",
+    "CLS-1003",
+    "CLS-1004",
+    "CLS-2001",
+    "CLS-2002",
+    "CLS-2003",
+    "CLS-2004",
+    "CLS-2005",
+    "CLS-2006",
+    "CLS-2007",
+    "CLS-2008",
+    "CLS-2009",
+    "CLS-2010",
+    "CLS-2011",
+    "CLS-2012",
+    "CLS-2013",
+    "CLS-2014",
+    "CLS-2015",
+    "CLS-2016",
+    "CLS-2017",
+    "CLS-2018",
+    "CLS-2019",
+    "CLS-2020",
+    "CLS-2021",
+    "CLS-2022",
+    "CLS-2023",
+    "CLS-2024"
+   ],
+   "gt_not_loaded": [],
+   "status_counts": {
+    "APPROVED": 265,
+    "DENIED": 261
+   },
+   "variants": {
+    "hybrid": {
+     "n": 79,
+     "recall@1": 0.0,
+     "recall@2": 0.0,
+     "recall@3": 0.3165,
+     "recall@5": 0.3165,
+     "mrr": 0.1055,
+     "by_category": {
+      "Exclusion": {
+       "n": 25,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.3333
+      },
+      "Limitation": {
+       "n": 18,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      },
+      "MedicalNecessity": {
+       "n": 18,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      },
+      "PreAuth": {
+       "n": 18,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      }
+     },
+     "misses": [
+      {
+       "claim_id": "CLM-000024",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000072",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000086",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000114",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000129",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000134",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000135",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000141",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000157",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000161",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000169",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000238",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000252",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000266",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000272",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000299",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000315",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000349",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000356",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000404",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000418",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000465",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000472",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000490",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000491",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000502",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000535",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000548",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000604",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000647",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000687",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000690",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000743",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000761",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000762",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000777",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000805",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000811",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000819",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000826",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000833",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000839",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000844",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000884",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000908",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000909",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000936",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000969",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001000",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001015",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001034",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001036",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001037",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001043",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      }
+     ],
+     "weights": {
+      "w_vec": 1.0,
+      "w_kw": 0.25
+     }
+    },
+    "vector only": {
+     "n": 79,
+     "recall@1": 0.0,
+     "recall@2": 0.0,
+     "recall@3": 0.3165,
+     "recall@5": 0.3165,
+     "mrr": 0.1055,
+     "by_category": {
+      "Exclusion": {
+       "n": 25,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.3333
+      },
+      "Limitation": {
+       "n": 18,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      },
+      "MedicalNecessity": {
+       "n": 18,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      },
+      "PreAuth": {
+       "n": 18,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      }
+     },
+     "misses": [
+      {
+       "claim_id": "CLM-000024",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000072",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000086",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000114",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000129",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000134",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000135",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000141",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000157",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000161",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000169",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000238",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000252",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000266",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000272",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000299",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000315",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000349",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000356",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000404",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000418",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000465",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000472",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000490",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000491",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000502",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000535",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000548",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000604",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000647",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000687",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000690",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000743",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000761",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000762",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000777",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000805",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000811",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000819",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000826",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000833",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000839",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000844",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000884",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000908",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000909",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000936",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000969",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001000",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001015",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001034",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001036",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001037",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001043",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      }
+     ],
+     "weights": {
+      "w_vec": 1.0,
+      "w_kw": 0.0
+     }
+    },
+    "keyword only": {
+     "n": 79,
+     "recall@1": 0.0,
+     "recall@2": 0.0,
+     "recall@3": 0.0,
+     "recall@5": 0.2278,
+     "mrr": 0.0456,
+     "by_category": {
+      "Exclusion": {
+       "n": 25,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      },
+      "Limitation": {
+       "n": 18,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      },
+      "MedicalNecessity": {
+       "n": 18,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 1.0,
+       "mrr": 0.2
+      },
+      "PreAuth": {
+       "n": 18,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      }
+     },
+     "misses": [
+      {
+       "claim_id": "CLM-000024",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000027",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000032",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000099",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000114",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000116",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000129",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000135",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000141",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000157",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000161",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000169",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000180",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000224",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000231",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000238",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000252",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000266",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000272",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000299",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000309",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000315",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000343",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000349",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000356",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000374",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000450",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000465",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000472",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000473",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000490",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000491",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000500",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000502",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000517",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000580",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000583",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000604",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000647",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000687",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000690",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000735",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000740",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000795",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000805",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000811",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000833",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000839",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000844",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000866",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000878",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000884",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000890",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000909",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000920",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000936",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000942",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000996",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001015",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001037",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001043",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2010",
+        "CLS-1004"
+       ],
+       "rank": null
+      }
+     ],
+     "weights": {
+      "w_vec": 0.0,
+      "w_kw": 1.0
+     }
+    }
+   }
+  },
+  "00000000-0000-0000-0000-000000000002": {
+   "clauses_visible": [
+    "CLS-1001",
+    "CLS-1002",
+    "CLS-1003",
+    "CLS-1004",
+    "CLS-2001",
+    "CLS-2002",
+    "CLS-2003",
+    "CLS-2004",
+    "CLS-2005",
+    "CLS-2006",
+    "CLS-2007",
+    "CLS-2008",
+    "CLS-2009",
+    "CLS-2010",
+    "CLS-2011",
+    "CLS-2012",
+    "CLS-2013",
+    "CLS-2014",
+    "CLS-2015",
+    "CLS-2016",
+    "CLS-2017",
+    "CLS-2018",
+    "CLS-2019",
+    "CLS-2020",
+    "CLS-2021",
+    "CLS-2022",
+    "CLS-2023",
+    "CLS-2024"
+   ],
+   "gt_not_loaded": [],
+   "status_counts": {
+    "APPROVED": 278,
+    "DENIED": 246
+   },
+   "variants": {
+    "hybrid": {
+     "n": 74,
+     "recall@1": 0.0,
+     "recall@2": 0.0,
+     "recall@3": 0.2703,
+     "recall@5": 0.2703,
+     "mrr": 0.0901,
+     "by_category": {
+      "Exclusion": {
+       "n": 20,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.3333
+      },
+      "Limitation": {
+       "n": 19,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      },
+      "MedicalNecessity": {
+       "n": 15,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      },
+      "PreAuth": {
+       "n": 20,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      }
+     },
+     "misses": [
+      {
+       "claim_id": "CLM-000041",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000068",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000112",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000127",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000138",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000145",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000151",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000166",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000172",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000184",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000186",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000187",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000220",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000237",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000240",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000268",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000276",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000294",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000311",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000325",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000326",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000350",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000353",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000358",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000391",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000414",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000437",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000448",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000460",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000494",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000505",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000518",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000526",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000531",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000593",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000622",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000654",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000656",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000695",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000765",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000798",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000809",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000855",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000857",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000883",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000931",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000933",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000938",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000945",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000951",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000959",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001005",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001038",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001039",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      }
+     ],
+     "weights": {
+      "w_vec": 1.0,
+      "w_kw": 0.25
+     }
+    },
+    "vector only": {
+     "n": 74,
+     "recall@1": 0.0,
+     "recall@2": 0.0,
+     "recall@3": 0.2703,
+     "recall@5": 0.2703,
+     "mrr": 0.0901,
+     "by_category": {
+      "Exclusion": {
+       "n": 20,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.3333
+      },
+      "Limitation": {
+       "n": 19,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      },
+      "MedicalNecessity": {
+       "n": 15,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      },
+      "PreAuth": {
+       "n": 20,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      }
+     },
+     "misses": [
+      {
+       "claim_id": "CLM-000041",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000068",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000112",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000127",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000138",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000145",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000151",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000166",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000172",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000184",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000186",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000187",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000220",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000237",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000240",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000268",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000276",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000294",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000311",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000325",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000326",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000350",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000353",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000358",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000391",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000414",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000437",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000448",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000460",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000494",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000505",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000518",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000526",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000531",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000593",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000622",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000654",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000656",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000695",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000765",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000798",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000809",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000855",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000857",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000883",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000931",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000933",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000938",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000945",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000951",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000959",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001005",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001038",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001039",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2006",
+        "CLS-2005",
+        "CLS-1001",
+        "CLS-2002",
+        "CLS-2001"
+       ],
+       "rank": null
+      }
+     ],
+     "weights": {
+      "w_vec": 1.0,
+      "w_kw": 0.0
+     }
+    },
+    "keyword only": {
+     "n": 74,
+     "recall@1": 0.0,
+     "recall@2": 0.0,
+     "recall@3": 0.0,
+     "recall@5": 0.0,
+     "mrr": 0.0,
+     "by_category": {
+      "Exclusion": {
+       "n": 20,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      },
+      "Limitation": {
+       "n": 19,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      },
+      "MedicalNecessity": {
+       "n": 15,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      },
+      "PreAuth": {
+       "n": 20,
+       "recall@1": 0.0,
+       "recall@2": 0.0,
+       "recall@3": 0.0,
+       "recall@5": 0.0,
+       "mrr": 0.0
+      }
+     },
+     "misses": [
+      {
+       "claim_id": "CLM-000041",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000043",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000068",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000112",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000125",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000126",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000127",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000138",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000145",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000146",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000151",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000166",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000172",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000184",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000186",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000187",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000216",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000220",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000237",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000240",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000268",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000276",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000294",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000311",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000312",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000325",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000326",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000350",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000353",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000358",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000391",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000414",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000422",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000437",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000448",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000454",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000460",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000475",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000494",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000505",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000513",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000518",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000526",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000531",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000593",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000622",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000654",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000656",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000683",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000695",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000712",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000765",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000791",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000798",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000803",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000809",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000843",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000855",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000857",
+       "category": "Limitation",
+       "gt": "CLS-1003",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000883",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000894",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000907",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000931",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000933",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000938",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000945",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000951",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000959",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000967",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000973",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000991",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001005",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001038",
+       "category": "PreAuth",
+       "gt": "CLS-1002",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-001039",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2018",
+        "CLS-2004",
+        "CLS-2011",
+        "CLS-2023",
+        "CLS-2005"
+       ],
+       "rank": null
+      }
+     ],
+     "weights": {
+      "w_vec": 0.0,
+      "w_kw": 1.0
+     }
+    }
+   }
+  }
+ },
+ "split": "test",
+ "ids_file": "eval/test_ids.txt",
+ "git_commit": "3a186ba",
+ "started": "2026-11-24T19:20:53",
+ "args": {
+  "tenant_id": [
+   "00000000-0000-0000-0000-000000000001",
+   "00000000-0000-0000-0000-000000000002"
+  ],
+  "denied_status": null,
+  "query": "reason",
+  "limit": null,
+  "show_sample": false,
+  "force": false,
+  "keep_clause_ids": false,
+  "no_ablation": false,
+  "ids_file": "eval/test_ids.txt",
+  "split": "test",
+  "out_dir": "eval/runs",
+  "out": null
+ },
+ "paraphrases": null,
+ "finished": "2026-11-24T19:21:03"
+}

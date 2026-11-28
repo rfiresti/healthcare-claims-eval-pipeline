@@ -1,0 +1,482 @@
+{
+ "query_mode": "paraphrase",
+ "clause_ids_removed_from_query": true,
+ "k_values": [
+  1,
+  2,
+  3,
+  5
+ ],
+ "target_recall_at_5": 0.85,
+ "tenants": {
+  "00000000-0000-0000-0000-000000000001": {
+   "clauses_visible": [
+    "CLS-1001",
+    "CLS-1002",
+    "CLS-1003",
+    "CLS-1004",
+    "CLS-2001",
+    "CLS-2002",
+    "CLS-2003",
+    "CLS-2004",
+    "CLS-2005",
+    "CLS-2006",
+    "CLS-2007",
+    "CLS-2008",
+    "CLS-2009",
+    "CLS-2010",
+    "CLS-2011",
+    "CLS-2012",
+    "CLS-2013",
+    "CLS-2014",
+    "CLS-2015",
+    "CLS-2016",
+    "CLS-2017",
+    "CLS-2018",
+    "CLS-2019",
+    "CLS-2020",
+    "CLS-2021",
+    "CLS-2022",
+    "CLS-2023",
+    "CLS-2024"
+   ],
+   "gt_not_loaded": [],
+   "status_counts": {
+    "APPROVED": 265,
+    "DENIED": 261
+   },
+   "variants": {
+    "hybrid": {
+     "n": 182,
+     "recall@1": 0.967,
+     "recall@2": 0.9835,
+     "recall@3": 0.9945,
+     "recall@5": 1.0,
+     "mrr": 0.9803,
+     "by_category": {
+      "Exclusion": {
+       "n": 57,
+       "recall@1": 0.9474,
+       "recall@2": 0.9649,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.9678
+      },
+      "Limitation": {
+       "n": 41,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      },
+      "MedicalNecessity": {
+       "n": 43,
+       "recall@1": 0.9302,
+       "recall@2": 0.9767,
+       "recall@3": 0.9767,
+       "recall@5": 1.0,
+       "mrr": 0.9593
+      },
+      "PreAuth": {
+       "n": 41,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      }
+     },
+     "misses": []
+    },
+    "vector only": {
+     "n": 182,
+     "recall@1": 0.956,
+     "recall@2": 0.989,
+     "recall@3": 0.9945,
+     "recall@5": 1.0,
+     "mrr": 0.9757,
+     "by_category": {
+      "Exclusion": {
+       "n": 57,
+       "recall@1": 0.9123,
+       "recall@2": 0.9825,
+       "recall@3": 0.9825,
+       "recall@5": 1.0,
+       "mrr": 0.9518
+      },
+      "Limitation": {
+       "n": 41,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      },
+      "MedicalNecessity": {
+       "n": 43,
+       "recall@1": 0.9302,
+       "recall@2": 0.9767,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.9612
+      },
+      "PreAuth": {
+       "n": 41,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      }
+     },
+     "misses": []
+    },
+    "keyword only": {
+     "n": 182,
+     "recall@1": 0.8626,
+     "recall@2": 0.9615,
+     "recall@3": 0.9725,
+     "recall@5": 0.9835,
+     "mrr": 0.9179,
+     "by_category": {
+      "Exclusion": {
+       "n": 57,
+       "recall@1": 0.9298,
+       "recall@2": 0.9474,
+       "recall@3": 0.9649,
+       "recall@5": 0.9825,
+       "mrr": 0.948
+      },
+      "Limitation": {
+       "n": 41,
+       "recall@1": 0.9756,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.9878
+      },
+      "MedicalNecessity": {
+       "n": 43,
+       "recall@1": 0.5349,
+       "recall@2": 0.907,
+       "recall@3": 0.9302,
+       "recall@5": 0.9535,
+       "mrr": 0.7333
+      },
+      "PreAuth": {
+       "n": 41,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      }
+     },
+     "misses": [
+      {
+       "claim_id": "CLM-000064",
+       "category": "Exclusion",
+       "gt": "CLS-1001",
+       "top": [
+        "CLS-2002",
+        "CLS-2004",
+        "CLS-2013",
+        "CLS-2024",
+        "CLS-2021"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000509",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2024",
+        "CLS-2021",
+        "CLS-2020",
+        "CLS-2023",
+        "CLS-2006"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000872",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2023",
+        "CLS-2004",
+        "CLS-2006",
+        "CLS-2014",
+        "CLS-2024"
+       ],
+       "rank": null
+      }
+     ]
+    }
+   }
+  },
+  "00000000-0000-0000-0000-000000000002": {
+   "clauses_visible": [
+    "CLS-1001",
+    "CLS-1002",
+    "CLS-1003",
+    "CLS-1004",
+    "CLS-2001",
+    "CLS-2002",
+    "CLS-2003",
+    "CLS-2004",
+    "CLS-2005",
+    "CLS-2006",
+    "CLS-2007",
+    "CLS-2008",
+    "CLS-2009",
+    "CLS-2010",
+    "CLS-2011",
+    "CLS-2012",
+    "CLS-2013",
+    "CLS-2014",
+    "CLS-2015",
+    "CLS-2016",
+    "CLS-2017",
+    "CLS-2018",
+    "CLS-2019",
+    "CLS-2020",
+    "CLS-2021",
+    "CLS-2022",
+    "CLS-2023",
+    "CLS-2024"
+   ],
+   "gt_not_loaded": [],
+   "status_counts": {
+    "APPROVED": 278,
+    "DENIED": 246
+   },
+   "variants": {
+    "hybrid": {
+     "n": 172,
+     "recall@1": 0.9012,
+     "recall@2": 0.9651,
+     "recall@3": 0.9826,
+     "recall@5": 1.0,
+     "mrr": 0.9433,
+     "by_category": {
+      "Exclusion": {
+       "n": 47,
+       "recall@1": 0.8511,
+       "recall@2": 0.9787,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.922
+      },
+      "Limitation": {
+       "n": 43,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      },
+      "MedicalNecessity": {
+       "n": 34,
+       "recall@1": 0.7353,
+       "recall@2": 0.8529,
+       "recall@3": 0.9118,
+       "recall@5": 1.0,
+       "mrr": 0.8358
+      },
+      "PreAuth": {
+       "n": 48,
+       "recall@1": 0.9792,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.9896
+      }
+     },
+     "misses": []
+    },
+    "vector only": {
+     "n": 172,
+     "recall@1": 0.9593,
+     "recall@2": 0.9826,
+     "recall@3": 1.0,
+     "recall@5": 1.0,
+     "mrr": 0.9767,
+     "by_category": {
+      "Exclusion": {
+       "n": 47,
+       "recall@1": 0.9149,
+       "recall@2": 0.9787,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.9539
+      },
+      "Limitation": {
+       "n": 43,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      },
+      "MedicalNecessity": {
+       "n": 34,
+       "recall@1": 0.9118,
+       "recall@2": 0.9412,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.9461
+      },
+      "PreAuth": {
+       "n": 48,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      }
+     },
+     "misses": []
+    },
+    "keyword only": {
+     "n": 172,
+     "recall@1": 0.8488,
+     "recall@2": 0.8953,
+     "recall@3": 0.9419,
+     "recall@5": 0.9767,
+     "mrr": 0.896,
+     "by_category": {
+      "Exclusion": {
+       "n": 47,
+       "recall@1": 0.8511,
+       "recall@2": 0.9362,
+       "recall@3": 0.9787,
+       "recall@5": 1.0,
+       "mrr": 0.9131
+      },
+      "Limitation": {
+       "n": 43,
+       "recall@1": 1.0,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 1.0
+      },
+      "MedicalNecessity": {
+       "n": 34,
+       "recall@1": 0.4706,
+       "recall@2": 0.5588,
+       "recall@3": 0.7353,
+       "recall@5": 0.8824,
+       "mrr": 0.6088
+      },
+      "PreAuth": {
+       "n": 48,
+       "recall@1": 0.9792,
+       "recall@2": 1.0,
+       "recall@3": 1.0,
+       "recall@5": 1.0,
+       "mrr": 0.9896
+      }
+     },
+     "misses": [
+      {
+       "claim_id": "CLM-000483",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2024",
+        "CLS-2023",
+        "CLS-2021",
+        "CLS-2020",
+        "CLS-2014"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000840",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2024",
+        "CLS-2023",
+        "CLS-2021",
+        "CLS-2004",
+        "CLS-2001"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000880",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2024",
+        "CLS-2023",
+        "CLS-2021",
+        "CLS-2020",
+        "CLS-2019"
+       ],
+       "rank": null
+      },
+      {
+       "claim_id": "CLM-000932",
+       "category": "MedicalNecessity",
+       "gt": "CLS-1004",
+       "top": [
+        "CLS-2024",
+        "CLS-2023",
+        "CLS-2021",
+        "CLS-2019",
+        "CLS-2004"
+       ],
+       "rank": null
+      }
+     ]
+    }
+   }
+  }
+ },
+ "split": "dev",
+ "ids_file": "eval/dev_ids.txt",
+ "git_commit": "f2f1f85",
+ "started": "2026-11-24T03:28:55",
+ "args": {
+  "tenant_id": [
+   "00000000-0000-0000-0000-000000000001",
+   "00000000-0000-0000-0000-000000000002"
+  ],
+  "denied_status": null,
+  "query": "paraphrase",
+  "limit": null,
+  "show_sample": false,
+  "force": false,
+  "keep_clause_ids": false,
+  "no_ablation": false,
+  "ids_file": "eval/dev_ids.txt",
+  "split": "dev",
+  "out_dir": "eval/runs",
+  "out": null
+ },
+ "paraphrases": {
+  "denied_status": "DENIED",
+  "endpoint": "http://10.4.36.58:30000",
+  "finished": "2026-11-24T03:09:50",
+  "git_commit": "0ddc830",
+  "min_run": 5,
+  "model": "bartowski/Meta-Llama-3-8B-Instruct-GGUF:Q4_K_M",
+  "prompt_version": "p3",
+  "seed": 516,
+  "started": "2026-11-24T02:56:45",
+  "temperature": 0.7,
+  "tenants": [
+   "00000000-0000-0000-0000-000000000001",
+   "00000000-0000-0000-0000-000000000002"
+  ],
+  "file": "eval/paraphrased_queries.json",
+  "n": 507
+ },
+ "finished": "2026-11-24T03:29:15"
+}

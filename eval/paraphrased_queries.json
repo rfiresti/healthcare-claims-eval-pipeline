@@ -1,0 +1,3065 @@
+{
+ "failed": {},
+ "meta": {
+  "denied_status": "DENIED",
+  "endpoint": "http://10.4.36.58:30000",
+  "finished": "2026-11-24T03:09:50",
+  "git_commit": "0ddc830",
+  "min_run": 5,
+  "model": "bartowski/Meta-Llama-3-8B-Instruct-GGUF:Q4_K_M",
+  "prompt_version": "p3",
+  "seed": 516,
+  "started": "2026-11-24T02:56:45",
+  "temperature": 0.7,
+  "tenants": [
+   "00000000-0000-0000-0000-000000000001",
+   "00000000-0000-0000-0000-000000000002"
+  ]
+ },
+ "queries": {
+  "CLM-000001": "We denied your claim for physical therapy because you have reached the maximum number of 20 visits allowed per calendar year.",
+  "CLM-000002": "We have reached the annual limit of 20 physical therapy sessions.",
+  "CLM-000003": "You have reached the maximum number of physical therapy visits allowed per year, which is 20.",
+  "CLM-000006": "We denied your hospital admission because we need evidence that your condition worsened to a point where inpatient care was necessary.",
+  "CLM-000012": "The procedure for treating this condition is considered experimental and is strictly excluded from coverage.",
+  "CLM-000014": "The procedure was denied because it falls under our exclusion for experimental treatments, which are not covered by our insurance plan.",
+  "CLM-000019": "The procedure you received is experimental and therefore not covered under our plan. This is because it falls under the exclusion for experimental procedures, which are strictly not covered by our insurance.",
+  "CLM-000022": "Advanced imaging was denied because it was performed without prior authorization within the required 48-hour timeframe.",
+  "CLM-000024": "Our plan has a limit of 20 physical therapy sessions per year, and we've reached that maximum.",
+  "CLM-000027": "The procedure you received is considered experimental and not covered under your insurance plan. This means it's not eligible for reimbursement.",
+  "CLM-000028": "Physical therapy services have reached the annual maximum of 20 visits, and further sessions are not covered.",
+  "CLM-000030": "Inpatient admission was denied because we require evidence of clinical deterioration to justify the level of care.",
+  "CLM-000031": "Physical therapy services have reached the maximum allowed number of visits for the calendar year, which is 20.",
+  "CLM-000032": "The procedure in question is considered experimental and is strictly excluded from coverage.",
+  "CLM-000034": "The advanced imaging procedure was denied because it was performed without prior authorization, which is required within 48 hours of the service.",
+  "CLM-000036": "The procedure performed was deemed experimental, which means it is strictly excluded from coverage.",
+  "CLM-000040": "The procedure you received for your condition is considered experimental and is strictly excluded from coverage.",
+  "CLM-000041": "Our plan has a limit of 20 physical therapy sessions per year, which has been reached.",
+  "CLM-000043": "The treatment you received for your condition was deemed experimental and is not covered under our policy.",
+  "CLM-000045": "Advanced imaging was not approved because prior authorization was not obtained within the required 48 hour timeframe.",
+  "CLM-000048": "The advanced imaging service was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-000054": "Advanced imaging was not approved because it was not authorized within the 48-hour timeframe required by our plan.",
+  "CLM-000055": "The procedure in question is considered experimental and therefore is not covered under our plan.",
+  "CLM-000059": "The advanced imaging service was not authorized in advance, as required by our policy, within the 48-hour timeframe.",
+  "CLM-000064": "We do not cover this treatment as it falls outside the scope of approved therapies for your condition, as deemed experimental by our medical guidelines.",
+  "CLM-000067": "The advanced imaging procedure was denied because it was not authorized within the required 48-hour timeframe.",
+  "CLM-000068": "Your physical therapy sessions are limited to 20 sessions per calendar year, as per your plan's terms.",
+  "CLM-000070": "Advanced imaging was not authorized within the required 48-hour timeframe, which is a necessary prerequisite for coverage.",
+  "CLM-000071": "The procedure you received is considered experimental and is strictly excluded from coverage as it is not deemed medically necessary or widely accepted by the medical community.",
+  "CLM-000072": "The inpatient admission was denied because we need proof that your condition showed a significant worsening before hospitalization.",
+  "CLM-000075": "We denied your inpatient hospitalization because we need evidence of a significant decline in your health status to justify the admission.",
+  "CLM-000080": "We've determined that your physical therapy has reached the maximum number of sessions allowed for the calendar year, which is 20.",
+  "CLM-000086": "The hospital admission was denied because the medical records did not show a clear clinical decline in your condition, which is a requirement for inpatient care.",
+  "CLM-000088": "The advanced imaging service was denied because prior authorization was not received within the required 48-hour window.",
+  "CLM-000089": "The admission to the hospital was denied because we need proof that your condition worsened to the point where an inpatient stay was medically necessary.",
+  "CLM-000093": "The procedure you received for your condition is considered experimental and is strictly excluded from coverage because it has not been proven to be safe and effective for widespread use.",
+  "CLM-000099": "This procedure is considered experimental and therefore not covered under our plan.",
+  "CLM-000102": "Inpatient admission was denied because the medical records do not show a clear clinical deterioration that justified hospitalization.",
+  "CLM-000104": "Inpatient admission denied due to lack of documentation showing a clinical deterioration, which is required for inpatient care.",
+  "CLM-000105": "The procedure in question is considered experimental and is strictly excluded from coverage because it has not been proven to be safe and effective through scientific research and testing.",
+  "CLM-000106": "Inpatient admission was denied because we require evidence of clinical decline to justify a hospital stay.",
+  "CLM-000109": "The procedure was denied as it is considered experimental and not medically necessary, which is strictly excluded from coverage by our plan.",
+  "CLM-000110": "Advanced imaging was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-000112": "Your physical therapy treatment has been denied due to exceeding the maximum number of sessions allowed for a calendar year, which is 20.",
+  "CLM-000113": "The procedure in question is considered experimental and therefore does not meet the criteria for coverage.",
+  "CLM-000114": "The advanced imaging procedure was denied because it was not authorized within the required 48-hour timeframe prior to the service.",
+  "CLM-000115": "Prior authorization was required for advanced imaging within 48 hours, but it was not obtained, therefore the service is denied.",
+  "CLM-000116": "The procedure you received for your condition is considered experimental and therefore not covered under our plan.",
+  "CLM-000119": "The treatment you received was denied because it involves experimental procedures, which are specifically excluded from our coverage.",
+  "CLM-000121": "The procedure in question is experimental and therefore not covered under our plan. This is due to the strict exclusion of experimental procedures from our coverage.",
+  "CLM-000125": "The procedure you underwent is considered experimental and is not covered by our insurance plan because it is not recognized as a standard treatment by the medical community and is not proven to be effective.",
+  "CLM-000126": "The treatment you received is considered experimental and therefore not covered under our plan.",
+  "CLM-000127": "We've reached the annual maximum for physical therapy sessions, which is 20. Additional sessions won't be covered.",
+  "CLM-000128": "The treatment was denied because it is considered an experimental procedure and is strictly excluded from our coverage.",
+  "CLM-000129": "We've reached the maximum allowed physical therapy sessions, 20 per year, and are therefore denying further treatment.",
+  "CLM-000130": "The procedure you received is considered experimental and is strictly excluded from coverage under our plan.",
+  "CLM-000131": "The advanced imaging service was denied because it was not authorized within the 48-hour time frame required by the plan.",
+  "CLM-000134": "Your inpatient admission was denied because we need evidence of a significant clinical decline to justify the level of care.",
+  "CLM-000135": "The advanced imaging procedure was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-000138": "Your physical therapy treatment has exceeded the allowed 20 visits for this calendar year, and further sessions are not covered due to this limit.",
+  "CLM-000140": "This treatment was denied because it is an experimental procedure, which is strictly excluded from coverage.",
+  "CLM-000141": "Advanced imaging was not authorized within the required 48-hour timeframe, therefore it was denied.",
+  "CLM-000145": "The advanced imaging requested was not approved due to lack of prior authorization within the required 48-hour timeframe.",
+  "CLM-000146": "The procedure you received was deemed experimental and is strictly excluded from coverage due to its unproven effectiveness.",
+  "CLM-000149": "The MRI was denied because it was not authorized within the required 48-hour time frame prior to the procedure.",
+  "CLM-000151": "The inpatient admission was denied due to lack of evidence showing a clinical deterioration.",
+  "CLM-000152": "The maximum number of physical therapy sessions allowed for this condition is 20 per year.",
+  "CLM-000154": "The procedure in question is experimental and not covered by our plan due to strict exclusion from coverage.",
+  "CLM-000156": "The procedure in question is considered experimental and therefore not eligible for coverage under our plan.",
+  "CLM-000157": "The advanced imaging procedure was denied because it did not receive prior authorization within the required 48-hour timeframe.",
+  "CLM-000158": "Inpatient admission was denied because the documentation does not show a significant clinical deterioration to justify the level of care. Proof of a clear and substantial decline in condition is required to support this type of admission.",
+  "CLM-000160": "The advanced imaging procedure was denied because prior authorization was not received within the required 48-hour timeframe.",
+  "CLM-000161": "We have reached the maximum number of physical therapy visits allowed annually, which is 20, and further sessions are not covered.",
+  "CLM-000162": "The treatment you received for your condition is considered experimental and is strictly excluded from coverage.",
+  "CLM-000166": "Advanced imaging was denied because it was not authorized within the required 48-hour timeframe prior to the procedure.",
+  "CLM-000169": "Our coverage for physical therapy for this condition is capped at 20 sessions annually.",
+  "CLM-000170": "The treatment you received is considered experimental and therefore not eligible for coverage.",
+  "CLM-000172": "Your claim was denied because advanced imaging was not authorized within the 48-hour timeframe required by our plan.",
+  "CLM-000173": "The treatment you received is considered experimental and is strictly excluded from coverage under our plan.",
+  "CLM-000176": "The claim for advanced imaging was denied due to lack of prior authorization within the required 48-hour timeframe.",
+  "CLM-000177": "The procedure in question is considered experimental and therefore falls outside the scope of coverage.",
+  "CLM-000179": "Inpatient admission was denied due to a lack of evidence showing clinical deterioration, which is a requirement for hospital stays.",
+  "CLM-000180": "Your procedure for treating your condition was deemed experimental and is not covered by our plan due to strict exclusion from coverage.",
+  "CLM-000183": "The number of physical therapy sessions allowed per year is 20.",
+  "CLM-000184": "To support an inpatient admission, we need evidence that the patient's condition had worsened clinically prior to admission.",
+  "CLM-000186": "You have reached the maximum number of physical therapy visits allowed per calendar year, which is 20, and we are therefore denying further coverage for this service.",
+  "CLM-000187": "We cannot approve inpatient admission without evidence of worsening condition.",
+  "CLM-000191": "Advanced imaging was denied because it was not authorized within the required 48-hour timeframe prior to the procedure.",
+  "CLM-000197": "Your hospital stay was denied because we need proof of a significant decline in your medical condition to justify inpatient admission.",
+  "CLM-000200": "The treatment you received is not covered because it involves experimental procedures, which are strictly excluded from our coverage.",
+  "CLM-000201": "The 20-visit limit for physical therapy has been reached, and further sessions are not covered for this calendar year.",
+  "CLM-000204": "Physical therapy services have reached the maximum allowed number of visits per calendar year, which is 20.",
+  "CLM-000206": "The claim was denied because we need evidence of a significant decline in your condition to justify inpatient admission.",
+  "CLM-000208": "Your physical therapy sessions have reached the maximum allowed for this calendar year, which is 20 visits.",
+  "CLM-000210": "You are eligible for a maximum of 20 physical therapy sessions per year.",
+  "CLM-000212": "The procedure you received is considered experimental and is strictly excluded from coverage according to our policy.",
+  "CLM-000216": "The procedure you received is considered experimental and therefore not eligible for coverage under our plan.",
+  "CLM-000217": "The advanced imaging service was not approved because it was not authorized within the required 48 hour timeframe prior to the procedure.",
+  "CLM-000218": "Your physical therapy sessions have been limited to 20 visits annually, and we are unable to authorize further treatment.",
+  "CLM-000219": "The advanced imaging procedure was denied because it was not authorized within the required 48-hour timeframe before the service was performed. Prior authorization was necessary to confirm the medical necessity of the service.",
+  "CLM-000220": "This plan covers physical therapy for a limited number of sessions, up to 20, within a calendar year.",
+  "CLM-000223": "The admission to the hospital was denied because we need to see evidence that your condition worsened while you were already being treated. We require proof of clinical deterioration before approving inpatient hospital admission.",
+  "CLM-000224": "The procedure you received is considered experimental and is strictly excluded from coverage.",
+  "CLM-000226": "The procedure in question is considered experimental and is strictly excluded from coverage under our plan.",
+  "CLM-000227": "Your physical therapy treatment has reached the annual limit of 20 visits, which is the maximum allowed for your condition.",
+  "CLM-000228": "The treatment you received for your condition is considered experimental and is not covered under our plan.",
+  "CLM-000231": "The procedure you received is considered experimental and is strictly excluded from coverage due to its experimental nature.",
+  "CLM-000233": "Physical therapy is not covered beyond the 20 visit limit per calendar year due to the plan's restrictions.",
+  "CLM-000236": "Advanced imaging was denied because prior authorization was not obtained within the required 48 hours.",
+  "CLM-000237": "We cannot approve your inpatient admission due to lack of evidence showing a significant clinical deterioration that necessitated this level of care.",
+  "CLM-000238": "Your physical therapy benefit is capped at a total of 20 sessions annually.",
+  "CLM-000240": "Physical therapy services were denied because the maximum number of visits per calendar year has been reached, which is 20 visits.",
+  "CLM-000242": "You've reached the maximum allowed number of physical therapy sessions per year, which is 20.",
+  "CLM-000244": "The procedure in question is considered experimental and is therefore not covered by our plan.",
+  "CLM-000248": "Your inpatient admission was denied because we need evidence of a significant clinical decline to justify this level of care.",
+  "CLM-000249": "Your physical therapy treatment has reached the maximum number of visits allowed per calendar year, which is 20 visits.",
+  "CLM-000252": "The advanced imaging service was denied because it was performed without prior authorization within the required 48-hour timeframe.",
+  "CLM-000255": "The procedure you underwent for your condition is considered experimental and therefore not covered under our plan.",
+  "CLM-000257": "Inpatient admission was denied because your condition did not show a clear clinical deterioration justifying a hospital stay.",
+  "CLM-000258": "This treatment is not covered because it falls under the category of experimental procedures, which are strictly excluded from our insurance coverage.",
+  "CLM-000259": "The procedure was deemed experimental and therefore falls outside the scope of covered services.",
+  "CLM-000260": "This advanced imaging service was denied because it was not authorized within the required 48-hour timeframe prior to the procedure.",
+  "CLM-000262": "Inpatient admission was denied because we need evidence that your condition has worsened clinically before we can approve hospital stays.",
+  "CLM-000263": "You have exceeded the allowed limit of 20 physical therapy sessions per year for this condition.",
+  "CLM-000266": "The advanced imaging service was denied because it was not approved within the required 48-hour timeframe.",
+  "CLM-000267": "We denied the claim because you did not provide sufficient evidence of a clinical deterioration to justify the inpatient admission.",
+  "CLM-000268": "Our plan has a maximum allowance for physical therapy visits, which is capped at 20 sessions per year.",
+  "CLM-000272": "Advanced imaging was denied because prior authorization was not obtained within the 48-hour timeframe.",
+  "CLM-000276": "We denied the claim because inpatient admission requires clear evidence of clinical deterioration, which was not provided.",
+  "CLM-000278": "Your hospital stay was denied because we need evidence that your condition worsened significantly enough to require inpatient care.",
+  "CLM-000279": "Advanced imaging for your condition requires prior approval within 48 hours of the scheduled procedure to ensure medical necessity and coverage.",
+  "CLM-000282": "Advanced imaging was denied because prior authorization was not obtained within 48 hours of the service.",
+  "CLM-000283": "Physical therapy has a maximum annual allowance of 20 sessions. Since you've exceeded this limit, additional treatment is not covered.",
+  "CLM-000285": "The procedure you received for your condition is considered experimental and is strictly excluded from coverage.",
+  "CLM-000287": "The MRI was denied because it required advance approval, which was not received within the required 48-hour timeframe.",
+  "CLM-000289": "Your physical therapy treatment has exceeded the annual limit of 20 visits, and further sessions are not covered.",
+  "CLM-000291": "Inpatient admission requires evidence of clinical worsening to justify the level of care, and we couldn't confirm this in your file.",
+  "CLM-000292": "Physical therapy treatment has reached its annual limit of 20 visits, and further sessions are not covered.",
+  "CLM-000294": "The advanced imaging service was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-000296": "The procedure in question is considered experimental and is not covered under our plan. This means we cannot pay for it because it is not a proven treatment method.",
+  "CLM-000297": "Your hospital stay was denied because we need to see evidence that your condition worsened while you were in the hospital, which is a requirement for inpatient admission.",
+  "CLM-000299": "You have exceeded the allowed number of physical therapy sessions per year, which is capped at 20 visits.",
+  "CLM-000301": "Your inpatient admission was denied because we need proof of clinical deterioration to support the necessity of an inpatient stay.",
+  "CLM-000303": "Inpatient admission was denied because the medical records did not show a clear indication of clinical deterioration, which is required for inpatient treatment.",
+  "CLM-000305": "We have denied your physical therapy treatment because it has reached the maximum of 20 visits allowed per calendar year.",
+  "CLM-000307": "The advanced imaging procedure was denied because prior authorization was not received within the required 48-hour timeframe.",
+  "CLM-000308": "Physical therapy services are only covered up to 20 times per calendar year, and further treatment is not eligible for reimbursement.",
+  "CLM-000309": "The procedure in question is considered experimental and therefore not eligible for coverage under our plan.",
+  "CLM-000311": "Your physical therapy treatment has reached the maximum allowed for this calendar year, with a cap of 20 visits.",
+  "CLM-000312": "The treatment you received for your condition is not covered because it is considered experimental and falls outside the scope of our plan's coverage.",
+  "CLM-000313": "The treatment in question is considered experimental and therefore not covered under your health insurance plan.",
+  "CLM-000315": "The advanced imaging procedure was denied because it was not authorized within the required 48-hour timeframe prior to the service.",
+  "CLM-000316": "You have exceeded the allowed number of physical therapy visits, which is limited to 20 per calendar year.",
+  "CLM-000320": "We have reached the maximum number of physical therapy visits allowed per year, which is 20.",
+  "CLM-000324": "Advanced imaging was denied because prior authorization was not obtained within the 48-hour window required by our plan.",
+  "CLM-000325": "Inpatient admission was denied because the evidence did not show a clinical deterioration justifying the level of care.",
+  "CLM-000326": "Inpatient admission was denied because the medical records did not demonstrate a clear clinical deterioration requiring hospitalization.",
+  "CLM-000327": "The advanced imaging procedure was not pre-authorized within the 48-hour timeframe, which is a requirement for this type of service.",
+  "CLM-000328": "The treatment you received is considered experimental and is not covered by your health insurance plan because it is strictly excluded from coverage.",
+  "CLM-000329": "The procedure you received is considered experimental and is strictly excluded from coverage under our plan.",
+  "CLM-000331": "The procedure you received is considered experimental and is not covered under your insurance plan due to its experimental nature, which is strictly excluded from coverage.",
+  "CLM-000332": "Inpatient admission was denied due to lack of evidence showing clinical deterioration, which is required for inpatient treatment.",
+  "CLM-000334": "Your physical therapy treatment is subject to a yearly cap of 20 sessions.",
+  "CLM-000335": "To justify an inpatient admission, we require evidence of a significant decline in your condition, which was not provided in this case.",
+  "CLM-000336": "Your inpatient admission was denied because we require evidence of significant clinical decline to justify a hospital stay.",
+  "CLM-000337": "The procedure in question was deemed experimental and therefore is not covered under your plan.",
+  "CLM-000338": "Physical therapy has reached its annual limit of 20 visits, and further sessions are not covered.",
+  "CLM-000339": "The procedure you received for your condition is considered experimental and therefore not eligible for coverage under our plan.",
+  "CLM-000340": "Inpatient admission denied due to lack of evidence showing clinical deterioration occurred.",
+  "CLM-000343": "The procedure you received is considered experimental and is strictly excluded from coverage under our plan.",
+  "CLM-000348": "The physical therapy treatment was denied because it exceeds the 20-visit limit allowed per calendar year.",
+  "CLM-000349": "We have reached the annual maximum of 20 physical therapy visits and are unable to authorize additional sessions.",
+  "CLM-000350": "Your physical therapy sessions have reached the maximum allowed per calendar year, which is 20 visits, and we cannot approve additional requests.",
+  "CLM-000351": "Your physical therapy treatment has exceeded the annual limit of 20 sessions and is therefore not covered by our plan.",
+  "CLM-000353": "Physical therapy services have reached the 20-visit limit for the calendar year, and further sessions are not covered.",
+  "CLM-000356": "This service was denied because prior authorization was not obtained within the required 48-hour timeframe for advanced imaging.",
+  "CLM-000358": "The imaging service was not approved because prior authorization was not obtained within the required 48-hour time frame.",
+  "CLM-000359": "We denied the inpatient admission because we need evidence of a significant worsening of your condition to justify the level of care.",
+  "CLM-000362": "Experimental procedures related to this condition are specifically excluded from coverage, as per our plan.",
+  "CLM-000366": "We were unable to approve the advanced imaging because it was not authorized in a timely manner, specifically within 48 hours of the request.",
+  "CLM-000369": "The procedure you underwent for your condition is considered experimental and therefore excluded from coverage. This means that our plan does not pay for treatments that are still considered investigational and not widely accepted by the medical community.",
+  "CLM-000373": "Inpatient admission was denied because the medical records did not demonstrate a clear clinical deterioration requiring hospitalization.",
+  "CLM-000374": "Your treatment for the specified condition was denied because it is considered an experimental procedure, which is strictly excluded from coverage under our plan.",
+  "CLM-000376": "The advanced imaging procedure was denied because prior authorization was not obtained within the required 48-hour time frame.",
+  "CLM-000379": "Your physical therapy treatment has reached the maximum of 20 sessions within a calendar year, and further treatment is not covered.",
+  "CLM-000384": "Your inpatient admission was denied because we need evidence that your condition had significantly worsened before hospitalization. Proof of clinical deterioration is required to support the necessity of inpatient care.",
+  "CLM-000386": "Your physical therapy treatment has exceeded the allowed limit of 20 sessions per year, as specified in your plan's coverage restrictions.",
+  "CLM-000387": "Your physical therapy sessions have reached the maximum allowed for this calendar year, which is 20 visits.",
+  "CLM-000390": "Physical therapy services have reached the maximum allowed number of visits per calendar year, which is 20.",
+  "CLM-000391": "Advanced imaging was denied due to lack of prior authorization within the required 48-hour timeframe.",
+  "CLM-000392": "Physical therapy services are restricted to a maximum of 20 sessions annually.",
+  "CLM-000394": "Your physical therapy benefits are subject to a yearly visit limit of 20 sessions.",
+  "CLM-000395": "This treatment for your condition was denied because it is considered experimental and is strictly excluded from coverage.",
+  "CLM-000397": "We've reached the annual maximum for physical therapy sessions, which is 20 per year.",
+  "CLM-000402": "In order to admit a patient as inpatient, we need clear evidence of clinical deterioration.",
+  "CLM-000403": "The procedure you received for your condition is considered experimental and is strictly excluded from coverage.",
+  "CLM-000404": "Inpatient admission was denied because we need to see evidence of a worsening condition that necessitated hospitalization.",
+  "CLM-000405": "Your physical therapy treatment has been limited to a total of 20 sessions within a calendar year.",
+  "CLM-000408": "Your inpatient admission was denied because we need evidence of a significant decline in your condition, indicating a need for hospitalization.",
+  "CLM-000409": "Advanced imaging was denied because it was not authorized within the required 48-hour timeframe.",
+  "CLM-000413": "We denied the claim because inpatient admission requires evidence of a significant clinical decline, not just a routine procedure.",
+  "CLM-000414": "The advanced imaging service was denied because it was not authorized within the required 48 hour window prior to the procedure.",
+  "CLM-000415": "Inpatient admission was denied due to lack of proof of clinical deterioration, as required by our policy.",
+  "CLM-000418": "The inpatient admission was denied due to lack of evidence showing a clinical deterioration that justified the level of care required.",
+  "CLM-000420": "Our plan has a limit of 20 physical therapy sessions per year, which has been reached.",
+  "CLM-000421": "The procedure you received for your condition is considered experimental and is strictly excluded from coverage.",
+  "CLM-000422": "This treatment for the specified condition is not covered because it is considered experimental and not medically necessary.",
+  "CLM-000424": "The claim was denied because we need evidence of a significant decline in your condition before an inpatient admission was necessary.",
+  "CLM-000425": "You've used up the allocated 20 physical therapy visits for this calendar year.",
+  "CLM-000427": "The advanced imaging service was denied because prior authorization was not obtained within the required 48 hour timeframe.",
+  "CLM-000429": "The imaging service was denied because we didn't receive approval within the allowed 48-hour timeframe for advanced imaging procedures.",
+  "CLM-000433": "Advanced imaging for your condition was not approved in a timely manner, as it requires authorization within 48 hours.",
+  "CLM-000437": "Your physical therapy treatment has reached the maximum allowed visits for this calendar year, which is 20 visits.",
+  "CLM-000438": "We denied the inpatient admission because we need evidence of a decline in your condition before approving hospitalization.",
+  "CLM-000439": "Your physical therapy treatment has reached the maximum number of visits allowed for this calendar year, which is 20.",
+  "CLM-000440": "The advanced imaging procedure was denied because it didn't meet the 48-hour timeframe for prior authorization.",
+  "CLM-000444": "We have reached the maximum number of physical therapy visits allowed per year, which is 20, and therefore cannot approve additional treatment.",
+  "CLM-000445": "Our company sets a limit of 20 sessions of physical therapy per year.",
+  "CLM-000448": "Advanced imaging was not approved because prior authorization was not received within the required 48 hour time frame.",
+  "CLM-000450": "The procedure in question is considered experimental and is strictly excluded from coverage due to its experimental nature.",
+  "CLM-000451": "We cannot approve your inpatient admission because you failed to provide evidence of a clinical decline that necessitated hospitalization.",
+  "CLM-000454": "The procedure in question is considered experimental and is strictly excluded from coverage as it has not been proven to be safe and effective by the scientific community.",
+  "CLM-000456": "Due to a maximum annual limit, we cannot approve additional physical therapy sessions beyond the 20th visit this year.",
+  "CLM-000458": "Inpatient admission was denied because we need evidence of a decline in your medical condition that warrants hospitalization, as opposed to outpatient treatment.",
+  "CLM-000460": "The inpatient admission was denied because we need proof that your condition had worsened clinically before hospitalization.",
+  "CLM-000464": "Inpatient admission was denied because your provider did not provide sufficient evidence of clinical deterioration to justify a hospital stay.",
+  "CLM-000465": "Our benefits for physical therapy have been fully utilized, with 20 sessions allowed per calendar year.",
+  "CLM-000472": "The advanced imaging service was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-000473": "The procedure you received is considered experimental and is not covered under your insurance plan. This is because it is a treatment that has not been deemed safe and effective by the medical community and is strictly excluded from coverage.",
+  "CLM-000475": "The treatment you received for your condition is considered an experimental procedure and is strictly excluded from coverage.",
+  "CLM-000476": "We're not covering additional physical therapy sessions because the 20-visit limit for the calendar year has been reached. This limit applies to all physical therapy treatments.",
+  "CLM-000481": "Advanced imaging was not authorized within the required 48-hour time frame, so it is not covered under our plan.",
+  "CLM-000483": "Your hospital stay was denied because we need to see evidence that your condition worsened significantly while you were in the hospital, justifying the need for inpatient care.",
+  "CLM-000486": "The advanced imaging service you received was denied because the necessary approval was not obtained within the required 48-hour timeframe.",
+  "CLM-000488": "The treatment you received is considered experimental and therefore not covered under our plan, as it falls outside of our approved treatment options for the specified condition.",
+  "CLM-000490": "The advanced imaging service was not authorized within the required 48-hour timeframe, so it is not covered by your plan.",
+  "CLM-000491": "Advanced imaging was denied because prior authorization was not obtained within 48 hours of service.",
+  "CLM-000494": "The claim was denied because the evidence does not support a clear clinical deterioration justifying an inpatient stay.",
+  "CLM-000495": "Advanced imaging was not approved because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-000497": "The treatment you received is considered experimental and is not covered by our insurance.",
+  "CLM-000499": "The advanced imaging service was denied because it was not authorized within the required 48-hour timeframe prior to the procedure.",
+  "CLM-000500": "Your procedure for treating your condition is considered experimental and therefore not covered by our plan, as it is strictly excluded from coverage.",
+  "CLM-000501": "The advanced imaging procedure was denied because it didn't meet our prior authorization requirement for this specific service, which must be approved within 48 hours of the request.",
+  "CLM-000502": "Advanced imaging was denied because it was not authorized within the required 48-hour timeframe prior to the service.",
+  "CLM-000503": "Your hospital stay was denied because we require evidence of a significant worsening of your condition to justify an inpatient admission.",
+  "CLM-000504": "Due to your plan's benefits, you're eligible for 20 physical therapy sessions annually.",
+  "CLM-000505": "The advanced imaging service was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-000507": "The procedure you had is considered experimental and is not covered by our plan.",
+  "CLM-000509": "Your hospital stay was denied because we need to see evidence that your condition worsened to the point where inpatient care was necessary.",
+  "CLM-000511": "The advanced imaging service was not authorized within the required 48-hour timeframe, so it was denied.",
+  "CLM-000512": "The advanced imaging service was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-000513": "The procedure in question is considered experimental and therefore not covered under our plan.",
+  "CLM-000515": "We've reached the maximum number of physical therapy visits allowed per calendar year, which is 20.",
+  "CLM-000517": "The treatment you received for your condition is considered experimental and therefore is not covered by our insurance plan.",
+  "CLM-000518": "The claim was denied because the medical evidence did not show a clear clinical deterioration requiring an inpatient admission.",
+  "CLM-000519": "This procedure is not covered because it is considered experimental and falls outside of our coverage guidelines.",
+  "CLM-000521": "The advanced imaging was denied because prior authorization was not received within the required 48 hour timeframe.",
+  "CLM-000525": "The procedure you received is considered experimental and therefore not covered by our insurance. This treatment falls under our strict exclusion for experimental procedures.",
+  "CLM-000526": "Advanced imaging was not approved because prior authorization was not received within the required 48 hour time frame.",
+  "CLM-000527": "We need documentation showing a clear clinical decline before we can approve inpatient admission.",
+  "CLM-000528": "The procedure you had performed is considered experimental and is not covered under our plan.",
+  "CLM-000529": "Advanced imaging was not authorized within the required 48-hour timeframe, so the service is not covered.",
+  "CLM-000531": "Your physical therapy services have reached the annual limit of 20 visits, and we're unable to approve further treatment at this time.",
+  "CLM-000532": "The procedure in question is considered experimental and is strictly excluded from coverage.",
+  "CLM-000533": "The procedure was denied as it does not meet our coverage criteria for new and innovative treatments, as it is considered experimental.",
+  "CLM-000535": "Inpatient admission was denied because the medical records did not show a clear clinical deterioration, which is a requirement for inpatient hospitalization.",
+  "CLM-000537": "The treatment you received for your condition is considered experimental and is not covered under our plan. This is because it is a strictly excluded procedure.",
+  "CLM-000542": "The treatment you received is considered experimental and is strictly excluded from coverage due to its novel and unproven nature, which has not yet been proven to be effective or safe for your condition.",
+  "CLM-000543": "The procedure you received is considered experimental and is not covered under our plan.",
+  "CLM-000545": "The treatment is not eligible for reimbursement because it falls under the category of experimental procedures, which are not covered by our plan.",
+  "CLM-000547": "The claim was denied because we require evidence that the patient's condition had worsened before inpatient admission was medically necessary.",
+  "CLM-000548": "Inpatient admission was denied because we need documentation showing a clear clinical decline to justify the level of care.",
+  "CLM-000553": "The advanced imaging was not approved because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-000557": "Advanced imaging was denied due to lack of prior authorization within the required 48-hour timeframe.",
+  "CLM-000560": "Your physical therapy sessions have been capped at 20 visits for the calendar year, and no further treatment is covered.",
+  "CLM-000563": "The inpatient admission was denied because we require documentation showing a significant clinical decline to justify a hospital stay.",
+  "CLM-000567": "The procedure you had was considered experimental and therefore not covered under our plan.",
+  "CLM-000568": "The treatment you received for your condition is considered experimental and therefore not covered under your insurance plan.",
+  "CLM-000570": "Your physical therapy treatment has reached the maximum number of visits allowed per calendar year, which is 20.",
+  "CLM-000571": "The procedure you received is considered experimental and is not covered under our plan because it is not approved by the FDA or widely recognized by the medical community.",
+  "CLM-000572": "The advanced imaging service was denied because prior authorization was not obtained within the required 48-hour window.",
+  "CLM-000574": "The advanced imaging procedure was denied because it was not preauthorized within the 48-hour timeframe required by our policy.",
+  "CLM-000575": "The procedure you received for your condition is considered experimental and is strictly excluded from coverage under our plan.",
+  "CLM-000578": "The procedure is not eligible for reimbursement because it is considered experimental and not a standard treatment option.",
+  "CLM-000579": "The advanced imaging procedure was denied because prior authorization was not obtained within the required 48 hour timeframe.",
+  "CLM-000580": "The procedure in question is considered experimental and therefore is strictly excluded from coverage.",
+  "CLM-000582": "Advanced imaging was denied because prior authorization was not obtained within the 48-hour timeframe specified in our guidelines.",
+  "CLM-000583": "The procedure you received for your medical condition was deemed experimental and therefore is not covered under our plan.",
+  "CLM-000588": "The advanced imaging service was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-000593": "You have already received the maximum of 20 physical therapy sessions in this calendar year, and we are unable to approve any additional sessions.",
+  "CLM-000595": "This procedure is considered experimental and therefore is not covered under your plan.",
+  "CLM-000596": "The procedure you received was deemed experimental and therefore not eligible for coverage.",
+  "CLM-000598": "The MRI was denied because we did not receive the required approval before the procedure was performed, and we needed it at least 48 hours earlier.",
+  "CLM-000599": "Our coverage for physical therapy has a yearly limit of 20 sessions.",
+  "CLM-000600": "Inpatient admission was denied because we require evidence of clinical deterioration to support the need for inpatient care.",
+  "CLM-000604": "Your physical therapy sessions have exceeded our annual limit of 20 treatments.",
+  "CLM-000606": "You have reached the maximum number of physical therapy visits allowed in a year, which is 20.",
+  "CLM-000607": "This treatment was denied because it's considered an experimental procedure, which is strictly excluded from our coverage.",
+  "CLM-000613": "The treatment you received for your condition is considered experimental and is strictly excluded from coverage.",
+  "CLM-000617": "The procedure in question is considered experimental and therefore not covered under our plan.",
+  "CLM-000622": "Our review indicates that your physical therapy treatment has reached the annual limit of 20 visits, and therefore we are denying further coverage for this service.",
+  "CLM-000625": "The procedure you received for your condition is considered experimental and not covered under our plan because it is not approved by the relevant authorities.",
+  "CLM-000628": "Your physical therapy benefits have been exhausted, as the 20-visit limit for the calendar year has been reached.",
+  "CLM-000629": "The requested procedure is considered experimental and strictly excluded from coverage.",
+  "CLM-000631": "We denied your inpatient admission because we require proof of a significant clinical decline to justify the level of care.",
+  "CLM-000632": "Your physical therapy treatment has reached its annual limit of 20 visits, as per our plan's benefits.",
+  "CLM-000634": "The advanced imaging procedure was denied because it was performed without prior authorization within the required 48-hour timeframe.",
+  "CLM-000635": "This treatment for your condition is considered experimental and therefore not covered under our plan.",
+  "CLM-000637": "According to our plan, a maximum of 20 physical therapy sessions are allowed annually.",
+  "CLM-000638": "Advanced imaging was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-000640": "Inpatient admission was denied because we need proof that your condition had clinically deteriorated to justify the level of care.",
+  "CLM-000641": "Advanced imaging was not approved because it was not authorized within the required 48-hour timeframe prior to the procedure.",
+  "CLM-000647": "You are eligible for physical therapy treatment up to 20 times per year.",
+  "CLM-000648": "The advanced imaging procedure was not authorized within the 48-hour timeframe, so we cannot approve this service.",
+  "CLM-000651": "Your physical therapy treatment has reached its maximum allowed number of visits for the calendar year, which is 20.",
+  "CLM-000654": "We denied the claim because the advanced imaging procedure didn't meet the pre-approval requirement, which is 48 hours before the service was rendered.",
+  "CLM-000656": "You have already received the maximum 20 physical therapy visits within a calendar year, and we cannot authorize additional sessions.",
+  "CLM-000664": "Physical therapy treatment has reached its annual limit of 20 visits.",
+  "CLM-000665": "Your physical therapy sessions were denied because you've reached the annual limit of 20 sessions.",
+  "CLM-000666": "You have reached the maximum number of physical therapy sessions allowed per year, which is 20.",
+  "CLM-000667": "The advanced imaging procedure was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-000669": "You have exceeded the annual limit for physical therapy sessions, which is set at 20 visits per year.",
+  "CLM-000672": "Inpatient admission was denied because we need documentation showing a clear clinical deterioration.",
+  "CLM-000673": "The procedure in question is considered experimental and therefore not covered by our plan.",
+  "CLM-000674": "The claim was denied because we require evidence of clinical decline before approving inpatient hospitalization.",
+  "CLM-000678": "Inpatient admission was denied due to lack of proof showing a clinical deterioration that warrants hospitalization.",
+  "CLM-000682": "The treatment you received for your condition is not covered because it falls under our exclusion for experimental procedures, which are strictly not covered.",
+  "CLM-000683": "The procedure you received is considered experimental and is not covered by our plan as per our strict exclusion on experimental treatments.",
+  "CLM-000684": "The procedure in question, as it is considered experimental, is not covered under our plan.",
+  "CLM-000685": "The procedure you underwent is considered experimental and is strictly excluded from coverage under our plan.",
+  "CLM-000686": "To continue treatment, we need proof that your condition worsened during the hospital stay, meeting the requirement for inpatient admission.",
+  "CLM-000687": "Your physical therapy treatment has exceeded the annual limit of 20 sessions, and additional sessions are not covered.",
+  "CLM-000688": "Advanced imaging was not pre-authorized within the 48-hour timeframe required by our plan, so we're unable to cover this expense.",
+  "CLM-000690": "You have reached the annual maximum of 20 physical therapy sessions, and further treatment is not covered.",
+  "CLM-000692": "The advanced imaging service was denied because timely approval was not obtained, as authorization was needed 48 hours before the procedure.",
+  "CLM-000693": "The imaging service was denied because prior authorization was not obtained within the 48-hour timeframe required for advanced imaging procedures.",
+  "CLM-000694": "The requested procedure for treating the condition is considered experimental and therefore not covered by our plan.",
+  "CLM-000695": "Advanced imaging was not preauthorized within the required 48-hour window, so it was denied.",
+  "CLM-000696": "The treatment you received is considered experimental and is therefore not covered under our plan.",
+  "CLM-000707": "This procedure is considered experimental and is strictly excluded from coverage due to the lack of established clinical efficacy and scientific evidence supporting its use.",
+  "CLM-000708": "Your physical therapy treatment has reached its annual maximum of 20 visits.",
+  "CLM-000712": "The procedure was deemed experimental and therefore not covered under our plan.",
+  "CLM-000715": "The treatment you received is considered experimental and is strictly excluded from coverage because it is not proven to be safe and effective for your condition.",
+  "CLM-000717": "The advanced imaging procedure was not authorized within the required 48-hour window, so the claim was denied.",
+  "CLM-000719": "The procedure you received is considered experimental and therefore not covered under our plan.",
+  "CLM-000724": "Our plan only covers a maximum of 20 physical therapy sessions per year.",
+  "CLM-000725": "To continue treatment, we need to see evidence that your condition had worsened before an inpatient admission was necessary.",
+  "CLM-000731": "Your physical therapy treatment is limited to a maximum of 20 sessions per year.",
+  "CLM-000734": "We have determined that you have reached the maximum 20 visits for physical therapy per calendar year, and further treatment is not covered.",
+  "CLM-000735": "The procedure performed to treat your condition is considered experimental and is strictly excluded from coverage under our plan.",
+  "CLM-000737": "Advanced imaging was denied because prior authorization was not received within the required 48-hour timeframe.",
+  "CLM-000739": "The procedure you received for your condition is considered experimental and is strictly excluded from coverage according to our insurance rules.",
+  "CLM-000740": "The procedure was denied because it is considered experimental and is strictly excluded from coverage as per our plan.",
+  "CLM-000741": "Your physical therapy benefits are subject to a yearly limit of 20 sessions, and we've reached that maximum.",
+  "CLM-000742": "The advanced imaging requested was not approved because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-000743": "In order to justify an inpatient admission, we need to see evidence of a significant decline in your condition.",
+  "CLM-000745": "Inpatient admission was denied because we require evidence that the condition worsened clinically before approving a hospital stay.",
+  "CLM-000750": "Physical therapy has a yearly limit of 20 sessions. You've reached the maximum for this benefit.",
+  "CLM-000753": "Our review indicates that physical therapy services have reached the maximum allowed number of visits for the calendar year, which is 20.",
+  "CLM-000756": "Inpatient admission was denied because we need documentation showing a clear clinical decline before approving a hospital stay.",
+  "CLM-000760": "The procedure was denied because it is an experimental treatment and is strictly excluded from coverage under our policy.",
+  "CLM-000761": "We denied your inpatient admission because we need to see evidence that your condition has worsened to a point where hospitalization was medically necessary, as inpatient admission without proof of clinical deterioration is not covered.",
+  "CLM-000762": "Inpatient admission was denied due to lack of evidence showing clinical deterioration, which is required for inpatient services.",
+  "CLM-000764": "We denied the claim for advanced imaging because prior authorization was not obtained within the required 48-hour time frame.",
+  "CLM-000765": "The advanced imaging service was denied due to a lack of prior authorization within the required 48-hour timeframe.",
+  "CLM-000770": "The advanced imaging service was denied because prior authorization was not obtained within the required 48-hour timeframe before the procedure was performed.",
+  "CLM-000777": "The claim was denied due to lack of evidence showing a clinical deterioration necessitating inpatient admission.",
+  "CLM-000780": "Your hospital stay was denied because we need evidence that your condition worsened significantly during the admission period to justify inpatient treatment.",
+  "CLM-000781": "The procedure you received for your condition is considered experimental and is not covered under our plan.",
+  "CLM-000785": "Your physical therapy treatment has been exhausted, as you have reached the 20-visit cap for the calendar year.",
+  "CLM-000788": "The claim was denied because the admission to the hospital did not meet the requirement for clinical deterioration, which means we need more information to prove that the patient's condition worsened before hospitalization was necessary.",
+  "CLM-000791": "The procedure you had was deemed experimental and is not covered by our plan because it is not a proven treatment method.",
+  "CLM-000793": "Physical therapy benefits are subject to a maximum of 20 sessions annually.",
+  "CLM-000795": "The procedure in question is considered experimental and therefore not eligible for coverage under our plan.",
+  "CLM-000797": "Your physical therapy treatment has been denied because it has exceeded the 20-visit limit allowed per calendar year.",
+  "CLM-000798": "Advanced imaging was denied because it was not authorized within the 48-hour timeframe required for such procedures.",
+  "CLM-000800": "The procedure you received is considered experimental and therefore not covered under our plan. This type of treatment is strictly excluded from coverage.",
+  "CLM-000802": "We require prior notification of advanced imaging 48 hours before the procedure to ensure timely review and approval.",
+  "CLM-000803": "The treatment you received for your condition was denied because it is considered experimental and is strictly excluded from coverage.",
+  "CLM-000804": "This procedure is considered experimental and is strictly excluded from coverage under our insurance plan.",
+  "CLM-000805": "Your physical therapy treatment has reached the maximum number of sessions allowed per calendar year, which is 20.",
+  "CLM-000806": "Your physical therapy sessions have reached the maximum allowed amount, which is 20 sessions per year, and we are denying further treatment as it exceeds this limit.",
+  "CLM-000809": "Your physical therapy treatment has reached the maximum of 20 visits within a calendar year, and we cannot approve additional sessions.",
+  "CLM-000811": "Advanced imaging services were not authorized within the required 48-hour window, so we cannot approve this claim.",
+  "CLM-000815": "The procedure in question is not covered because it is considered experimental, and our plan strictly excludes coverage for such treatments.",
+  "CLM-000818": "The inpatient admission was denied because we need evidence of a significant decline in your condition before approving a hospital stay.",
+  "CLM-000819": "We denied the claim because the medical record does not show clinical deterioration justifying an inpatient admission.",
+  "CLM-000822": "Experimental procedures, including the one performed for the condition, are not covered under our plan as per our strict exclusion policy.",
+  "CLM-000826": "The reason for denial is that the inpatient admission does not meet the criteria as it lacks proof of clinical deterioration, requiring further documentation to support the necessity of inpatient care.",
+  "CLM-000830": "The procedure in question is considered experimental and is strictly excluded from coverage under our plan.",
+  "CLM-000831": "The advanced imaging service was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-000832": "The inpatient admission was denied because we need to see evidence that your condition worsened to the point where a hospital stay was necessary.",
+  "CLM-000833": "Your physical therapy treatment has reached the maximum number of visits allowed in a calendar year, which is 20.",
+  "CLM-000834": "The treatment you received is not covered because it is considered an experimental procedure, and our plan strictly excludes coverage for such services.",
+  "CLM-000839": "Our policy limits physical therapy to a maximum of 20 sessions annually, and this has been reached.",
+  "CLM-000840": "Your hospital stay was denied because we need evidence of a significant decline in your condition before approving inpatient treatment.",
+  "CLM-000842": "The procedure you received is considered experimental and is strictly excluded from coverage because it is not yet widely accepted by the medical community and its effectiveness has not been proven through scientifically controlled studies.",
+  "CLM-000843": "The treatment you received for your condition is not covered because it's considered an experimental procedure, which is strictly excluded from our coverage.",
+  "CLM-000844": "Your physical therapy treatment has reached the maximum of 20 visits allowed per calendar year, and further sessions are not covered.",
+  "CLM-000847": "The procedure in question is not covered because it is considered experimental and falls outside the scope of our insurance plan's coverage.",
+  "CLM-000848": "Advanced imaging was denied because prior authorization was not obtained within the required 48-hour window.",
+  "CLM-000849": "The claim for advanced imaging was denied because the prior authorization was not obtained within the required 48-hour time frame.",
+  "CLM-000852": "Physical therapy is not covered beyond the 20-visit limit per calendar year due to our plan's cap on this specific service.",
+  "CLM-000854": "Advanced imaging was not approved because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-000855": "The advanced imaging service was denied because it wasn't authorized within the required 48-hour timeframe prior to the procedure.",
+  "CLM-000857": "Physical therapy is subject to a annual visit maximum of 20 sessions.",
+  "CLM-000858": "The advanced imaging procedure was denied because it was not authorized within the 48-hour timeframe required by our policy.",
+  "CLM-000862": "We have a limit of 20 sessions for physical therapy within a calendar year.",
+  "CLM-000865": "Your physical therapy treatment has exhausted the allotted 20 sessions within a calendar year.",
+  "CLM-000866": "The procedure you received is considered experimental and is strictly excluded from coverage.",
+  "CLM-000871": "This procedure is not covered because it is considered experimental and is strictly excluded from coverage.",
+  "CLM-000872": "The level of care provided during the hospital stay was not justified, as the condition did not meet the criteria for inpatient treatment.",
+  "CLM-000874": "Your physical therapy treatment has reached its maximum number of visits allowed per calendar year, which is 20.",
+  "CLM-000877": "We are capping physical therapy at 20 sessions per year due to our coverage limits for this type of treatment.",
+  "CLM-000878": "The treatment you received for your condition is considered experimental and is strictly excluded from our coverage.",
+  "CLM-000879": "Your claim for advanced imaging was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-000880": "We were unable to approve your inpatient hospital stay because we need to see evidence that your condition worsened to a point where it required hospitalization.",
+  "CLM-000881": "Prior authorization was required for advanced imaging within 48 hours, which was not met. This service was not approved due to lack of timely authorization.",
+  "CLM-000883": "Advanced imaging was not preauthorized within 48 hours as required, therefore this service is denied.",
+  "CLM-000884": "The advanced imaging procedure was not authorized within the required 48-hour timeframe, so we cannot cover it.",
+  "CLM-000885": "To support inpatient hospitalization, we need evidence of a significant decline in your condition.",
+  "CLM-000890": "The procedure in question is considered experimental and therefore not covered under our plan.",
+  "CLM-000891": "This treatment for your condition is considered experimental and therefore falls outside of our coverage scope. As a result, we cannot approve your claim for this service.",
+  "CLM-000894": "The treatment you received is considered an experimental procedure and is not covered by our plan.",
+  "CLM-000899": "The inpatient admission was denied because the medical records did not show a clear indication of clinical deterioration to justify the level of care.",
+  "CLM-000902": "We denied the claim because the patient's condition did not meet the criteria for inpatient admission, requiring evidence of clinical deterioration before hospitalization.",
+  "CLM-000907": "The treatment you received for your condition is considered experimental and therefore not covered under our plan.",
+  "CLM-000908": "We denied your inpatient admission because we need evidence that your condition worsened to a point where a hospital stay was medically necessary.",
+  "CLM-000909": "The advanced imaging procedure was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-000911": "This procedure is considered experimental and is not covered by your insurance plan due to its experimental nature.",
+  "CLM-000913": "Inpatient admission was denied due to lack of evidence showing a significant clinical deterioration that justified the level of care.",
+  "CLM-000915": "Inpatient admission was denied because the medical records did not demonstrate sufficient clinical deterioration to justify the level of care.",
+  "CLM-000917": "The inpatient admission was denied because we need to see evidence of a significant decline in your condition before approving hospitalization.",
+  "CLM-000918": "Prior authorization was not obtained within the required 48-hour timeframe for advanced imaging, resulting in denial of the service.",
+  "CLM-000919": "The advanced imaging service was denied due to lack of timely approval; authorization was needed within 48 hours but was not obtained.",
+  "CLM-000920": "The procedure you received for your condition is considered experimental and is strictly excluded from coverage.",
+  "CLM-000922": "The plan has a maximum allowance of 20 physical therapy sessions per year.",
+  "CLM-000926": "Advanced imaging was not authorized within the required 48-hour timeframe, so the service is not covered. Prior authorization was necessary to meet the requirement for advanced imaging.",
+  "CLM-000927": "The physical therapy benefit is exhausted for the year, as the 20-visit limit has been reached.",
+  "CLM-000929": "This procedure is considered experimental and is strictly excluded from coverage under our plan.",
+  "CLM-000930": "The procedure you received is considered experimental and therefore not covered under your plan. This is due to the strict exclusion of experimental procedures from our coverage.",
+  "CLM-000931": "Inpatient admission was denied because we require evidence of a clinical decline before approving hospital stays.",
+  "CLM-000932": "Your inpatient hospital stay was denied because we need evidence that your condition worsened to the point where continued treatment as an outpatient was no longer effective.",
+  "CLM-000933": "Advanced imaging was not authorized within the required 48 hour timeframe, therefore the service was denied.",
+  "CLM-000934": "Inpatient admission was denied because we need evidence of a significant clinical decline to justify hospitalization.",
+  "CLM-000936": "Your physical therapy sessions have been limited to 20 visits annually.",
+  "CLM-000937": "The physical therapy treatment has been denied due to exceeding the annual limit of 20 sessions.",
+  "CLM-000938": "The inpatient admission was denied because we require evidence of a clinical deterioration to justify hospitalization.",
+  "CLM-000939": "The plan allows for a maximum of 20 physical therapy sessions per calendar year, and we've reached that limit.",
+  "CLM-000941": "The treatment you received for your condition is considered experimental and not covered under our plan because it doesn't meet our strict guidelines for approved procedures.",
+  "CLM-000942": "This procedure is considered experimental and is strictly excluded from coverage under our plan.",
+  "CLM-000945": "We require evidence of a significant decline in your condition to justify inpatient admission, as the current documentation does not support a need for hospitalization.",
+  "CLM-000946": "You have reached the maximum number of physical therapy visits allowed under your plan, which is 20 per calendar year.",
+  "CLM-000948": "Your physical therapy treatment has reached the maximum allowed visits for this calendar year, which is 20 visits.",
+  "CLM-000949": "To establish an inpatient admission, we need to see evidence of a clinical decline that necessitates hospitalization.",
+  "CLM-000951": "We require documentation of a noticeable decline in your condition before approving inpatient hospitalization.",
+  "CLM-000955": "We cannot approve your inpatient admission because you didn't provide evidence that your condition had worsened to the point where it required hospitalization.",
+  "CLM-000957": "Your treatment for the condition is not covered because the procedure is considered experimental and strictly excluded from coverage.",
+  "CLM-000959": "The advanced imaging service was denied because it was not authorized within the required 48-hour timeframe.",
+  "CLM-000961": "Advanced imaging was denied because it was not authorized within the 48-hour timeframe required by our plan.",
+  "CLM-000962": "Inpatient admission was denied because we need evidence of your condition worsening significantly before admitting you to the hospital.",
+  "CLM-000967": "The procedure is considered experimental and therefore not eligible for coverage under our plan.",
+  "CLM-000968": "The procedure you received for your condition is considered experimental and is not covered by our plan because it is outside the scope of accepted medical standards.",
+  "CLM-000969": "Inpatient admission was denied because the medical records did not demonstrate a clear clinical deterioration that warrants a hospital stay.",
+  "CLM-000972": "Advanced imaging was not approved because prior authorization was not received within the required 48-hour timeframe.",
+  "CLM-000973": "This treatment for the specified condition is considered experimental and therefore not covered under our plan due to the strict exclusion of experimental procedures from coverage.",
+  "CLM-000976": "This procedure is not covered because it is considered experimental and falls outside our coverage guidelines.",
+  "CLM-000977": "The procedure in question is considered experimental and is strictly excluded from coverage.",
+  "CLM-000980": "Advanced imaging was not authorized within the required 48-hour time frame, therefore the service is not covered.",
+  "CLM-000982": "The imaging service was denied because prior authorization was not obtained within the required 48 hours.",
+  "CLM-000983": "Inpatient admission requires evidence of a significant decline in your condition, which was not provided in your documentation.",
+  "CLM-000984": "Advanced imaging was not authorized within the 48-hour timeframe, therefore the service is denied.",
+  "CLM-000987": "Your inpatient admission was denied because the medical records did not show significant clinical deterioration warranting hospitalization.",
+  "CLM-000988": "The advanced imaging procedure was not pre-approved within the required 48-hour timeframe, so we cannot cover it. Prior authorization was needed to ensure medical necessity and avoid unnecessary testing.",
+  "CLM-000990": "The advanced imaging procedure was denied because prior authorization was not obtained within the required 48-hour time frame.",
+  "CLM-000991": "The procedure you received is considered experimental and is strictly excluded from coverage under our plan.",
+  "CLM-000992": "Our plan has a limit of 20 physical therapy sessions per year, which has been reached in this case.",
+  "CLM-000995": "The imaging procedure was denied because it did not receive prior authorization within the required 48-hour timeframe.",
+  "CLM-000996": "The treatment you received for your condition was considered experimental and therefore not covered by our plan.",
+  "CLM-000997": "This plan has a limit of 20 physical therapy sessions per year, so further treatment is not covered.",
+  "CLM-000999": "Prior authorization was not obtained within the required 48-hour timeframe for advanced imaging, so the service was denied.",
+  "CLM-001000": "Inpatient admission requires documentation showing a clear clinical deterioration, indicating a significant change in patient condition, to justify the level of care.",
+  "CLM-001001": "The advanced imaging procedure was denied because it was not authorized within the required 48-hour timeframe.",
+  "CLM-001005": "Your advanced imaging procedure was denied because it did not receive prior authorization within the required 48-hour timeframe.",
+  "CLM-001010": "Your inpatient admission was denied because we need evidence that your condition worsened significantly before hospitalization.",
+  "CLM-001011": "The treatment you received is considered an experimental procedure, which is strictly excluded from coverage according to our plan.",
+  "CLM-001015": "The benefit for physical therapy has been exhausted due to the annual maximum of 20 sessions.",
+  "CLM-001016": "The procedure you received for your condition is considered experimental and therefore not covered by our insurance plan.",
+  "CLM-001017": "Your physical therapy services have reached the maximum allowed for the calendar year, which is 20 visits.",
+  "CLM-001018": "Prior authorization for advanced imaging was not obtained within 48 hours as required, resulting in denial of the request.",
+  "CLM-001019": "The MRI was denied because prior authorization was not obtained within the required 48-hour timeframe for advanced imaging procedures.",
+  "CLM-001020": "We denied your claim because the medical records do not show a clear demonstration of clinical deterioration, which is a necessary requirement for inpatient admission.",
+  "CLM-001023": "The treatment you received is considered experimental and therefore not covered under our plan. This is because it is strictly excluded from our coverage for experimental procedures.",
+  "CLM-001031": "To continue your care, we need more evidence that your condition worsened significantly during the hospital stay, justifying inpatient admission.",
+  "CLM-001034": "Your inpatient admission was denied because we need evidence that your condition has worsened clinically to justify the level of care.",
+  "CLM-001035": "Advanced imaging was not approved because prior authorization was not received within the required 48-hour timeframe.",
+  "CLM-001036": "To support an inpatient admission, we need evidence that the patient's condition has worsened clinically.",
+  "CLM-001037": "The claim for advanced imaging was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-001038": "Advanced imaging was denied because prior authorization was not received within the 48-hour window required by our plan.",
+  "CLM-001039": "Inpatient admission was denied because we need to see evidence of a clinically significant decline in your condition requiring hospitalization.",
+  "CLM-001040": "Your treatment for the condition was denied because it involves experimental procedures, which are not considered medically necessary.",
+  "CLM-001041": "The advanced imaging service was denied because prior authorization was not obtained within the required 48-hour timeframe.",
+  "CLM-001043": "The advanced imaging procedure was denied because it was not authorized within the required 48-hour timeframe prior to the service being performed.",
+  "CLM-001045": "We denied your inpatient admission because we need to see evidence of your condition worsening before approving hospital stays.",
+  "CLM-001048": "The procedure in question is considered experimental and therefore not covered under our policy.",
+  "CLM-001049": "The physical therapy services you received have reached the maximum allowed for this calendar year, which is 20 visits.",
+  "CLM-001050": "The advanced imaging service was denied because prior authorization was not obtained within the required 48-hour timeframe."
+ },
+ "stats": {
+  "CLM-000001": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000002": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000003": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000006": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000012": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000014": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000019": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000022": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000024": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000027": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000028": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000030": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000031": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000032": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000034": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000036": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000040": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000041": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000043": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000045": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000048": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000054": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000055": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000059": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000064": {
+   "attempts": 2,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000067": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000068": {
+   "attempts": 2,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000070": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000071": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000072": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000075": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000080": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000086": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000088": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000089": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000093": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000099": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000102": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000104": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000105": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000106": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000109": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000110": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000112": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000113": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000114": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000115": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000116": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000119": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000121": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000125": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000126": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000127": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000128": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000129": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000130": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000131": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000134": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000135": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000138": {
+   "attempts": 3,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000140": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000141": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000145": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000146": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000149": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000151": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000152": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000154": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000156": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000157": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000158": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000160": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000161": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000162": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000166": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000169": {
+   "attempts": 2,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000170": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000172": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000173": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000176": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000177": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000179": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000180": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000183": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000184": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000186": {
+   "attempts": 2,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000187": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000191": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000197": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000200": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000201": {
+   "attempts": 3,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000204": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000206": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000208": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000210": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000212": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000216": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000217": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000218": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000219": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000220": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000223": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000224": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000226": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000227": {
+   "attempts": 3,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000228": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000231": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000233": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000236": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000237": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000238": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000240": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000242": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000244": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000248": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000249": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000252": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000255": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000257": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000258": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000259": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000260": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000262": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000263": {
+   "attempts": 3,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000266": {
+   "attempts": 3,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000267": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000268": {
+   "attempts": 2,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000272": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000276": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000278": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000279": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000282": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000283": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000285": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000287": {
+   "attempts": 2,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000289": {
+   "attempts": 3,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000291": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000292": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000294": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000296": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000297": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000299": {
+   "attempts": 2,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000301": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000303": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000305": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000307": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000308": {
+   "attempts": 2,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000309": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000311": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000312": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000313": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000315": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000316": {
+   "attempts": 2,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000320": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000324": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000325": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000326": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000327": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000328": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000329": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000331": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000332": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000334": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000335": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000336": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000337": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000338": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000339": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000340": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000343": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000348": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000349": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000350": {
+   "attempts": 3,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000351": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000353": {
+   "attempts": 3,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000356": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000358": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000359": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000362": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000366": {
+   "attempts": 2,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000369": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000373": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000374": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000376": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000379": {
+   "attempts": 4,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000384": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000386": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000387": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000390": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000391": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000392": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000394": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000395": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000397": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000402": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000403": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000404": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000405": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000408": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000409": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000413": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000414": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000415": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000418": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000420": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000421": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000422": {
+   "attempts": 2,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000424": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000425": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000427": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000429": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000433": {
+   "attempts": 2,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000437": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000438": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000439": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000440": {
+   "attempts": 3,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000444": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000445": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000448": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000450": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000451": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000454": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000456": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000458": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000460": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000464": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000465": {
+   "attempts": 4,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000472": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000473": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000475": {
+   "attempts": 2,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000476": {
+   "attempts": 3,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000481": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000483": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000486": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000488": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000490": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000491": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000494": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000495": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000497": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000499": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000500": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000501": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000502": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000503": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000504": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000505": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000507": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000509": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000511": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000512": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000513": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000515": {
+   "attempts": 2,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000517": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000518": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000519": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000521": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000525": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000526": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000527": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000528": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000529": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000531": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000532": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000533": {
+   "attempts": 2,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000535": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000537": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000542": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000543": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000545": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000547": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000548": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000553": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000557": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000560": {
+   "attempts": 3,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000563": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000567": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000568": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000570": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000571": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000572": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000574": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000575": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000578": {
+   "attempts": 2,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000579": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000580": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000582": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000583": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000588": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000593": {
+   "attempts": 3,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000595": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000596": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000598": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000599": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000600": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000604": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000606": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000607": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000613": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000617": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000622": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000625": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000628": {
+   "attempts": 3,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000629": {
+   "attempts": 2,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000631": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000632": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000634": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000635": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000637": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000638": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000640": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000641": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000647": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000648": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000651": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000654": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000656": {
+   "attempts": 3,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000664": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000665": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000666": {
+   "attempts": 3,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000667": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000669": {
+   "attempts": 2,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000672": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000673": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000674": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000678": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000682": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000683": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000684": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000685": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000686": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000687": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000688": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000690": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000692": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000693": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000694": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000695": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000696": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000707": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000708": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000712": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000715": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000717": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000719": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000724": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000725": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000731": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000734": {
+   "attempts": 3,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000735": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000737": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000739": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000740": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000741": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000742": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000743": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000745": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000750": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000753": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000756": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000760": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000761": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000762": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000764": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000765": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000770": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000777": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000780": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000781": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000785": {
+   "attempts": 3,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000788": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000791": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000793": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000795": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000797": {
+   "attempts": 2,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000798": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000800": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000802": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000803": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000804": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000805": {
+   "attempts": 2,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000806": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000809": {
+   "attempts": 3,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000811": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000815": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000818": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000819": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000822": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000826": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000830": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000831": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000832": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000833": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000834": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000839": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000840": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000842": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000843": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000844": {
+   "attempts": 2,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000847": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000848": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000849": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000852": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000854": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000855": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000857": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000858": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000862": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000865": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000866": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000871": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000872": {
+   "attempts": 2,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000874": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000877": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000878": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000879": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000880": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000881": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000883": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000884": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000885": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000890": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000891": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000894": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000899": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000902": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000907": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000908": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000909": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000911": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000913": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000915": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000917": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000918": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000919": {
+   "attempts": 2,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000920": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000922": {
+   "attempts": 3,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000926": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000927": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000929": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000930": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000931": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000932": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000933": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000934": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000936": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000937": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000938": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000939": {
+   "attempts": 4,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000941": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000942": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000945": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000946": {
+   "attempts": 2,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000948": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000949": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000951": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000955": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000957": {
+   "attempts": 2,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000959": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000961": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000962": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000967": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000968": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000969": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000972": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000973": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000976": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000977": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000980": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000982": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000983": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000984": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000987": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000988": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000990": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000991": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000992": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-000995": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000996": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000997": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-000999": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-001000": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-001001": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-001005": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-001010": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-001011": {
+   "attempts": 1,
+   "longest_shared_run": 4,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-001015": {
+   "attempts": 2,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-001016": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-001017": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-001018": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-001019": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-001020": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-001023": {
+   "attempts": 1,
+   "longest_shared_run": 3,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-001031": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-001034": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-001035": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-001036": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-001037": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-001038": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-001039": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-001040": {
+   "attempts": 3,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-001041": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-001043": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-001045": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  },
+  "CLM-001048": {
+   "attempts": 1,
+   "longest_shared_run": 1,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-001049": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000001"
+  },
+  "CLM-001050": {
+   "attempts": 1,
+   "longest_shared_run": 2,
+   "tenant_id": "00000000-0000-0000-0000-000000000002"
+  }
+ }
+}
